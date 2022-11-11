@@ -1,4 +1,8 @@
 @import './assets/styles/fonts.scss';
+@import './assets/styles/header.scss';
+@import './assets/styles/section-catalog.scss';
+@import './assets/styles/section-order.scss';
+@import './assets/styles/footer.scss';
 
 * {
   margin: 0;
@@ -9,81 +13,57 @@
 }
 
 body {
-  // background: #292929;
   width: 100%;
   min-width: 610px;
 }
 
-.header {
-  width: 100%;
-  background: #292929;
-  color: #ffffff;
-  .header__container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 30px;
-    @media screen and (max-width: 830px) {
-      padding: 20px 15px;
-    }
-    .title {
-      font-size: 54px;
-      font-weight: 400;
-      margin: 0;
-      @media screen and (max-width: 830px) {
-        font-size: 36px;
-      }
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      .list {
-        display: flex;
-        gap: 15px;
-        font-size: 18px;
-        font-weight: 400;
-        @media screen and (max-width: 830px) {
-          font-size: 14px;
-        }
-        .list__item {
-          list-style-type: none;
-        }
-      }
-    }
-  }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-}
-
-
 .section {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px 15px;
+  padding: 10px 20px;
 }
 
 .main {
   display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.section__catalog {
-  flex: 2;
-}
-
-.section__order {
-  flex: 1;
-  background: #9f9f9f;
-}
-// }sectionFirst.classList.add('section__catalog');
-// sectionSecond.classList.add('section');
-// sectionSecond.classList.add('section__order');
-
-.link {
-  text-decoration: none;
+.cursor-pointer {
   cursor: pointer;
 }
 
-.link:hover {
-  color: #b15e00;
+.user-select {
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.link {
+  text-decoration: none;
+  position: relative;
+  &:visited,
+  &:link {
+    color: #ffffff;
+  }
+  &:active,
+  &:hover {
+    color: #b15e00;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    background-color: #b15e00;
+    width: 0;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    transition: 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+    z-index: 5;
+  }
+  &:hover::after {
+    width: 90%;
+  }
 }

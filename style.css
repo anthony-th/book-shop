@@ -22,19 +22,6 @@
   font-weight: 700;
   font-style: normal;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
-  transition: 0.7s;
-}
-
-body {
-  width: 100%;
-  min-width: 610px;
-}
-
 .header {
   width: 100%;
   background: #292929;
@@ -83,18 +70,109 @@ body {
   margin: 0 auto;
 }
 
-.section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 15px;
-}
-
-.main {
-  display: flex;
-}
-
 .section__catalog {
   flex: 2;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.section__catalog .card {
+  width: 220px;
+  height: 370px;
+  padding: 12px 10px 23px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rgba(41, 41, 41, 0.2);
+}
+.section__catalog .card:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.section__catalog .card .card__main-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.section__catalog .card .card__main-block .card-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 400;
+}
+.section__catalog .card .card__main-block .card-img {
+  width: 150px;
+  height: 200px;
+}
+.section__catalog .card .card__main-block .card-subtitle {
+  font-size: 14px;
+  font-weight: 300;
+}
+.section__catalog .card .card__main-block .card-link {
+  position: relative;
+}
+.section__catalog .card .card__main-block .card-link .link-info {
+  font-size: 14px;
+  font-weight: 500;
+  color: #7e0a51;
+  position: relative;
+}
+.section__catalog .card .card__main-block .card-link .link-info:active, .section__catalog .card .card__main-block .card-link .link-info:hover {
+  color: rgba(126, 10, 81, 0.9);
+}
+.section__catalog .card .card__main-block .card-link .link-info::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #7e0a51;
+  width: 0;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+  z-index: 5;
+}
+.section__catalog .card .card__main-block .card-link .link-info:hover::after {
+  width: 100%;
+}
+.section__catalog .card .price-block {
+  display: flex;
+  gap: 100px;
+}
+.section__catalog .card .price-block .card-price {
+  position: relative;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  padding-left: 20px;
+}
+.section__catalog .card .price-block .card-price::before {
+  content: "";
+  background: url(./assets/img/dollar.png);
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  bottom: 8px;
+  right: 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.section__catalog .card .price-block .card__link {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #292929;
+  border-radius: 2px;
+}
+.section__catalog .card .price-block .card__link:hover {
+  background: #414141;
+}
+.section__catalog .card .price-block .card__link .card-img {
+  width: 20px;
+  height: 20px;
 }
 
 .section__order {
@@ -102,13 +180,76 @@ body {
   background: #9f9f9f;
 }
 
-.link {
-  text-decoration: none;
+.footer {
+  background-color: #292929;
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  transition: 0.7s;
+}
+
+body {
+  width: 100%;
+  min-width: 610px;
+}
+
+.section {
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.main {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cursor-pointer {
   cursor: pointer;
 }
 
-.link:hover {
+.user-select {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.link {
+  text-decoration: none;
+  position: relative;
+}
+.link:visited, .link:link {
+  color: #ffffff;
+}
+.link:active, .link:hover {
   color: #b15e00;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #b15e00;
+  width: 0;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  transition: 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+  z-index: 5;
+}
+.link:hover::after {
+  width: 90%;
 }
 
 /*# sourceMappingURL=style.css.map */
