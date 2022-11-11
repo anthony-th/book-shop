@@ -86,6 +86,20 @@ body {
 .section {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 20px 15px;
+}
+
+.main {
+  display: flex;
+}
+
+.section__catalog {
+  flex: 2;
+}
+
+.section__order {
+  flex: 1;
+  background: #9f9f9f;
 }
 
 .link {

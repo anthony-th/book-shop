@@ -22,7 +22,10 @@ rootBlock.appendChild(footer);
 header.classList.add('header');
 main.classList.add('main');
 sectionFirst.classList.add('section');
+sectionFirst.classList.add('section__catalog');
 sectionSecond.classList.add('section');
+sectionSecond.classList.add('section__order');
+
 
 header.innerHTML = `
     <div class="container header__container">
@@ -44,6 +47,7 @@ header.innerHTML = `
         </ul>
       </nav>
     </div>`
+// main.innerHTML = ``
 // main.innerHTML = `
 //   `   
 

@@ -59,11 +59,25 @@ body {
 
 .section {
   max-width: 1200px;
-  margin: 0 auto;  
+  margin: 0 auto;
+  padding: 20px 15px;
 }
-// .main {
-//   display: flex;
-// }
+
+.main {
+  display: flex;
+}
+
+.section__catalog {
+  flex: 2;
+}
+
+.section__order {
+  flex: 1;
+  background: #9f9f9f;
+}
+// }sectionFirst.classList.add('section__catalog');
+// sectionSecond.classList.add('section');
+// sectionSecond.classList.add('section__order');
 
 .link {
   text-decoration: none;
