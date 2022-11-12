@@ -7,12 +7,6 @@ const sectionFirst = document.createElement('section');
 const sectionSecond = document.createElement('section');
 const footer = document.createElement('footer');
 
-// const author = document.getElementById('author');
-// const imageLink = document.getElementById('imageLink');
-// const title = document.getElementById('title');
-// const price = document.getElementById('price');
-// const description = document.getElementById('description');
-// const card = document.querySelectorAll('card');
 let fragmentBody = new DocumentFragment();
 fragmentBody.appendChild(header);
 fragmentBody.appendChild(main);
@@ -96,7 +90,45 @@ let data = fetch('./assets/js/books.json')
       cardImgSecond.className = 'card-img';
       cardImgSecond.src = './assets/img/icon-shopping-cart.png';
       cardImgSecond.alt = '';
+      linkInfo.addEventListener('click', openModal);
+      function openModal() {
+        let shadow = document.createElement('div');
+        shadow.className = 'shadow';
+        let modalWindow = document.createElement('div');
+        modalWindow.className = 'modal';
+        shadow.classList.toggle('visible');
+        let cardTitle = document.createElement('h2');
+        cardTitle.className = 'card-title';
+        cardTitle.innerText = element.author;
+        let cardImg = document.createElement('img');
+        cardImg.className = 'card-img';
+        cardImg.id = 'imageLink';
+        cardImg.alt = '';
+        cardImg.src = element.imageLink;
+        let descriptionInfo = document.createElement('p');
+        descriptionInfo.className = 'description';
+        descriptionInfo.innerText = element.description;
+        let imageCancel = document.createElement('img');
+        imageCancel.className = 'cancel cursor-pointer user-select';
+        imageCancel.src = './assets/img/close48.png';
+        imageCancel.addEventListener('click', closeModal);
+        function closeModal() {
+          shadow.remove();
+          modalWindow.remove();
+        }
+        let fragmentShadow = new DocumentFragment();
+        fragmentShadow.appendChild(shadow);
+        rootBlock.prepend(fragmentShadow);        
 
+        let fragmentModal = new DocumentFragment();
+        fragmentModal.appendChild(modalWindow);
+        modalWindow.appendChild(cardTitle);
+        modalWindow.appendChild(cardImg);
+        modalWindow.appendChild(descriptionInfo);
+        modalWindow.appendChild(imageCancel);
+        rootBlock.prepend(fragmentModal);
+      }
+    
       let fragmentBook = new DocumentFragment();
       fragmentBook.appendChild(cardDiv);
       cardDiv.appendChild(cardMain);

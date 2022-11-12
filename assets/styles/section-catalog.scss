@@ -57,10 +57,6 @@
         font-size: 18px;
         font-weight: 400;
       }
-      .card-img {
-        width: 160px;
-        height: 220px;
-      }
       .card-subtitle {
         font-size: 12px;
         font-weight: 300;
@@ -107,4 +103,9 @@
       }
     }
   }
+}
+
+.card-img {
+  width: 160px;
+  height: 220px;
 }

@@ -30,7 +30,7 @@
 .header .header__container {
   display: flex;
   justify-content: space-between;
-  padding: 20px 30px;
+  padding: 20px 50px;
 }
 @media screen and (max-width: 830px) {
   .header .header__container {
@@ -131,10 +131,6 @@
   font-size: 18px;
   font-weight: 400;
 }
-.section__catalog .card .card__main-block .card-img {
-  width: 160px;
-  height: 220px;
-}
 .section__catalog .card .card__main-block .card-subtitle {
   font-size: 12px;
   font-weight: 300;
@@ -180,9 +176,63 @@
   height: 20px;
 }
 
+.card-img {
+  width: 160px;
+  height: 220px;
+}
+
 .section__order {
   flex: 1;
   background: #9f9f9f;
+}
+
+.modal {
+  position: fixed;
+  padding: 25px;
+  max-width: 400px;
+  background-color: #ffffff;
+  left: calc(50% - 200px);
+  top: 10%;
+  border-radius: 10px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.modal .card-title {
+  text-align: center;
+  font-size: 22px;
+}
+.modal .description {
+  font-size: 14px;
+  text-indent: 2px;
+}
+
+.cancel {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 3%;
+  right: 4%;
+  background-size: cover;
+  border: none;
+  outline: none;
+}
+.cancel:hover {
+  opacity: 0.7;
+}
+
+.shadow {
+  visibility: hidden;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 98;
+}
+
+.visible {
+  visibility: visible;
 }
 
 .footer {
