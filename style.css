@@ -190,9 +190,10 @@
   position: fixed;
   padding: 25px;
   max-width: 400px;
+  min-width: 400px;
   background-color: #ffffff;
   left: calc(50% - 200px);
-  top: 150px;
+  top: 10vh;
   border-radius: 10px;
   z-index: 99;
   display: flex;
@@ -207,6 +208,9 @@
 .modal .description {
   font-size: 14px;
   text-indent: 2px;
+}
+.modal .card-img {
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .cancel {
