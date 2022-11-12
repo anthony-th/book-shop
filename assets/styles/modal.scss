@@ -4,7 +4,7 @@
   max-width: 400px;
   background-color: #ffffff;
   left: calc(50% - 400px/2);
-  top: 10%;
+  top: 150px;
   border-radius: 10px;
   z-index: 99;
   display: flex;
@@ -13,6 +13,7 @@
   .card-title {
     text-align: center;
     font-size: 22px;
+    padding-right: 10px;
   }
   .description {
     font-size: 14px;
@@ -37,8 +38,8 @@
 .shadow {
   visibility: hidden;
   width: 100%;
-  height: 100vh;
-  background: rgba($color: #000000, $alpha: .5);
+  height: 100%;
+  background: rgba($color: #000000, $alpha: .8);
   position: fixed;
   z-index: 98;
 }

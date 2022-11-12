@@ -97,6 +97,9 @@ let data = fetch('./assets/js/books.json')
         let modalWindow = document.createElement('div');
         modalWindow.className = 'modal';
         shadow.classList.toggle('visible');
+        header.classList.toggle('blur');
+        main.classList.toggle('blur');
+        footer.classList.toggle('blur');
         let cardTitle = document.createElement('h2');
         cardTitle.className = 'card-title';
         cardTitle.innerText = element.author;
@@ -115,6 +118,10 @@ let data = fetch('./assets/js/books.json')
         function closeModal() {
           shadow.remove();
           modalWindow.remove();
+          shadow.classList.toggle('visible');
+          header.classList.toggle('blur');
+          main.classList.toggle('blur');
+          footer.classList.toggle('blur');
         }
         let fragmentShadow = new DocumentFragment();
         fragmentShadow.appendChild(shadow);
