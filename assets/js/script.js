@@ -10,7 +10,8 @@ const cartTitle = document.createElement('h2');
 const catalogTitle = document.createElement('h2');
 const cardsDiv = document.createElement('div');
 const cardsOrder = document.createElement('div');
-
+const hr = document.createElement('hr');
+let count = 0;
 
 let fragmentBody = new DocumentFragment();
 fragmentBody.appendChild(header);
@@ -18,6 +19,7 @@ fragmentBody.appendChild(main);
 main.append(sectionSecond);
 sectionSecond.append(cartTitle);
 sectionSecond.appendChild(cardsOrder);
+sectionSecond.appendChild(hr);
 main.prepend(sectionFirst);
 sectionFirst.append(catalogTitle);
 sectionFirst.appendChild(cardsDiv);
@@ -35,6 +37,7 @@ catalogTitle.className = 'cart-title';
 catalogTitle.innerHTML = 'Catalog';
 cardsDiv.className = 'cards';
 cardsOrder.className = 'cards';
+hr.className = 'hr';
 
 let headerContainer = document.createElement('div');
 headerContainer.className = 'container header__container';
@@ -68,13 +71,12 @@ let fragmentFooter = new DocumentFragment();
 fragmentFooter.appendChild(copyright);
 footer.appendChild(fragmentFooter);
 
-let data = fetch('./assets/js/books.json') 
+fetch('./assets/js/books.json', { mode: 'no-cors' })
   .then(response => {
     return response.json();
   })
   .then(data => {
-
-    data.forEach(element => {
+    data.forEach((element, index, arr) => {
       let cardDiv = document.createElement('div');
       cardDiv.className = 'card';
       let cardMain = document.createElement('div');
@@ -102,59 +104,93 @@ let data = fetch('./assets/js/books.json')
       cardPrice.id = 'price';
       let cardLinkSecond = document.createElement('a');
       cardLinkSecond.className = 'card__link cursor-pointer user-select';
-      cardLinkSecond.addEventListener('click', addToCart);
-      function addToCart() {
-        if (cardsOrder.innerHTML) {
-          console.log('hey');
-          // console.log(sectionSecond.innerHTML);
-          console.log(cardsOrder);
-        } else {
-          console.log(sectionSecond);
-          let cardDiv = document.createElement('div');
-          cardDiv.className = 'card';
-          let cardImg = document.createElement('img');
-          cardImg.className = 'card-img';
-          cardImg.id = 'imageLink';
-          cardImg.alt = '';
-          let cardMain = document.createElement('div');
-          cardMain.className = 'card__main-block';
-          let cardTitle = document.createElement('h2');
-          cardTitle.className = 'card-title';
-          cardTitle.id = 'author';
-          let cardPrice = document.createElement('p');
-          cardPrice.className = 'card-price';
-          let orders = document.createElement('input');
-          orders.className = 'orders';
-          let fullTrash = document.createElement('img');
-          fullTrash.className = 'full-trash cursor-pointer user-select';
-          fullTrash.src = './assets/img/close48.png';
-          fullTrash.alt = '';
-          fullTrash.addEventListener('click', closeTrash);
-          function closeTrash() {
-            console.log(cardsOrder);
-            cardsOrder.remove();
-          }
-
-          let fragmentAddCart = new DocumentFragment();
-          fragmentAddCart.appendChild(cardDiv);
-          cardDiv.appendChild(cardImg);
-          cardDiv.appendChild(cardMain);
-          cardMain.appendChild(cardTitle);
-          cardMain.appendChild(cardPrice);
-          cardMain.appendChild(orders);
-          cardMain.appendChild(fullTrash);
-          cardsOrder.appendChild(fragmentAddCart);
-
-          cardTitle.innerText = element.author;
-          cardImg.src = element.imageLink;
-          cardSubtitle.innerText = element.title;
-          cardPrice.innerText = element.price;
-        }
-      }
       let cardImgSecond = document.createElement('img');
       cardImgSecond.className = 'card-img';
       cardImgSecond.src = './assets/img/icon-shopping-cart.png';
       cardImgSecond.alt = '';
+
+      let fragmentBook = new DocumentFragment();
+      fragmentBook.appendChild(cardDiv);
+      cardDiv.appendChild(cardMain);
+      cardMain.appendChild(cardTitle);
+      cardMain.appendChild(cardImg);
+      cardMain.appendChild(cardSubtitle);
+      cardDiv.appendChild(cardLink);
+      cardLink.appendChild(linkInfo);
+      cardDiv.appendChild(priceBlock);
+      priceBlock.appendChild(cardPrice);
+      priceBlock.appendChild(cardLinkSecond);
+      cardLinkSecond.appendChild(cardImgSecond);
+      cardsDiv.appendChild(fragmentBook);
+
+      cardTitle.innerText = arr[index].author;
+      cardImg.src = arr[index].imageLink;
+      cardSubtitle.innerText = arr[index].title;
+      cardPrice.innerText = arr[index].price;
+
+      let cardOrder = document.createElement('div');
+      cardOrder.className = 'card';
+      let cardOrderImg = document.createElement('img');
+      cardOrderImg.className = 'card-img';
+      cardOrderImg.id = 'imageLink';
+      cardOrderImg.alt = '';
+      let cardOrderMain = document.createElement('div');
+      cardOrderMain.className = 'card__main-block';
+      let cardOrderTitle = document.createElement('h2');
+      cardOrderTitle.className = 'card-title';
+      cardOrderTitle.id = 'author';
+      let cardOrderPrice = document.createElement('p');
+      cardOrderPrice.className = 'card-price';
+      let orders = document.createElement('input');
+      orders.className = 'orders';
+      orders.type = 'number';
+      orders.min = '0';
+      orders.max = '99';
+      orders.maxLength = '2';
+      orders.minLength = '1';
+      orders.value = 1;
+      let fullTrash = document.createElement('img');
+      fullTrash.className = 'full-trash cursor-pointer user-select';
+      fullTrash.src = './assets/img/close48.png';
+      fullTrash.alt = '';
+      cardLinkSecond.addEventListener('click', addToCart);
+
+      function addToCart() {
+        count++;
+        orders.value = count;
+        // console.log(count);
+
+        let fragmentAddCart = new DocumentFragment();
+        fragmentAddCart.appendChild(cardOrder);
+        cardOrder.appendChild(cardOrderImg);
+        cardOrder.appendChild(cardOrderMain);
+        cardOrderMain.appendChild(cardOrderTitle);
+        cardOrderMain.appendChild(cardOrderPrice);
+        cardOrderMain.appendChild(orders);
+        cardOrderMain.appendChild(fullTrash);
+        cardsOrder.appendChild(fragmentAddCart);
+
+        cardOrderTitle.innerText = arr[index].author;
+        cardOrderImg.src = arr[index].imageLink;
+        cardSubtitle.innerText = arr[index].title;
+        cardOrderPrice.innerText = arr[index].price;
+
+        hr.style.visibility = 'visible';
+
+        if (cardsOrder) {
+          console.log(cardsOrder.childNodes);
+        }
+
+
+        fullTrash.addEventListener('click', closeTrash);
+        function closeTrash(e) {
+          if (cardOrderPrice.childNodes.length == 1) {
+            hr.style.visibility = 'hidden';
+          }
+          e.target.parentNode.parentNode.remove();
+        }    
+      }
+
       linkInfo.addEventListener('click', openModal);
       function openModal() {
         let shadow = document.createElement('div');
@@ -168,12 +204,12 @@ let data = fetch('./assets/js/books.json')
         let cardTitle = document.createElement('h2');
         cardTitle.className = 'card-title';
         cardTitle.style.textTransform = 'uppercase';
-        cardTitle.innerText = element.author;
+        cardTitle.innerText = arr[index].author;
         let cardImg = document.createElement('img');
         cardImg.className = 'card-img';
         cardImg.id = 'imageLink';
         cardImg.alt = '';
-        cardImg.src = element.imageLink;
+        cardImg.src = arr[index].imageLink;
         let modalBlock = document.createElement('div');
         modalBlock.className = 'modal-block';
         let modalBlockInfo = document.createElement('div');
@@ -183,14 +219,14 @@ let data = fetch('./assets/js/books.json')
         let cardPrice = document.createElement('p');
         cardPrice.className = 'card-price';
         cardPrice.id = 'price';
-        cardPrice.innerText = element.price;
+        cardPrice.innerText = arr[index].price;
         let buyCart = document.createElement('p');
         buyCart.className = 'buy-cart cursor-pointer user-select';
         buyCart.innerText = 'Add to cart';
         buyCart.addEventListener('click', addToCart);
         let descriptionInfo = document.createElement('p');
         descriptionInfo.className = 'description';
-        descriptionInfo.innerText = element.description;
+        descriptionInfo.innerText = arr[index].description;
         let imageCancel = document.createElement('img');
         imageCancel.className = 'cancel cursor-pointer user-select';
         imageCancel.src = './assets/img/close48.png';
@@ -220,25 +256,6 @@ let data = fetch('./assets/js/books.json')
         modalWindow.appendChild(imageCancel);
         rootBlock.prepend(fragmentModal);
       }
-    
-      let fragmentBook = new DocumentFragment();
-      fragmentBook.appendChild(cardDiv);
-      cardDiv.appendChild(cardMain);
-      cardMain.appendChild(cardTitle);
-      cardMain.appendChild(cardImg);
-      cardMain.appendChild(cardSubtitle);
-      cardDiv.appendChild(cardLink);
-      cardLink.appendChild(linkInfo);
-      cardDiv.appendChild(priceBlock);
-      priceBlock.appendChild(cardPrice);
-      priceBlock.appendChild(cardLinkSecond);
-      cardLinkSecond.appendChild(cardImgSecond);
-      cardsDiv.appendChild(fragmentBook);
-
-      cardTitle.innerText = element.author;
-      cardImg.src = element.imageLink;
-      cardSubtitle.innerText = element.title;
-      cardPrice.innerText = element.price;
     });
   });
   

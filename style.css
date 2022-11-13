@@ -203,6 +203,11 @@
   flex-direction: column;
   gap: 10px;
 }
+.section__order .hr {
+  background-color: rgba(41, 41, 41, 0.5);
+  border-radius: 1px;
+  visibility: hidden;
+}
 .section__order .cart-title {
   font-size: 35px;
   text-align: center;
@@ -217,7 +222,7 @@
 }
 .section__order .cards .card {
   display: flex;
-  gap: 18px;
+  gap: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 8px;
   position: relative;
@@ -226,14 +231,24 @@
   width: 70px;
   height: 100px;
 }
+.section__order .cards .card .card-img:hover {
+  scale: 1.9;
+  position: relative;
+  z-index: 5;
+}
 .section__order .cards .card .card__main-block {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
 }
 .section__order .cards .card .card__main-block .card-title {
   font-size: 16px;
   font-weight: 400;
+  width: 148px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .section__order .cards .card .card__main-block .card-price {
   font-size: 17px;
@@ -241,13 +256,14 @@
 }
 .section__order .cards .card .card__main-block .card-price::before {
   bottom: 2px;
-  right: 88%;
+  right: 58%;
 }
 .section__order .cards .card .card__main-block .orders {
   width: 30px;
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.7);
   background: transparent;
+  text-align: center;
 }
 .section__order .cards .card .card__main-block .full-trash {
   width: 40px;
@@ -258,6 +274,17 @@
 }
 .section__order .cards .card .card__main-block .full-trash:hover {
   opacity: 0.7;
+}
+
+input[type=number] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 .modal {
