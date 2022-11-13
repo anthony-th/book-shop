@@ -1,4 +1,64 @@
 .section__order {
   flex: 1;
   background: #9f9f9f;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .cart-title {
+    font-size: 35px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0 15px;
+    .card {
+      display: flex;
+      gap: 18px;
+      border: 1px solid rgba($color: #000000, $alpha: .1);
+      padding: 8px;
+      position: relative;
+      .card-img {
+        width: 70px;
+        height: 100px;
+      }
+      .card__main-block {
+        // padding-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .card-title {
+          font-size: 16px;
+          font-weight: 400;
+        }
+        .card-price {
+          font-size: 17px;
+          padding-left: 10px;
+          &::before {
+            bottom: 2px;
+            right: 88%;
+          }
+        }
+        .orders {
+          width: 30px;
+          height: 25px;
+          border: 1px solid rgba($color: #000000, $alpha: .7);
+          background: transparent;
+        }
+        .full-trash {
+          width: 40px;
+          height: 40px;
+          position: absolute;
+          top: calc(50% - 35px/2);
+          right: 7%;
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
 }
