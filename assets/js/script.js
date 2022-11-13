@@ -187,6 +187,7 @@ let data = fetch('./assets/js/books.json')
         let buyCart = document.createElement('p');
         buyCart.className = 'buy-cart cursor-pointer user-select';
         buyCart.innerText = 'Add to cart';
+        buyCart.addEventListener('click', addToCart);
         let descriptionInfo = document.createElement('p');
         descriptionInfo.className = 'description';
         descriptionInfo.innerText = element.description;
