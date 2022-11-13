@@ -6,4 +6,16 @@
   justify-content: center;
   color: #ffffff;
   font-size: 12px;
+  .copyright {
+    display: flex;
+    font-size: 20px;
+    gap: 8px;
+    opacity: 0.7;
+    .copyright__text {
+      font-family: "BukaLoker-X3LDK";
+    }
+    .link {
+      font-family: "BukaLoker-X3LDK";
+    }
+  }
 }

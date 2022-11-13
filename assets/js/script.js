@@ -59,10 +59,22 @@ header.appendChild(fragmentHeader);
 
 let copyright = document.createElement('div');
 copyright.className = 'copyright';
-copyright.innerHTML = `Copyright  <a class="link" href="https://github.com/anthony-th">Anthony Th</a>  ©`;
+let copyrightText = document.createElement('p');
+copyrightText.className = 'copyright__text';
+copyrightText.innerText = `Copyright`;
+let copyrightLink = document.createElement('a');
+copyrightLink.className = 'link';
+copyrightLink.href = 'https://github.com/anthony-th';
+copyrightLink.innerText = 'Anthony Th';
+let copyrightMark = document.createElement('p');
+copyrightMark.className = 'copyright__text';
+copyrightMark.innerText = `©`;
 
 let fragmentFooter = new DocumentFragment();
 fragmentFooter.appendChild(copyright);
+copyright.appendChild(copyrightText);
+copyright.appendChild(copyrightLink);
+copyright.appendChild(copyrightMark);
 footer.appendChild(fragmentFooter);
 
 fetch('./assets/js/books.json', { mode: 'no-cors' })
