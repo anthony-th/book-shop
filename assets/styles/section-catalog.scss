@@ -1,10 +1,11 @@
 .section__catalog {
   flex: 2;
   .cart-title {
-    font-size: 35px;
+    font-size: 48px;
     text-align: center;
-    color: #292929;
+    color: #73340c;
     font-weight: 300;
+    font-family: "BukaLoker-X3LDK";
   }
   .cards {
     display: grid;
@@ -28,7 +29,7 @@
         .link-info {
           font-size: 15px;
           font-weight: 500;
-          color: #da2a2a;
+          color: #75300b;
           position: relative;
           &:active,
           &:hover {

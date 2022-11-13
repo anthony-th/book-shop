@@ -11,7 +11,7 @@ const catalogTitle = document.createElement('h2');
 const cardsDiv = document.createElement('div');
 const cardsOrder = document.createElement('div');
 const hr = document.createElement('hr');
-let count = 0;
+// let count = 0;ы
 
 let fragmentBody = new DocumentFragment();
 fragmentBody.appendChild(header);
@@ -44,23 +44,17 @@ headerContainer.className = 'container header__container';
 let titleMain = document.createElement('h1');
 titleMain.className = 'title';
 titleMain.innerText = 'Book-Shop';
-let nav = document.createElement('nav');
-nav.className = 'nav';
-let ul = document.createElement('ul');
-ul.className = 'list';
-let li = document.createElement('li');
-li.className = 'list__item';
-let link = document.createElement('a');
-link.className = 'link cursor-pointer';
-link.innerText = 'AppendChild';
+let logoMain = document.createElement('div');
+logoMain.className = 'logo';
+let logo = document.createElement('img');
+logo.className = 'logo-img';
+logo.src = './assets/img/book.jpg';
 
 let fragmentHeader = new DocumentFragment();
 fragmentHeader.appendChild(headerContainer);
-headerContainer.appendChild(titleMain);
-headerContainer.appendChild(nav);
-nav.appendChild(ul);
-ul.appendChild(li);
-li.appendChild(link);
+headerContainer.appendChild(logoMain);
+logoMain.appendChild(titleMain);
+logoMain.appendChild(logo);
 header.appendChild(fragmentHeader);
 
 let copyright = document.createElement('div');
@@ -149,6 +143,9 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       orders.maxLength = '2';
       orders.minLength = '1';
       orders.value = 1;
+      orders.oninput = function(){
+        this.value = this.value.substr(0, 2);
+      }
       let fullTrash = document.createElement('img');
       fullTrash.className = 'full-trash cursor-pointer user-select';
       fullTrash.src = './assets/img/close48.png';
@@ -156,8 +153,8 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       cardLinkSecond.addEventListener('click', addToCart);
 
       function addToCart() {
-        count++;
-        orders.value = count;
+        // count++;
+        // orders.value = count;
         // console.log(count);
 
         let fragmentAddCart = new DocumentFragment();

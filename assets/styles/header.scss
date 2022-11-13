@@ -1,36 +1,30 @@
 .header {
   width: 100%;
   background: #292929;
-  color: #ffffff;
   .header__container {
     display: flex;
-    justify-content: space-between;
-    padding: 20px 50px;
+    padding: 5px 100px;
     @media screen and (max-width: 830px) {
       padding: 20px 15px;
     }
-    .title {
-      font-size: 54px;
-      font-weight: 400;
-      margin: 0;
-      @media screen and (max-width: 830px) {
-        font-size: 36px;
+    .logo {
+      position: relative;
+      .title {
+        font-size: 80px;
+        letter-spacing: 0.005em;
+        margin: 0;
+        font-family: 'BukaLoker-X3LDK';
+        position: relative;
+        z-index: 3;
+        color: #4b7514;;
       }
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      .list {
-        display: flex;
-        gap: 15px;
-        font-size: 18px;
-        font-weight: 400;
-        @media screen and (max-width: 830px) {
-          font-size: 14px;
-        }
-        .list__item {
-          list-style-type: none;
-        }
+      .logo-img {
+        position: absolute;
+        left: -53px;
+        bottom: -44px;
+        width: 101px;
+        height: 100px;
+        z-index: 5;
       }
     }
   }

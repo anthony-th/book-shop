@@ -22,48 +22,42 @@
   font-weight: 700;
   font-style: normal;
 }
+@font-face {
+  font-family: "BukaLoker-X3LDK";
+  src: url("./assets/fonts/BukaLoker-X3LDK.otf") format("opentype");
+}
 .header {
   width: 100%;
   background: #292929;
-  color: #ffffff;
 }
 .header .header__container {
   display: flex;
-  justify-content: space-between;
-  padding: 20px 50px;
+  padding: 5px 100px;
 }
 @media screen and (max-width: 830px) {
   .header .header__container {
     padding: 20px 15px;
   }
 }
-.header .header__container .title {
-  font-size: 54px;
-  font-weight: 400;
+.header .header__container .logo {
+  position: relative;
+}
+.header .header__container .logo .title {
+  font-size: 80px;
+  letter-spacing: 0.005em;
   margin: 0;
+  font-family: "BukaLoker-X3LDK";
+  position: relative;
+  z-index: 3;
+  color: #4b7514;
 }
-@media screen and (max-width: 830px) {
-  .header .header__container .title {
-    font-size: 36px;
-  }
-}
-.header .header__container .nav {
-  display: flex;
-  align-items: center;
-}
-.header .header__container .nav .list {
-  display: flex;
-  gap: 15px;
-  font-size: 18px;
-  font-weight: 400;
-}
-@media screen and (max-width: 830px) {
-  .header .header__container .nav .list {
-    font-size: 14px;
-  }
-}
-.header .header__container .nav .list .list__item {
-  list-style-type: none;
+.header .header__container .logo .logo-img {
+  position: absolute;
+  left: -53px;
+  bottom: -44px;
+  width: 101px;
+  height: 100px;
+  z-index: 5;
 }
 .header .container {
   max-width: 1200px;
@@ -74,10 +68,11 @@
   flex: 2;
 }
 .section__catalog .cart-title {
-  font-size: 35px;
+  font-size: 48px;
   text-align: center;
-  color: #292929;
+  color: #73340c;
   font-weight: 300;
+  font-family: "BukaLoker-X3LDK";
 }
 .section__catalog .cards {
   display: grid;
@@ -104,7 +99,7 @@
 .section__catalog .cards .card .card-link .link-info {
   font-size: 15px;
   font-weight: 500;
-  color: #da2a2a;
+  color: #75300b;
   position: relative;
 }
 .section__catalog .cards .card .card-link .link-info:active, .section__catalog .cards .card .card-link .link-info:hover {
@@ -199,18 +194,17 @@
 .section__order {
   flex: 1;
   background: #9f9f9f;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
 }
 .section__order .hr {
-  background-color: rgba(41, 41, 41, 0.5);
   border-radius: 1px;
   visibility: hidden;
+  width: 100%;
+  border: 1px solid rgba(41, 41, 41, 0.1);
 }
 .section__order .cart-title {
-  font-size: 35px;
-  text-align: center;
+  font-size: 48px;
+  font-family: "BukaLoker-X3LDK";
   color: #ffffff;
   font-weight: 300;
 }
@@ -219,6 +213,12 @@
   flex-direction: column;
   gap: 5px;
   padding: 0 15px;
+  min-width: 330px;
+}
+@media screen and (max-width: 610px) {
+  .section__order .cards {
+    min-width: 150px;
+  }
 }
 .section__order .cards .card {
   display: flex;
@@ -259,11 +259,12 @@
   right: 58%;
 }
 .section__order .cards .card .card__main-block .orders {
-  width: 30px;
+  width: 45px;
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.7);
   background: transparent;
   text-align: center;
+  outline: none;
 }
 .section__order .cards .card .card__main-block .full-trash {
   width: 40px;
@@ -293,7 +294,7 @@ input[type=number]::-webkit-outer-spin-button {
   max-width: 600px;
   min-width: 400px;
   background-color: #ffffff;
-  left: calc(50% - 200px);
+  left: calc(50% - 300px);
   top: 10vh;
   border-radius: 10px;
   z-index: 10;
@@ -424,7 +425,7 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 .main {
