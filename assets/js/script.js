@@ -196,15 +196,9 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         hr.style.visibility = 'visible';
         buttonOrder.style.visibility = 'visible';
 
-        if (cardsOrder) {
-          console.log(cardsOrder.childNodes);
-        }
-
-
         fullTrash.addEventListener('click', closeTrash);
         function closeTrash(e) {
-          if (cardOrderPrice.childNodes == 1) {
-            console.log(cardOrderPrice.childNodes[0].length);
+          if (cardsOrder.children.length == 1) {
             hr.style.visibility = 'hidden';
             buttonOrder.style.visibility = 'hidden';
           }
