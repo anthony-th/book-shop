@@ -13,7 +13,6 @@ const cardsOrder = document.createElement('div');
 const hr = document.createElement('hr');
 const bookFooter = document.createElement('img');
 const buttonOrder = document.createElement('button');
-// let count = 0;ы
 
 let fragmentBody = new DocumentFragment();
 fragmentBody.appendChild(header);
@@ -138,10 +137,10 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       cardLinkSecond.appendChild(cardImgSecond);
       cardsDiv.appendChild(fragmentBook);
 
-      cardTitle.innerText = arr[index].author;
-      cardImg.src = arr[index].imageLink;
-      cardSubtitle.innerText = arr[index].title;
-      cardPrice.innerText = arr[index].price;
+      cardTitle.innerText = element.author;
+      cardImg.src = element.imageLink;
+      cardSubtitle.innerText = element.title;
+      cardPrice.innerText = element.price;
 
       let cardOrder = document.createElement('div');
       cardOrder.className = 'card';
@@ -163,7 +162,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       orders.max = '99';
       orders.maxLength = '2';
       orders.minLength = '1';
-      orders.value = 1;
+      orders.value = 0;
       orders.oninput = function(){
         this.value = this.value.substr(0, 2);
       }
@@ -174,16 +173,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       cardLinkSecond.addEventListener('click', addToCart);
 
       function addToCart() {
-        // count++;
-        // orders.value = count;
-        // console.log(count);
-        // function pause() {
-          
-        // }
-        // setTimeout(pause, 500);
-        // if (cardsOrder) {
-        //   console.log(cardsOrder.children.length);
-        // }
+        orders.value = +orders.value + 1;
 
         let fragmentAddCart = new DocumentFragment();
         fragmentAddCart.appendChild(cardOrder);
@@ -195,23 +185,24 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         cardOrderMain.appendChild(fullTrash);
         cardsOrder.appendChild(fragmentAddCart);
 
-        cardOrderTitle.innerText = arr[index].author;
-        cardOrderImg.src = arr[index].imageLink;
-        cardSubtitle.innerText = arr[index].title;
-        cardOrderPrice.innerText = arr[index].price;
+        cardOrderTitle.innerText = element.author;
+        cardOrderImg.src = element.imageLink;
+        cardSubtitle.innerText = element.title;
+        cardOrderPrice.innerText = element.price;
 
         hr.style.visibility = 'visible';
         buttonOrder.style.visibility = 'visible';
 
         fullTrash.addEventListener('click', closeTrash);
         function closeTrash(e) {
-          if (cardsOrder.childElementCount == 0) {
-            console.log(cardsOrder.children.length);
-            hr.style.visibility = 'hidden';
-            buttonOrder.style.visibility = 'hidden';
-          } else {
-            e.target.parentNode.parentNode.remove();
-          }
+          e.target.parentNode.parentNode.remove();
+          orders.value = 0;
+          setTimeout(function() {
+            if (cardsOrder.childNodes.length == 0) {
+              hr.style.visibility = 'hidden';
+              buttonOrder.style.visibility = 'hidden';
+            }
+          }, 3000);
         }    
       }
 
