@@ -11,18 +11,38 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     justify-items: center;
-    gap: 20px;
+    padding-top: 10px;
+    column-gap: 20px;
+    row-gap: 30px;
     .card {
       width: 240px;
-      height: 400px;
-      padding: 12px 15px 23px;
+      height: 390px;
+      padding: 12px 15px 15px;
       display: flex;
       flex-direction: column;
-      align-items : center;
+      align-items : flex-start;
       justify-content: space-between;
       border: 2px solid rgba($color: #292929, $alpha: 0.2);
+      position: relative;
       &:hover {
+        scale: (1.01);
         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        .card-price {
+          display: block;
+        }
+      }
+      .card-price {
+        display: none;
+        color: #ffffff;
+        &::before {
+          content: '';
+          bottom: 4.5px;
+          left: -4px;
+          z-index: 9;
+          background: url(./assets/img/dollar.png);
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
       }
       .card-link {
         position: relative;
@@ -59,37 +79,52 @@
         }
       }
       .card__main-block {
+        width: 190px;
+        height: 270px;
+        position: absolute;
+        top: -14px;
+        left: 14px;
+        .card-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+        }
+      }
+      .card__text-block {
+        margin-top: 255px;
         display: flex;
         flex-direction: column;
-        align-items : center;
-        justify-content: space-between;
-        gap: 10px;
-        height: 290px;
-        overflow: hidden;
+        align-items: flex-start;
+        height: 80px;
+        gap: 5px;
         .card-title {
-          text-align: center;
           font-size: 18px;
-          font-weight: 400;
+          font-weight: 500;
         }
         .card-subtitle {
-          font-size: 12px;
+          font-size: 14px;
           font-weight: 300;
-          text-align: center;
         }
       }
       .price-block {
+        display: none;
         display: flex;
-        gap: 100px;
+        flex-direction: column;
+        position: absolute;
+        right: 4%;
+        bottom: 2%;
         .card__link {
-          width: 30px;
+          width: 90px;
           height: 30px;
           display: flex;
+          gap: 10px;
           align-items: center;
           justify-content: center;
           background: #292929;
           border-radius: 2px;
           &:hover {
-            background: #414141;
+            background: #da2a2a;
           }
           .card-img {
             width: 20px;
@@ -98,6 +133,8 @@
         }
       }
     }
+
+
   }
 }
 
@@ -109,18 +146,17 @@
 .card-price {
   position: relative;
   font-weight: 500;
-  display: flex;
-  align-items: center;
-  font-size: 18px;
-  padding-left: 20px;
+  font-size: 20px;
+  padding-left: 8px;
+  text-align: center;
   &::before {
     content: '';
-    background: url(./assets/img/dollar.png);
+    background: url(./assets/img/dollarb.png);
     width: 15px;
     height: 15px;
     position: absolute;
-    bottom: 8px;
-    right: 50%;
+    bottom: 4px;
+    right: 57%;
     background-size: cover;
     background-repeat: no-repeat;
   }

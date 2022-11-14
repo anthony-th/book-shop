@@ -128,18 +128,22 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       cardImgSecond.src = './assets/img/icon-shopping-cart.png';
       cardImgSecond.alt = '';
 
+      let cardTextBlock = document.createElement('div');
+      cardTextBlock.className = 'card__text-block';
+
       let fragmentBook = new DocumentFragment();
       fragmentBook.appendChild(cardDiv);
       cardDiv.appendChild(cardMain);
-      cardMain.appendChild(cardTitle);
       cardMain.appendChild(cardImg);
-      cardMain.appendChild(cardSubtitle);
+      cardDiv.appendChild(cardTextBlock);
+      cardTextBlock.appendChild(cardTitle);
+      cardTextBlock.appendChild(cardSubtitle);
       cardDiv.appendChild(cardLink);
       cardLink.appendChild(linkInfo);
       cardDiv.appendChild(priceBlock);
-      priceBlock.appendChild(cardPrice);
       priceBlock.appendChild(cardLinkSecond);
       cardLinkSecond.appendChild(cardImgSecond);
+      cardLinkSecond.appendChild(cardPrice);
       cardsDiv.appendChild(fragmentBook);
 
       cardTitle.innerText = element.author;
@@ -158,6 +162,10 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       let cardOrderTitle = document.createElement('h2');
       cardOrderTitle.className = 'card-title';
       cardOrderTitle.id = 'author';
+      let cardOrderDescription = document.createElement('h3');
+      cardOrderDescription.className = 'card-description';
+      let cardOrderPriceBlock = document.createElement('div');
+      cardOrderPriceBlock.className = 'card__price-block';
       let cardOrderPrice = document.createElement('p');
       cardOrderPrice.className = 'card-price';
       let orders = document.createElement('input');
@@ -185,14 +193,16 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         cardOrder.appendChild(cardOrderImg);
         cardOrder.appendChild(cardOrderMain);
         cardOrderMain.appendChild(cardOrderTitle);
-        cardOrderMain.appendChild(cardOrderPrice);
-        cardOrderMain.appendChild(orders);
+        cardOrderMain.appendChild(cardOrderDescription);
+        cardOrderMain.appendChild(cardOrderPriceBlock);
+        cardOrderPriceBlock.appendChild(orders);
+        cardOrderPriceBlock.appendChild(cardOrderPrice);
         cardOrderMain.appendChild(fullTrash);
         cardsOrder.appendChild(fragmentAddCart);
 
         cardOrderTitle.innerText = element.author;
         cardOrderImg.src = element.imageLink;
-        cardSubtitle.innerText = element.title;
+        cardOrderDescription.innerText = element.title;
         cardOrderPrice.innerText = element.price;
 
         hr.style.visibility = 'visible';
