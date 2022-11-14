@@ -177,6 +177,13 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         // count++;
         // orders.value = count;
         // console.log(count);
+        // function pause() {
+          
+        // }
+        // setTimeout(pause, 500);
+        // if (cardsOrder) {
+        //   console.log(cardsOrder.children.length);
+        // }
 
         let fragmentAddCart = new DocumentFragment();
         fragmentAddCart.appendChild(cardOrder);
@@ -198,11 +205,13 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
 
         fullTrash.addEventListener('click', closeTrash);
         function closeTrash(e) {
-          if (cardsOrder.children.length == 1) {
+          if (cardsOrder.childElementCount == 0) {
+            console.log(cardsOrder.children.length);
             hr.style.visibility = 'hidden';
             buttonOrder.style.visibility = 'hidden';
+          } else {
+            e.target.parentNode.parentNode.remove();
           }
-          e.target.parentNode.parentNode.remove();
         }    
       }
 
