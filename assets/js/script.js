@@ -13,6 +13,8 @@ const cardsOrder = document.createElement('div');
 const hr = document.createElement('hr');
 const bookFooter = document.createElement('img');
 const buttonOrder = document.createElement('button');
+const total = document.createElement('h5');
+let counter = 0;
 
 let fragmentBody = new DocumentFragment();
 fragmentBody.appendChild(header);
@@ -21,6 +23,7 @@ main.append(sectionSecond);
 sectionSecond.append(cartTitle);
 sectionSecond.appendChild(cardsOrder);
 sectionSecond.appendChild(hr);
+sectionSecond.appendChild(total);
 sectionSecond.appendChild(buttonOrder);
 sectionSecond.appendChild(bookFooter);
 main.prepend(sectionFirst);
@@ -41,6 +44,8 @@ catalogTitle.innerHTML = 'Catalog';
 cardsDiv.className = 'cards';
 cardsOrder.className = 'cards';
 hr.className = 'hr';
+total.className = 'total';
+total.value = total.innerText;
 bookFooter.className = 'footer__img user-select';
 bookFooter.src = './assets/img/book.png';
 bookFooter.alt = '';
@@ -158,7 +163,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       let orders = document.createElement('input');
       orders.className = 'orders';
       orders.type = 'number';
-      orders.min = '0';
+      orders.min = '1';
       orders.max = '99';
       orders.maxLength = '2';
       orders.minLength = '1';
@@ -192,15 +197,26 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
 
         hr.style.visibility = 'visible';
         buttonOrder.style.visibility = 'visible';
+        total.style.visibility = 'visible';
+
+        total.innerText = `${Number(total.value) + (arr[index].price * orders.value)}`;
+        setTimeout(function() {
+          // total.value = `${Number(total.value)}`;
+          console.log(total.innerText);
+        }, 50);
+        // total.value = `${Number(total.innerText)}`;
+        // console.log(counter = counter + Number(total.value));
 
         fullTrash.addEventListener('click', closeTrash);
         function closeTrash(e) {
           e.target.parentNode.parentNode.remove();
           orders.value = 0;
+          total.value = 0;
           setTimeout(function() {
             if (cardsOrder.childNodes.length == 0) {
               hr.style.visibility = 'hidden';
               buttonOrder.style.visibility = 'hidden';
+              total.style.visibility = 'hidden';
             }
           }, 3000);
         }    

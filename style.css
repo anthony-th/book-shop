@@ -23,6 +23,11 @@
   font-style: normal;
 }
 @font-face {
+  font-family: "Yesteryear";
+  src: url("./assets/fonts/Yesteryear-Regular.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
   font-family: "BukaLoker-X3LDK";
   src: url("./assets/fonts/BukaLoker-X3LDK.otf") format("opentype");
 }
@@ -214,7 +219,17 @@
   visibility: hidden;
   width: 100%;
   border: 1px solid rgba(41, 41, 41, 0.2);
-  margin: 10px 0;
+  margin: 15px 0;
+}
+.section__order .total {
+  font-family: "Yesteryear";
+  font-size: 32px;
+  position: relative;
+  left: 20%;
+  color: #da2a2a;
+  font-weight: 300;
+  visibility: hidden;
+  margin-bottom: 10px;
 }
 .section__order .order__button {
   text-transform: uppercase;
@@ -438,10 +453,10 @@
   opacity: 0.7;
 }
 .footer .copyright .copyright__text {
-  font-family: "BukaLoker-X3LDK";
+  font-family: "Yesteryear";
 }
 .footer .copyright .link {
-  font-family: "BukaLoker-X3LDK";
+  font-family: "Yesteryear";
 }
 
 * {

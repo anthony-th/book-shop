@@ -18,7 +18,17 @@
     visibility: hidden;
     width: 100%;
     border: 1px solid rgba($color: #292929, $alpha: .2);
-    margin: 10px 0;
+    margin: 15px 0;
+  }
+  .total {
+    font-family: "Yesteryear";
+    font-size: 32px;
+    position: relative;
+    left: 20%;
+    color: #da2a2a;
+    font-weight: 300;
+    visibility: hidden;
+    margin-bottom: 10px;
   }
   .order__button {
     text-transform: uppercase;
