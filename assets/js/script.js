@@ -11,6 +11,8 @@ const catalogTitle = document.createElement('h2');
 const cardsDiv = document.createElement('div');
 const cardsOrder = document.createElement('div');
 const hr = document.createElement('hr');
+const bookFooter = document.createElement('img');
+const buttonOrder = document.createElement('button');
 // let count = 0;ы
 
 let fragmentBody = new DocumentFragment();
@@ -20,6 +22,8 @@ main.append(sectionSecond);
 sectionSecond.append(cartTitle);
 sectionSecond.appendChild(cardsOrder);
 sectionSecond.appendChild(hr);
+sectionSecond.appendChild(buttonOrder);
+sectionSecond.appendChild(bookFooter);
 main.prepend(sectionFirst);
 sectionFirst.append(catalogTitle);
 sectionFirst.appendChild(cardsDiv);
@@ -38,6 +42,11 @@ catalogTitle.innerHTML = 'Catalog';
 cardsDiv.className = 'cards';
 cardsOrder.className = 'cards';
 hr.className = 'hr';
+bookFooter.className = 'footer__img user-select';
+bookFooter.src = './assets/img/book.png';
+bookFooter.alt = '';
+buttonOrder.className = 'order__button cursor-pointer user-select';
+buttonOrder.innerText = 'confirm';
 
 let headerContainer = document.createElement('div');
 headerContainer.className = 'container header__container';
@@ -47,7 +56,7 @@ titleMain.innerText = 'Book-Shop';
 let logoMain = document.createElement('div');
 logoMain.className = 'logo';
 let logo = document.createElement('img');
-logo.className = 'logo-img';
+logo.className = 'logo-img user-select';
 logo.src = './assets/img/book.jpg';
 
 let fragmentHeader = new DocumentFragment();
@@ -185,6 +194,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         cardOrderPrice.innerText = arr[index].price;
 
         hr.style.visibility = 'visible';
+        buttonOrder.style.visibility = 'visible';
 
         if (cardsOrder) {
           console.log(cardsOrder.childNodes);
@@ -193,8 +203,10 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
 
         fullTrash.addEventListener('click', closeTrash);
         function closeTrash(e) {
-          if (cardOrderPrice.childNodes.length == 1) {
+          if (cardOrderPrice.childNodes == 1) {
+            console.log(cardOrderPrice.childNodes[0].length);
             hr.style.visibility = 'hidden';
+            buttonOrder.style.visibility = 'hidden';
           }
           e.target.parentNode.parentNode.remove();
         }    
@@ -239,6 +251,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         let imageCancel = document.createElement('img');
         imageCancel.className = 'cancel cursor-pointer user-select';
         imageCancel.src = './assets/img/close48.png';
+        rootBlock.style.overflow = 'hidden';
         imageCancel.addEventListener('click', closeModal);
         function closeModal() {
           shadow.remove();
@@ -247,6 +260,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
           header.classList.toggle('blur');
           main.classList.toggle('blur');
           footer.classList.toggle('blur');
+          rootBlock.style.overflow = 'visible';
         }
         let fragmentShadow = new DocumentFragment();
         fragmentShadow.appendChild(shadow);

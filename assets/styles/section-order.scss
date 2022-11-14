@@ -2,12 +2,46 @@
   flex: 1;
   background: #9f9f9f;
   align-items: center;
+  position: relative;
+  .footer__img {
+    position: absolute;
+    bottom: -35px;
+    right: -40px;
+    width: 200px;
+    height: auto;
+    @media screen and (max-width: 1284px) {
+      display: none;
+    }
+  }
   .hr {
     border-radius: 1px;
     visibility: hidden;
     width: 100%;
     border: 1px solid rgba($color: #292929, $alpha: .2);
     margin: 10px 0;
+  }
+  .order__button {
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    padding: 10px 25px;
+    background: #da2a2a;
+    color: #ffffff;
+    border-radius: 2px;
+    font-size: 19px;
+    font-weight: 300;
+    visibility: hidden;
+    &:hover {
+      color: #e03b3b;
+    }
+    &:hover,
+    &:focus {
+      box-shadow: inset 7.5em 0 0 0 #ffffff;
+    }
+    &:active {
+      color: #dd7e25;
+      box-shadow: inset 0 0 0 2em #000000;
+    }
   }
   .cart-title {
     font-size: 48px;
