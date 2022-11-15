@@ -1,8 +1,5 @@
 .section__order {
   flex: 1;
-  @media screen and (max-width: 610px) {
-    min-width: 176px;
-  }
   background: #9f9f9f;
   align-items: center;
   position: relative;
@@ -61,6 +58,9 @@
     font-family: "BukaLoker-X3LDK";
     color: #ffffff;
     font-weight: 300;
+    @media screen and (max-width: 510px) {
+      font-size: 45px;
+    }
   }
   .cards {
     display: flex;
