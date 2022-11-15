@@ -308,6 +308,11 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+@media screen and (max-width: 610px) {
+  .section__order .cards .card .card__main-block .card-title {
+    width: 120px;
+  }
+}
 .section__order .cards .card .card__main-block .card-description {
   font-size: 12px;
   font-weight: 400;

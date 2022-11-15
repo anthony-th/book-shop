@@ -95,6 +95,9 @@
           overflow:hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          @media screen and (max-width: 610px) {
+            width: 120px;
+          }
         }
         .card-description {
           font-size: 12px;
