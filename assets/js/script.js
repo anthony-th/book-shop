@@ -53,7 +53,6 @@ buttonOrder.innerText = 'confirm';
 
 buttonOrder.addEventListener('click', openDelivery);
 function openDelivery() {
-  console.log('putler gay');
   location = './delivery.html';
 }
 
@@ -86,7 +85,7 @@ copyrightLink.href = 'https://github.com/anthony-th';
 copyrightLink.innerText = 'Anthony Th';
 let copyrightMark = document.createElement('p');
 copyrightMark.className = 'copyright__text';
-copyrightMark.innerText = `©`;
+copyrightMark.innerText = `© 2022`;
 
 let fragmentFooter = new DocumentFragment();
 fragmentFooter.appendChild(copyright);
