@@ -25,6 +25,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  @media screen and (max-width: 610px) {
+    padding: 10px;
+  }
 }
 
 .main {
