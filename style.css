@@ -377,6 +377,9 @@
   background-color: #292929;
   transform: translate(-50%, -50%);
 }
+.section__order .cards .card .card__main-block .card__price-block .input-block .button:hover::after, .section__order .cards .card .card__main-block .card__price-block .input-block .button:hover::before {
+  background-color: #e03b3b;
+}
 .section__order .cards .card .card__main-block .card__price-block .input-block .input-plus::after {
   transform: translate(-50%, -50%) rotate(270deg);
 }

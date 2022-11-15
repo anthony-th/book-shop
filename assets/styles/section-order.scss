@@ -136,6 +136,12 @@
                 background-color: #292929;
                 transform: translate(-50%, -50%);
               }
+              &:hover {
+                &::after,
+                &::before {
+                  background-color: #e03b3b;
+                }
+              }
             }
             .input-plus {
               &::after {
