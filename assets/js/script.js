@@ -206,10 +206,10 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         carts.forEach(function(element) {
           const priceElement = element.querySelector('.card-price');
           const inputsElement = element.querySelector('.orders');
-          const summ = inputsElement.value * parseInt(priceElement.innerText);
+          const summ = inputsElement.value * Number(priceElement.innerText);
           count += summ;
         })
-        total.innerText = `Total: ${count}$`;
+        total.innerText = `Total: ${parseFloat(count).toFixed(2)}$`;
       }
       let fullTrash = document.createElement('img');
       fullTrash.className = 'full-trash cursor-pointer user-select';

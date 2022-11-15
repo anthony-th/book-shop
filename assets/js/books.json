@@ -3,7 +3,7 @@
     "author": "Douglas Crockford",
     "imageLink": "./assets/img/the-good-parts.jpg",
     "title": "JavaScript: The Good Parts: The Good Parts",
-    "price": 30,
+    "price": 30.02,
     "description": "With JavaScript: The Good Parts, you'll discover a beautiful, elegant, lightweight and highly expressive language that lets you create effective code, whether you're managing object libraries or just trying to get Ajax to run fast. If you develop sites or applications for the Web, this book is an absolute must"
   },
   {
@@ -31,7 +31,7 @@
     "author": "Addy Osmani",
     "imageLink": "./assets/img/design-patterns.jpg",
     "title": "Learning JavaScript Design Patterns",
-    "price": 32,
+    "price": 32.7,
     "description": "With Learning JavaScript Design Patterns, you’ll learn how to write beautiful, structured, and maintainable JavaScript by applying classical and modern design patterns to the language. If you want to keep your code efficient, more manageable, and up-to-date with the latest best practices, this book is for you."
   },
   {

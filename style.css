@@ -189,7 +189,7 @@
   bottom: 2%;
 }
 .section__catalog .cards .card .price-block .card__link {
-  width: 90px;
+  width: 100px;
   height: 30px;
   display: flex;
   gap: 10px;
@@ -225,7 +225,7 @@
   height: 15px;
   position: absolute;
   bottom: 4px;
-  right: 57%;
+  left: -3px;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -352,7 +352,7 @@
 }
 .section__order .cards .card .card__main-block .card__price-block .card-price::before {
   bottom: 2px;
-  right: 58%;
+  left: -3px;
 }
 .section__order .cards .card .card__main-block .card__price-block .input-block {
   display: flex;
