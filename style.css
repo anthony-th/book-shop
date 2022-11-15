@@ -79,6 +79,11 @@
   font-weight: 300;
   font-family: "BukaLoker-X3LDK";
 }
+@media screen and (max-width: 500px) {
+  .section__catalog .cart-title {
+    padding-left: 30px;
+  }
+}
 .section__catalog .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
