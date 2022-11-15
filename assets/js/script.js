@@ -51,6 +51,12 @@ bookFooter.alt = '';
 buttonOrder.className = 'order__button cursor-pointer user-select';
 buttonOrder.innerText = 'confirm';
 
+buttonOrder.addEventListener('click', openDelivery);
+function openDelivery() {
+  console.log('putler gay');
+  location = './delivery.html';
+}
+
 let headerContainer = document.createElement('div');
 headerContainer.className = 'container header__container';
 let titleMain = document.createElement('h1');
