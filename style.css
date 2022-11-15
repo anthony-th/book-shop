@@ -354,13 +354,45 @@
   bottom: 2px;
   right: 58%;
 }
-.section__order .cards .card .card__main-block .card__price-block .orders {
-  width: 45px;
-  height: 25px;
-  border: 1px solid rgba(0, 0, 0, 0.7);
+.section__order .cards .card .card__main-block .card__price-block .input-block {
+  display: flex;
+}
+.section__order .cards .card .card__main-block .card__price-block .input-block .button {
+  outline: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+.section__order .cards .card .card__main-block .card__price-block .input-block .button::before, .section__order .cards .card .card__main-block .card__price-block .input-block .button::after {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  width: 70%;
+  height: 2px;
+  background-color: #292929;
+  transform: translate(-50%, -50%);
+}
+.section__order .cards .card .card__main-block .card__price-block .input-block .input-plus::after {
+  transform: translate(-50%, -50%) rotate(270deg);
+}
+.section__order .cards .card .card__main-block .card__price-block .input-block .orders {
+  width: 30px;
+  height: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
   background: transparent;
   text-align: center;
   outline: none;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.section__order .cards .card .card__main-block .card__price-block .input-block .orders::-webkit-inner-spin-button, .section__order .cards .card .card__main-block .card__price-block .input-block .orders::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 .section__order .cards .card .card__main-block .full-trash {
   width: 20px;

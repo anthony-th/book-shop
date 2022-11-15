@@ -169,6 +169,15 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       let cardOrderPrice = document.createElement('p');
       cardOrderPrice.className = 'card-price';
       let orders = document.createElement('input');
+      let inputBlock = document.createElement('div');
+      inputBlock.className = 'input-block';
+      let buttonMinus = document.createElement('button');
+      buttonMinus.className = 'input-minus button cursor-pointer user-select';
+      let buttonPlus = document.createElement('button');
+      buttonPlus.className = 'input-plus button cursor-pointer user-select';
+      buttonMinus.addEventListener('click', stepDown);
+      buttonPlus.addEventListener('click', stepUp);
+
       orders.className = 'orders';
       orders.type = 'number';
       orders.min = '1';
@@ -178,6 +187,16 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       orders.value = 0;
       orders.oninput = function(){
         this.value = this.value.substr(0, 2);
+      }
+      function stepDown() {
+        if (orders.value >= 1) {
+          orders.value = Number(orders.value) - 1;
+        } 
+      }
+      function stepUp() {
+        if (orders.value <= 99) {
+          orders.value = Number(orders.value) + 1;
+        } 
       }
       let fullTrash = document.createElement('img');
       fullTrash.className = 'full-trash cursor-pointer user-select';
@@ -195,7 +214,10 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         cardOrderMain.appendChild(cardOrderTitle);
         cardOrderMain.appendChild(cardOrderDescription);
         cardOrderMain.appendChild(cardOrderPriceBlock);
-        cardOrderPriceBlock.appendChild(orders);
+        cardOrderPriceBlock.appendChild(inputBlock);
+        inputBlock.appendChild(buttonMinus);
+        inputBlock.appendChild(orders);
+        inputBlock.appendChild(buttonPlus);
         cardOrderPriceBlock.appendChild(cardOrderPrice);
         cardOrderMain.appendChild(fullTrash);
         cardsOrder.appendChild(fragmentAddCart);
