@@ -249,8 +249,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         fullTrash.addEventListener('click', closeTrash);
         function closeTrash(e) {
           e.target.parentNode.parentNode.remove();
-          inputOrder.value = 0;
-          total.value = 0;
+          updatePrice()
           setTimeout(function() {
             if (cardsOrder.childNodes.length == 0) {
               hr.style.visibility = 'hidden';
