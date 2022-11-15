@@ -13,7 +13,7 @@ const cardsOrder = document.createElement('div');
 const hr = document.createElement('hr');
 const bookFooter = document.createElement('img');
 const buttonOrder = document.createElement('button');
-const total = document.createElement('h5');
+let total = document.createElement('h5');
 let counter = 0;
 
 let fragmentBody = new DocumentFragment();
@@ -45,7 +45,6 @@ cardsDiv.className = 'cards';
 cardsOrder.className = 'cards';
 hr.className = 'hr';
 total.className = 'total';
-total.value = total.innerText;
 bookFooter.className = 'footer__img user-select';
 bookFooter.src = './assets/img/book.png';
 bookFooter.alt = '';
@@ -168,7 +167,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       cardOrderPriceBlock.className = 'card__price-block';
       let cardOrderPrice = document.createElement('p');
       cardOrderPrice.className = 'card-price';
-      let orders = document.createElement('input');
+      let inputOrder = document.createElement('input');
       let inputBlock = document.createElement('div');
       inputBlock.className = 'input-block';
       let buttonMinus = document.createElement('button');
@@ -177,26 +176,40 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       buttonPlus.className = 'input-plus button cursor-pointer user-select';
       buttonMinus.addEventListener('click', stepDown);
       buttonPlus.addEventListener('click', stepUp);
-
-      orders.className = 'orders';
-      orders.type = 'number';
-      orders.min = '1';
-      orders.max = '99';
-      orders.maxLength = '2';
-      orders.minLength = '1';
-      orders.value = 0;
-      orders.oninput = function(){
+      inputOrder.className = 'orders';
+      inputOrder.type = 'number';
+      inputOrder.min = '1';
+      inputOrder.max = '99';
+      inputOrder.maxLength = '2';
+      inputOrder.minLength = '1';
+      inputOrder.value = 0;
+      inputOrder.innerText = 0;
+      inputOrder.readOnly = 'readonly';
+      inputOrder.oninput = function() {
         this.value = this.value.substr(0, 2);
       }
       function stepDown() {
-        if (orders.value >= 1) {
-          orders.value = Number(orders.value) - 1;
+        if (inputOrder.value >= 2) {
+          inputOrder.value = --inputOrder.value;
+          updatePrice();
         } 
       }
       function stepUp() {
-        if (orders.value <= 99) {
-          orders.value = Number(orders.value) + 1;
+        if (inputOrder.value <= 98) {
+          inputOrder.value = ++inputOrder.value;
+          updatePrice();
         } 
+      }
+      function updatePrice() {
+        let count = 0;
+        const carts = cardsOrder.querySelectorAll('.card');
+        carts.forEach(function(element) {
+          const priceElement = element.querySelector('.card-price');
+          const inputsElement = element.querySelector('.orders');
+          const summ = inputsElement.value * parseInt(priceElement.innerText);
+          count += summ;
+        })
+        total.innerText = `Total: ${count}$`;
       }
       let fullTrash = document.createElement('img');
       fullTrash.className = 'full-trash cursor-pointer user-select';
@@ -205,7 +218,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       cardLinkSecond.addEventListener('click', addToCart);
 
       function addToCart() {
-        orders.value = +orders.value + 1;
+        inputOrder.value = ++inputOrder.value;
 
         let fragmentAddCart = new DocumentFragment();
         fragmentAddCart.appendChild(cardOrder);
@@ -216,7 +229,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         cardOrderMain.appendChild(cardOrderPriceBlock);
         cardOrderPriceBlock.appendChild(inputBlock);
         inputBlock.appendChild(buttonMinus);
-        inputBlock.appendChild(orders);
+        inputBlock.appendChild(inputOrder);
         inputBlock.appendChild(buttonPlus);
         cardOrderPriceBlock.appendChild(cardOrderPrice);
         cardOrderMain.appendChild(fullTrash);
@@ -231,18 +244,12 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         buttonOrder.style.visibility = 'visible';
         total.style.visibility = 'visible';
 
-        total.innerText = `${Number(total.value) + (arr[index].price * orders.value)}`;
-        setTimeout(function() {
-          // total.value = `${Number(total.value)}`;
-          console.log(total.innerText);
-        }, 50);
-        // total.value = `${Number(total.innerText)}`;
-        // console.log(counter = counter + Number(total.value));
+        updatePrice();
 
         fullTrash.addEventListener('click', closeTrash);
         function closeTrash(e) {
           e.target.parentNode.parentNode.remove();
-          orders.value = 0;
+          inputOrder.value = 0;
           total.value = 0;
           setTimeout(function() {
             if (cardsOrder.childNodes.length == 0) {
