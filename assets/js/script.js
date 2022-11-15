@@ -94,7 +94,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
     return response.json();
   })
   .then(data => {
-    data.forEach((element, index, arr) => {
+    data.forEach((element) => {
       let cardDiv = document.createElement('div');
       cardDiv.className = 'card';
       let cardMain = document.createElement('div');
@@ -148,7 +148,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       cardTitle.innerText = element.author;
       cardImg.src = element.imageLink;
       cardSubtitle.innerText = element.title;
-      cardPrice.innerText = element.price;
+      cardPrice.innerText = `$${element.price}`;
 
       let cardOrder = document.createElement('div');
       cardOrder.className = 'card';
@@ -206,7 +206,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         carts.forEach(function(element) {
           const priceElement = element.querySelector('.card-price');
           const inputsElement = element.querySelector('.orders');
-          const summ = inputsElement.value * Number(priceElement.innerText);
+          const summ = inputsElement.value * Number(priceElement.innerText.slice(1));
           count += summ;
         })
         total.innerText = `Total: ${parseFloat(count).toFixed(2)}$`;
@@ -238,7 +238,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         cardOrderTitle.innerText = element.author;
         cardOrderImg.src = element.imageLink;
         cardOrderDescription.innerText = element.title;
-        cardOrderPrice.innerText = element.price;
+        cardOrderPrice.innerText = `$${element.price}`;
 
         hr.style.visibility = 'visible';
         buttonOrder.style.visibility = 'visible';
@@ -274,12 +274,12 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         let cardTitle = document.createElement('h2');
         cardTitle.className = 'card-title';
         cardTitle.style.textTransform = 'uppercase';
-        cardTitle.innerText = arr[index].author;
+        cardTitle.innerText = element.author;
         let cardImg = document.createElement('img');
         cardImg.className = 'card-img';
         cardImg.id = 'imageLink';
         cardImg.alt = '';
-        cardImg.src = arr[index].imageLink;
+        cardImg.src = element.imageLink;
         let modalBlock = document.createElement('div');
         modalBlock.className = 'modal-block';
         let modalBlockInfo = document.createElement('div');
@@ -289,14 +289,14 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         let cardPrice = document.createElement('p');
         cardPrice.className = 'card-price';
         cardPrice.id = 'price';
-        cardPrice.innerText = arr[index].price;
+        cardPrice.innerText = `$${element.price}`;
         let buyCart = document.createElement('p');
         buyCart.className = 'buy-cart cursor-pointer user-select';
         buyCart.innerText = 'Add to cart';
         buyCart.addEventListener('click', addToCart);
         let descriptionInfo = document.createElement('p');
         descriptionInfo.className = 'description';
-        descriptionInfo.innerText = arr[index].description;
+        descriptionInfo.innerText = element.description;
         let imageCancel = document.createElement('img');
         imageCancel.className = 'cancel cursor-pointer user-select';
         imageCancel.src = './assets/img/close48.png';

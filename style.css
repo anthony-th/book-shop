@@ -102,21 +102,37 @@
   scale: 1.01;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.section__catalog .cards .card:hover .card-price {
-  display: block;
+.section__catalog .cards .card:hover .price-block .card__link .price-block-text {
+  display: flex;
 }
-.section__catalog .cards .card .card-price {
-  display: none;
-  color: #ffffff;
+.section__catalog .cards .card .card__main-block {
+  width: 190px;
+  height: 270px;
+  position: absolute;
+  top: -14px;
+  left: 14px;
 }
-.section__catalog .cards .card .card-price::before {
-  content: "";
-  bottom: 4.5px;
-  left: -4px;
-  z-index: 9;
-  background: url(./assets/img/dollar.png);
-  background-size: cover;
-  background-repeat: no-repeat;
+.section__catalog .cards .card .card__main-block .card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.section__catalog .cards .card .card__text-block {
+  margin-top: 255px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 80px;
+  gap: 5px;
+}
+.section__catalog .cards .card .card__text-block .card-title {
+  font-size: 18px;
+  font-weight: 500;
+}
+.section__catalog .cards .card .card__text-block .card-subtitle {
+  font-size: 14px;
+  font-weight: 300;
 }
 .section__catalog .cards .card .card-link {
   position: relative;
@@ -151,37 +167,7 @@
 .section__catalog .cards .card .card-link .link-info:active::after {
   background-color: #dd7e25;
 }
-.section__catalog .cards .card .card__main-block {
-  width: 190px;
-  height: 270px;
-  position: absolute;
-  top: -14px;
-  left: 14px;
-}
-.section__catalog .cards .card .card__main-block .card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
-}
-.section__catalog .cards .card .card__text-block {
-  margin-top: 255px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  height: 80px;
-  gap: 5px;
-}
-.section__catalog .cards .card .card__text-block .card-title {
-  font-size: 18px;
-  font-weight: 500;
-}
-.section__catalog .cards .card .card__text-block .card-subtitle {
-  font-size: 14px;
-  font-weight: 300;
-}
 .section__catalog .cards .card .price-block {
-  display: none;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -192,11 +178,16 @@
   width: 100px;
   height: 30px;
   display: flex;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
   justify-content: center;
   background: #292929;
   border-radius: 2px;
+}
+.section__catalog .cards .card .price-block .card__link .card-price {
+  font-weight: 500;
+  font-size: 20px;
+  color: #ffffff;
 }
 .section__catalog .cards .card .price-block .card__link:hover {
   background: #da2a2a;
@@ -209,25 +200,6 @@
 .card-img {
   width: 160px;
   height: 220px;
-}
-
-.card-price {
-  position: relative;
-  font-weight: 500;
-  font-size: 20px;
-  padding-left: 8px;
-  text-align: center;
-}
-.card-price::before {
-  content: "";
-  background: url(./assets/img/dollarb.png);
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  bottom: 4px;
-  left: -3px;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .section__order {
@@ -347,12 +319,9 @@
   gap: 20px;
 }
 .section__order .cards .card .card__main-block .card__price-block .card-price {
-  font-size: 17px;
-  padding-left: 10px;
-}
-.section__order .cards .card .card__main-block .card__price-block .card-price::before {
-  bottom: 2px;
-  left: -3px;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
 }
 .section__order .cards .card .card__main-block .card__price-block .input-block {
   display: flex;
@@ -445,25 +414,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0 0 15px;
-  background: rgba(0, 0, 0, 0.9);
+  background: #0e0e0e;
   border-radius: 2px;
 }
 .modal .modal-block .modal__price-block .card-price {
-  flex: 2;
   color: #ffffff;
   font-size: 20px;
-  padding: 10px 0 10px 15px;
+  padding: 0 15px;
+  line-height: 43px;
   border-right: 2px solid #ffffff;
-}
-.modal .modal-block .modal__price-block .card-price::before {
-  bottom: 10px;
-  right: 67%;
-  width: 23px;
-  height: 23px;
-  background: url(./assets/img/wallet.png);
-  z-index: 11;
-  background-size: cover;
 }
 .modal .modal-block .modal__price-block .buy-cart {
   text-align: center;
