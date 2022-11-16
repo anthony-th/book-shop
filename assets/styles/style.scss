@@ -33,9 +33,12 @@ body {
 
 .main {
   display: flex;
-  max-width: 1200px;
   margin: 0 auto;
   background: #ffffff;
+}
+
+.main-page {
+  max-width: 1200px;
 }
 
 .cursor-pointer {

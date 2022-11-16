@@ -41,11 +41,9 @@
     font-size: 19px;
     font-weight: 300;
     visibility: hidden;
-    &:hover {
-      color: #e03b3b;
-    }
     &:hover,
     &:focus {
+      color: #e03b3b;
       box-shadow: inset 7.5em 0 0 0 #ffffff;
     }
     &:active {

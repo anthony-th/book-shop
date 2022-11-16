@@ -33,7 +33,7 @@ fragmentBody.appendChild(footer);
 rootBlock.appendChild(fragmentBody);
 
 header.classList.add('header');
-main.classList.add('main');
+main.className = 'main main-page';
 footer.classList.add('footer');
 sectionFirst.className = "section section__catalog";
 sectionSecond.className = "section section__order";
@@ -57,7 +57,7 @@ function openDelivery() {
 }
 
 let headerContainer = document.createElement('div');
-headerContainer.className = 'container header__container';
+headerContainer.className = 'container header__container header__main-page';
 let titleMain = document.createElement('h1');
 titleMain.className = 'title';
 titleMain.innerText = 'Book-Shop';

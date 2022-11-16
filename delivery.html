@@ -11,7 +11,7 @@
   </head>
   <body>
     <header class="header">
-      <div class="container header__container">
+      <div class="container header__delivery-page">
         <div class="logo">
           <h1 class="title">Book-Shop</h1>
           <img class="logo-img user-select" src="./assets/img/book.jpg">
@@ -21,9 +21,33 @@
     <main class="main main__delivery">
       <section class="section section__delivery">
         <h2 class="delivery-title">Confirm order</h2>
-        <div class="delivery__main-block">
-          <button class="button-complete cursor-pointer user-select">Complete</button>
-        </div>
+        <form class="delivery__form">
+          <div class="delivery__item">
+            <label for="name" class="label">First name</label>
+            <input type="text" class="input" id="name" minlength="4" required>
+          </div>
+          <div class="delivery__item">
+            <label for="lastname" class="label">Last name</label>
+            <input type="text" class="input" id="lastname" minlength="5" required>
+          </div>
+          <div class="delivery__item">
+            <label for="date" class="label">Delivery date</label>
+            <input type="date" class="input" id="date" required>
+          </div>
+          <div class="delivery__item">
+            <label for="street" class="label">Street</label>
+            <input type="text" class="input" id="street" minlength="5" required>
+          </div>
+          <div class="delivery__item">
+            <label for="numberhouse" class="label">House number</label>
+            <input type="number" class="input" id="numberhouse" required min="1" value="1">
+          </div>
+          <div class="delivery__item">
+            <label for="flatnumber" class="label">Flat number</label>
+            <input type="number" class="input" id="flatnumber" required min="1" value="1">
+          </div>
+          <button type="submit" class="button-complete cursor-pointer user-select">Complete</button>
+        </form>
       </section>
     </main>
     <footer class="footer">
