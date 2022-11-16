@@ -272,6 +272,9 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         shadow.className = 'shadow';
         let modalWindow = document.createElement('div');
         modalWindow.className = 'modal';
+        setTimeout(function() {
+          modalWindow.className = 'modal move';
+        }, 10);
         shadow.classList.toggle('visible');
         header.classList.toggle('blur');
         main.classList.toggle('blur');

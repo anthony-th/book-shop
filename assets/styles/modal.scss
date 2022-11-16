@@ -5,7 +5,7 @@
   min-width: 400px;
   background-color: #ffffff;
   left: calc(50% - 600px/2);
-  top: 10vh;
+  top: -100%;
   border-radius: 10px;
   z-index: 10;
   display: flex;
@@ -96,4 +96,9 @@
 
 .visible {
   visibility: visible;
+}
+
+.move {
+  top: 10vh;
+  transition: .5s ease-in-out;
 }
