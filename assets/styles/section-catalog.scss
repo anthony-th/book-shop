@@ -73,20 +73,20 @@
         .link-info {
           font-size: 15px;
           font-weight: 500;
-          color: #75300b;
+          color: var(--color-brown);
           position: relative;
           &:active,
           &:hover {
             color: rgba($color: #da2a2a, $alpha: 0.9);
           }
           &:active {
-            color: #dd7e25;
+            color: var(-color-lite-orange);
           }
           &::after {
             content: "";
             position: absolute;
             height: 2px;
-            background-color: #da2a2a;
+            background-color: var(--color-main-red);
             width: 0;
             left: 50%;
             bottom: -5px;
@@ -98,7 +98,7 @@
             width: 100%;
           }
           &:active::after {
-            background-color: #dd7e25;
+            background-color: var(-color-lite-orange);
           }
         }
       }
@@ -115,7 +115,7 @@
           gap: 5px;
           align-items: center;
           justify-content: center;
-          background: #292929;
+          background: var(--color-blacky);
           border-radius: 2px;
           .card-price {
             display: none;
@@ -124,7 +124,7 @@
             color: var(--color-white);
           }
           &:hover {
-            background: #da2a2a;
+            background: var(--color-main-red);
           }
           .card-img {
             width: 20px;

@@ -2,8 +2,12 @@
   --color-blacky: #292929;
   --color-black: #000000;
   --color-red: #e03b3b;
+  --color-main-red: #da2a2a;
   --color-white: #ffffff;
   --color-orange: #b15e00;
+  --color-lite-orange: #dd7e25;
+  --color-green: #4b7514;
+  --color-brown: #75300b;
 }
 
 @font-face {
@@ -41,7 +45,7 @@
 }
 .header {
   width: 100%;
-  background: #292929;
+  background: var(--color-blacky);
 }
 .header .header__main-page,
 .header .header__delivery-page {
@@ -67,7 +71,7 @@
   font-family: "BukaLoker-X3LDK";
   position: relative;
   z-index: 3;
-  color: #4b7514;
+  color: var(--color-green);
 }
 .header .header__main-page .logo .logo-img,
 .header .header__delivery-page .logo .logo-img {
@@ -162,20 +166,20 @@
 .section__catalog .cards .card .card-link .link-info {
   font-size: 15px;
   font-weight: 500;
-  color: #75300b;
+  color: var(--color-brown);
   position: relative;
 }
 .section__catalog .cards .card .card-link .link-info:active, .section__catalog .cards .card .card-link .link-info:hover {
   color: rgba(218, 42, 42, 0.9);
 }
 .section__catalog .cards .card .card-link .link-info:active {
-  color: #dd7e25;
+  color: var(-color-lite-orange);
 }
 .section__catalog .cards .card .card-link .link-info::after {
   content: "";
   position: absolute;
   height: 2px;
-  background-color: #da2a2a;
+  background-color: var(--color-main-red);
   width: 0;
   left: 50%;
   bottom: -5px;
@@ -187,7 +191,7 @@
   width: 100%;
 }
 .section__catalog .cards .card .card-link .link-info:active::after {
-  background-color: #dd7e25;
+  background-color: var(-color-lite-orange);
 }
 .section__catalog .cards .card .price-block {
   display: flex;
@@ -203,7 +207,7 @@
   gap: 5px;
   align-items: center;
   justify-content: center;
-  background: #292929;
+  background: var(--color-blacky);
   border-radius: 2px;
 }
 .section__catalog .cards .card .price-block .card__link .card-price {
@@ -213,7 +217,7 @@
   color: var(--color-white);
 }
 .section__catalog .cards .card .price-block .card__link:hover {
-  background: #da2a2a;
+  background: var(--color-main-red);
 }
 .section__catalog .cards .card .price-block .card__link .card-img {
   width: 20px;
@@ -580,7 +584,7 @@ input:focus:invalid {
 }
 
 .footer {
-  background-color: #292929;
+  background-color: var(--color-blacky);
   width: 100%;
   padding: 15px;
   display: flex;
@@ -612,7 +616,7 @@ input:focus:invalid {
 body {
   width: 100%;
   min-width: 410px;
-  background: #292929;
+  background: var(--color-blacky);
 }
 
 .section {
