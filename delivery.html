@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/book.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/styles/normalize.css">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <title>Books-shop | Delivery</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__delivery-page">
+        <div class="logo">
+          <h1 class="title">Book-Shop</h1>
+          <img class="logo-img user-select" src="./assets/img/book.jpg">
+        </div>
+      </div>
+    </header>
+    <main class="main main__delivery">
+      <section class="section section__delivery">
+        <h2 class="delivery-title">Confirm order</h2>
+        <form class="delivery__form">
+          <div class="delivery__item">
+            <label for="name" class="label">First name</label>
+            <input type="text" class="input" id="name" minlength="4" required>
+          </div>
+          <div class="delivery__item">
+            <label for="lastname" class="label">Last name</label>
+            <input type="text" class="input" id="lastname" minlength="5" required>
+          </div>
+          <div class="delivery__item">
+            <label for="date" class="label">Delivery date</label>
+            <input type="date" class="input" id="date" required>
+          </div>
+          <div class="delivery__item">
+            <label for="street" class="label">Street</label>
+            <input type="text" class="input" id="street" minlength="5" required>
+          </div>
+          <div class="delivery__item">
+            <label for="numberhouse" class="label">House number</label>
+            <input type="number" class="input" id="numberhouse" required min="1" value="1">
+          </div>
+          <div class="delivery__item">
+            <label for="flatnumber" class="label">Flat number</label>
+            <input type="number" class="input" id="flatnumber" required min="1" value="1">
+          </div>
+          <button type="submit" class="button-complete cursor-pointer user-select">Complete</button>
+        </form>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="copyright">
+        <p class="copyright__text">Copyright</p>
+        <a class="link" href="https://github.com/anthony-th">Anthony Th</a>
+        <p class="copyright__text">© 2022</p></div>
+    </footer>
+    <script src="./assets/js/delivery.js"></script>
+  </body>
+</html>
