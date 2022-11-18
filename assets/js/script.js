@@ -108,7 +108,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
       cardTitle.className = 'card-title';
       cardTitle.id = 'author';
       let cardImg = document.createElement('img');
-      cardImg.className = 'card-img';
+      cardImg.className = 'card-img cursor-pointer';
       cardImg.id = 'imageLink';
       cardImg.alt = '';
       let cardSubtitle = document.createElement('h3');
@@ -216,6 +216,24 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         })
         total.innerText = `Total: ${parseFloat(count).toFixed(2)}$`;
       }
+      
+      cardDiv.addEventListener('dragend', (startsElement) => {
+        let targetZone = null;
+        cardDiv.style.hidden = true;
+        let selectedSection = document.elementFromPoint(startsElement.clientX, startsElement.clientY);
+        cardDiv.style.hidden = false;
+        if (!selectedSection) return;
+        const dropZone = selectedSection.closest('.section__order');
+        if (targetZone != dropZone) {
+          targetZone = dropZone;
+          if (targetZone) {
+            addToCart();
+            targetZone = null;
+          }
+        } 
+      });
+      sectionSecond.addEventListener(`dragover`, (event) => {event.preventDefault();});
+
       let fullTrash = document.createElement('img');
       fullTrash.className = 'full-trash cursor-pointer user-select';
       fullTrash.src = './assets/img/close48.png';
@@ -224,7 +242,6 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
 
       function addToCart() {
         inputOrder.value = ++inputOrder.value;
-
         let fragmentAddCart = new DocumentFragment();
         fragmentAddCart.appendChild(cardOrder);
         cardOrder.appendChild(cardOrderImg);
