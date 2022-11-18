@@ -11,23 +11,33 @@
     font-size: 52px;
     font-weight: 300;
     font-family: "BukaLoker-X3LDK";
-    color: #73340c;
+    color: var(--color-bb-brown);
+    margin-bottom: 20px;
   }
   .delivery__form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 15px;
     .delivery__item {
       position: relative;
+      display: flex;
+      flex-direction: column;
       &:nth-child(3) {
         .input {
-          width: 150px;
+          width: 140px;
+          margin-right: 35px;
+        }
+        .label {
+          text-indent: 15px;
+        }
+        .error-text {
+          right: 36px;
         }
       }
-      &:nth-child(6) {
-        margin-bottom: 35px;
+      &:nth-child(4) {
+        margin-bottom: 10px;
       }
       // &:focus {
       //   .label {
@@ -37,55 +47,104 @@
       //   }
       // }
       .input {
-        width: 300px;
+        width: 320px;
         padding: 5px 10px;
-        // &:active {
-        //   ~ .label {
-        //     top: 0;
-        //     line-height: 15px;
-        //     font-size: 15px;
-        //   }
+
+        // &:invalid {
+        //   border: 1px solid var(--color-red);
         // }
+        &:focus {
+          outline: none;
+        }
       }
+      
       .label {
-        // position: absolute;
-        // left: 0;
-        // bottom: 0;
-        padding: 5px;
+        text-indent: 3px;
         display: flex;
         align-items: center;
-        line-height: 15px;
+        line-height: 14px;
+        text-transform: uppercase;
+        font-size: 13px;
+        letter-spacing: 0.005em;
       }
+    }
+    .checkbox-items {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 5px;
+      margin-bottom: 20px;
+      .checkbox__item {
+        display: flex;
+        gap: 10px;
+      }
+    }
+    .numbers-block {
+      width: 320px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      .delivery__item {
+        .input {
+          width: 130px;
+        }
+      }
+    }
+    .radio-block {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      position: relative;
+      margin-bottom: 10px;
+      .delivery__item {
+        justify-content: center;
+        width: 70px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        .label {
+          width: 30px;
+        }
+        .input {
+          width: 20px;
+        }
+      }
+      .error-text {
+        width: 100%;
+        text-align: center;
+        bottom: -16px;
+        right: 0;
+      }
+    }
+    .error-text {
+      position: absolute;
+      right: 1px;
+      bottom: -12px;
+      line-height: 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: var(--color-red);
     }
     .button-complete {
       padding: 10px 40px;
       border: none;
       outline: none;
       text-transform: uppercase;
-      background: #da2a2a;
+      background: var(--color-main-red);
       color: var(--color-white);
       border-radius: 2px;
       font-size: 19px;
       font-weight: 300;
       &:hover,
       &:focus {
-        color: #e03b3b;
+        color: var(--color-red);
         box-shadow: inset 9.5em 0 0 0 var(--color-white);
         outline: 2px solid rgba($color: #292929, $alpha: .3);
       }
       &:active {
-        color: #dd7e25;
+        color: var(--color-lite-orange);
         box-shadow: inset 0 0 0 2em var(--color-black);
       }
     }
   }
-}
-
-// input:invalid{
-//   // border:1px solid #900;
-//   // background-color: #FDD;
-// }
-
-input:focus:invalid {
-  outline: none;
 }

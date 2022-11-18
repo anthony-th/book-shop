@@ -25,26 +25,63 @@
           <div class="delivery__item">
             <label for="name" class="label">First name</label>
             <input type="text" class="input" id="name" minlength="4" required>
+            <p class="error-text">At least 4 characters!</p>
           </div>
           <div class="delivery__item">
             <label for="lastname" class="label">Last name</label>
             <input type="text" class="input" id="lastname" minlength="5" required>
+            <p class="error-text">At least 4 characters!</p>
           </div>
           <div class="delivery__item">
             <label for="date" class="label">Delivery date</label>
             <input type="date" class="input" id="date" required>
+            <p class="error-text">At least 4 characters!</p>
           </div>
           <div class="delivery__item">
             <label for="street" class="label">Street</label>
             <input type="text" class="input" id="street" minlength="5" required>
+            <p class="error-text">At least 4 characters!</p>
           </div>
-          <div class="delivery__item">
-            <label for="numberhouse" class="label">House number</label>
-            <input type="number" class="input" id="numberhouse" required min="1" value="1">
+          <div class="numbers-block">
+            <div class="delivery__item">
+              <label for="numberhouse" class="label">House number</label>
+              <input type="number" class="input" id="numberhouse" required min="1" value="1">
+              <p class="error-text">At least 4 characters!</p>
+            </div>
+            <div class="delivery__item">
+              <label for="flatnumber" class="label">Flat number</label>
+              <input type="number" class="input" id="flatnumber" required min="1" value="1">
+              <p class="error-text">At least 4 characters!</p>
+            </div>
           </div>
-          <div class="delivery__item">
-            <label for="flatnumber" class="label">Flat number</label>
-            <input type="number" class="input" id="flatnumber" required min="1" value="1">
+          <div class="radio-block">
+            <div class="delivery__item">
+              <label for="cash" class="label">Cash</label>
+              <input type="radio" class="input" id="cash" required min="1" value="1" name="radiobtn">
+            </div>
+            <div class="delivery__item">
+              <label for="card" class="label">Card</label>
+              <input type="radio" class="input" id="card" required min="1" value="1" name="radiobtn">
+            </div>
+            <p class="error-text">At least 4 characters!</p>
+          </div>
+          <div class="checkbox-items">
+            <div class="checkbox__item">
+              <input type="checkbox" class="input" id="gift1">
+              <label for="gift1" class="label">pack as a gift</label>
+            </div>
+            <div class="checkbox__item">
+              <input type="checkbox" class="input" id="gift2">
+              <label for="gift2" class="label">add postcard</label>
+            </div>
+            <div class="checkbox__item">
+              <input type="checkbox" class="input" id="gift3" disabled>
+              <label for="gift3" class="label">provide 2% discount to the next time</label>
+            </div>
+            <div class="checkbox__item">
+              <input type="checkbox" class="input" id="gift4">
+              <label for="gift4" class="label">branded pen or pencil</label>
+            </div>
           </div>
           <button type="submit" class="button-complete cursor-pointer user-select">Complete</button>
         </form>
