@@ -23,55 +23,55 @@
         <h2 class="delivery-title">Confirm order</h2>
         <form class="delivery__form">
           <div class="delivery__item">
-            <label for="name" class="label">First name</label>
             <input type="text" class="input" id="name" minlength="4" required>
-            <p class="error-text">At least 4 characters!</p>
+            <label for="name" class="label" id="labelname">First name</label>   
+            <p class="error-text" id="errName">The field is invalid</p>
           </div>
           <div class="delivery__item">
-            <label for="lastname" class="label">Last name</label>
             <input type="text" class="input" id="lastname" minlength="5" required>
-            <p class="error-text">At least 4 characters!</p>
+            <label for="lastname" class="label" id="labelLastName">Last name</label>
+            <p class="error-text" id="errLastName">The field is invalid</p>
           </div>
           <div class="delivery__item">
-            <label for="date" class="label">Delivery date</label>
-            <input type="date" class="input" id="date" required>
-            <p class="error-text">At least 4 characters!</p>
+            <input type="date" class="input cursor-pointer" id="date" required>
+            <label for="date" class="label" id="labelDate">Delivery date</label>
+            <p class="error-text" id="errDate">The field is invalid</p>
           </div>
           <div class="delivery__item">
-            <label for="street" class="label">Street</label>
             <input type="text" class="input" id="street" minlength="5" required>
-            <p class="error-text">At least 4 characters!</p>
+            <label for="street" class="label" id="labelStreet">Street</label>
+            <p class="error-text" id="errStreet">The field is invalid</p>
           </div>
           <div class="numbers-block">
             <div class="delivery__item">
-              <label for="numberhouse" class="label">House number</label>
-              <input type="number" class="input" id="numberhouse" required min="1" value="1">
-              <p class="error-text">At least 4 characters!</p>
+              <input type="number" class="input" id="numberhouse" required min="1">
+              <label for="numberhouse" class="label" id="labelHouse">House number</label>
+              <p class="error-text" id="errHouse">The field is invalid</p>
             </div>
             <div class="delivery__item">
-              <label for="flatnumber" class="label">Flat number</label>
-              <input type="number" class="input" id="flatnumber" required min="1" value="1">
-              <p class="error-text">At least 4 characters!</p>
+              <input type='text' class="input" id="flatnumber" required min="1">
+              <label for="flatnumber" class="label" id="labelFlatnumber">Flat number</label>
+              <p class="error-text" id="errFlatnumber">The field is invalid</p>
             </div>
           </div>
           <div class="radio-block">
             <div class="delivery__item">
+              <input type="radio" class="input cursor-pointer" id="cash" required min="1" name="radiobtn">
               <label for="cash" class="label">Cash</label>
-              <input type="radio" class="input" id="cash" required min="1" value="1" name="radiobtn">
             </div>
             <div class="delivery__item">
+              <input type="radio" class="input cursor-pointer" id="card" required min="1" name="radiobtn">
               <label for="card" class="label">Card</label>
-              <input type="radio" class="input" id="card" required min="1" value="1" name="radiobtn">
             </div>
-            <p class="error-text">At least 4 characters!</p>
+            <!-- <p class="error-text">The field is invalid</p> -->
           </div>
           <div class="checkbox-items">
             <div class="checkbox__item">
-              <input type="checkbox" class="input" id="gift1">
+              <input type="checkbox" class="input cursor-pointer" id="gift1">
               <label for="gift1" class="label">pack as a gift</label>
             </div>
             <div class="checkbox__item">
-              <input type="checkbox" class="input" id="gift2">
+              <input type="checkbox" class="input cursor-pointer" id="gift2">
               <label for="gift2" class="label">add postcard</label>
             </div>
             <div class="checkbox__item">
@@ -79,11 +79,11 @@
               <label for="gift3" class="label">provide 2% discount to the next time</label>
             </div>
             <div class="checkbox__item">
-              <input type="checkbox" class="input" id="gift4">
+              <input type="checkbox" class="input cursor-pointer" id="gift4">
               <label for="gift4" class="label">branded pen or pencil</label>
             </div>
           </div>
-          <button type="submit" class="button-complete cursor-pointer user-select">Complete</button>
+          <button type="submit" class="button-complete user-select" disabled>Complete</button>
         </form>
       </section>
     </main>
