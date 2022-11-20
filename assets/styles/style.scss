@@ -18,7 +18,11 @@
 body {
   width: 100%;
   min-width: 410px;
-  background: var(--color-blacky);
+  background: url(../img/gameofthrones.webp) no-repeat;
+  background-size: cover;
+  background-color: var(--color-blacky);
+  background-position: top;
+  background-repeat: unset;
 }
 
 .section {

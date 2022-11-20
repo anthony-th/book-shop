@@ -16,35 +16,40 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 50px;
   border-radius: 5px;
   border: 1px solid rgba($color: #ffffff, $alpha: .2);;
   color: var(--color-white);
-  .modal__address-block,
-  .modal__client-block {
+  .modal-order {
+    min-width: 400px;
     display: flex;
-    gap: 5px;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    .client-block__subtitle,
-    .address-block__address,
-    .client-block__client,
-    .address-block__subtitle {
-      font-size: 42px;
-      font-family: "BukaLoker-X3LDK";
-      text-align: center;
-    }
-    .client-block__client,
-    .address-block__address {
-      color: var(--color-red);
+    align-items: start;
+    flex-direction: column;
+    gap: 30px;
+    padding-left: 10px;
+    .modal__address-block,
+    .modal__client-block {
+      display: flex;
+      gap: 5px;
+      flex-direction: column;
+      justify-content: center;
+      .client-block__subtitle,
+      .address-block__address,
+      .client-block__client,
+      .address-block__subtitle {
+        font-size: 48px;
+        font-family: "BukaLoker-X3LDK";
+      }
     }
   }
   .modal-end__title {
     font-family: "BukaLoker-X3LDK";
-    font-size: 52px;
-    margin-bottom: 10px;
-    color: var(--color-green);
+    font-size: 60px;
+    border: 1px solid rgba($color: #ffffff, $alpha: .2);
+    padding: 15px 20px 5px;
+    min-width: 400px;
+    border-radius: 5px;
   }
   .modal-ty {
     position: absolute;
