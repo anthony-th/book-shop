@@ -1,3 +1,4 @@
+@import './constants.scss';
 @import './fonts.scss';
 @import './header.scss';
 @import './section-catalog.scss';
@@ -17,7 +18,7 @@
 body {
   width: 100%;
   min-width: 410px;
-  background: #292929;
+  background: var(--color-blacky);
 }
 
 .section {
@@ -34,7 +35,7 @@ body {
 .main {
   display: flex;
   margin: 0 auto;
-  background: #ffffff;
+  background: var(--color-white);
 }
 
 .main-page {
@@ -58,17 +59,17 @@ body {
   position: relative;
   &:visited,
   &:link {
-    color: #ffffff;
+    color: var(--color-white);
   }
   &:active,
   &:hover {
-    color: #b15e00;
+    color: var(--color-orange);
   }
   &::after {
     content: "";
     position: absolute;
     height: 2px;
-    background-color: #b15e00;
+    background-color: var(--color-orange);
     width: 0;
     left: 50%;
     bottom: -5px;
@@ -83,4 +84,13 @@ body {
 
 .blur {
   filter: blur(15px);
+}
+
+.dragged {
+  outline: 5px dashed var(--color-red);
+  outline-offset: -18px;
+}
+
+.redtext {
+  color: var(--color-red);
 }

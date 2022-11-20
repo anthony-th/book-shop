@@ -21,39 +21,81 @@
     <main class="main main__delivery">
       <section class="section section__delivery">
         <h2 class="delivery-title">Confirm order</h2>
-        <form class="delivery__form">
+        <form class="delivery__form" onsubmit="return delive()">
           <div class="delivery__item">
-            <label for="name" class="label">First name</label>
             <input type="text" class="input" id="name" minlength="4" required>
+            <label for="name" class="label" id="labelname">First name</label>   
+            <p class="error-text" id="errName">The field is invalid</p>
           </div>
           <div class="delivery__item">
-            <label for="lastname" class="label">Last name</label>
             <input type="text" class="input" id="lastname" minlength="5" required>
+            <label for="lastname" class="label" id="labelLastName">Last name</label>
+            <p class="error-text" id="errLastName">The field is invalid</p>
           </div>
           <div class="delivery__item">
-            <label for="date" class="label">Delivery date</label>
-            <input type="date" class="input" id="date" required>
+            <input type="date" class="input cursor-pointer" id="date" required>
+            <label for="date" class="label" id="labelDate">Delivery date</label>
+            <p class="error-text" id="errDate">The field is invalid</p>
           </div>
           <div class="delivery__item">
-            <label for="street" class="label">Street</label>
             <input type="text" class="input" id="street" minlength="5" required>
+            <label for="street" class="label" id="labelStreet">Street</label>
+            <p class="error-text" id="errStreet">The field is invalid</p>
           </div>
-          <div class="delivery__item">
-            <label for="numberhouse" class="label">House number</label>
-            <input type="number" class="input" id="numberhouse" required min="1" value="1">
+          <div class="numbers-block">
+            <div class="delivery__item">
+              <input type="number" class="input" id="numberhouse" required min="1">
+              <label for="numberhouse" class="label" id="labelHouse">House number</label>
+              <p class="error-text" id="errHouse">The field is invalid</p>
+            </div>
+            <div class="delivery__item">
+              <input type='text' class="input" id="flatnumber" required min="1">
+              <label for="flatnumber" class="label" id="labelFlatnumber">Flat number</label>
+              <p class="error-text" id="errFlatnumber">The field is invalid</p>
+            </div>
           </div>
-          <div class="delivery__item">
-            <label for="flatnumber" class="label">Flat number</label>
-            <input type="number" class="input" id="flatnumber" required min="1" value="1">
+          <div class="radio-block">
+              <label for="cash" class="label cursor-pointer user-select">
+                <input type="radio" class="input cursor-pointer" id="cash" required min="1" name="radiobtn" checked>Cash
+              </label>
+              <label for="card" class="label cursor-pointer user-select">
+                <input type="radio" class="input cursor-pointer" id="card" required min="1" name="radiobtn">Card
+              </label>
           </div>
-          <button type="submit" class="button-complete cursor-pointer user-select">Complete</button>
+          <div class="checkbox-items">
+              <label for="gift1" class="label cursor-pointer user-select">
+                <input type="checkbox" class="input cursor-pointer" id="gift1" tabindex="-1">pack as a gift
+              </label>
+              <label for="gift2" class="label cursor-pointer user-select">
+                <input type="checkbox" class="input cursor-pointer" id="gift2" tabindex="-1">add postcard
+              </label>
+              <label for="gift3" class="label cursor-pointer user-select">
+                <input type="checkbox" class="input cursor-pointer" id="gift3" tabindex="-1">provide 2% discount to the next time
+              </label>
+              <label for="gift4" class="label cursor-pointer user-select">
+                <input type="checkbox" class="input cursor-pointer" id="gift4" tabindex="-1">branded pen or pencil
+              </label>
+              <p class="error-text" id="errCheckbox">The field is invalid</p>
+          </div>
+          <button type="submit" class="button-complete user-select" disabled>Complete</button>
         </form>
       </section>
+      <div class="modal-end">
+        <h2 class="modal-end__title">The order created</h2>
+        <div class="modal__address-block">
+          <p class="address-block__subtitle">The delivery address is:</p>
+          <p class="address-block__address">The delivery address is</p>
+        </div>
+        <div class="modal__client-block">
+          <p class="client-block__subtitle">Customer:</p>
+          <p class="client-block__client">Customer</p>
+        </div>
+      </div>
     </main>
     <footer class="footer">
       <div class="copyright">
         <p class="copyright__text">Copyright</p>
-        <a class="link" href="https://github.com/anthony-th">Anthony Th</a>
+        <a class="link" href="https://github.com/anthony-th" tabindex="-1">Anthony Th</a>
         <p class="copyright__text">© 2022</p></div>
     </footer>
     <script src="./assets/js/delivery.js"></script>

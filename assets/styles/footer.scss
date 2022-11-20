@@ -1,10 +1,10 @@
 .footer {
-  background-color: #292929;
+  background-color: var(--color-blacky);
   width: 100%;
   padding: 15px;
   display: flex;
   justify-content: center;
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 12px;
   .copyright {
     display: flex;

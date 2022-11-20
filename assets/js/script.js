@@ -217,7 +217,36 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         total.innerText = `Total: ${parseFloat(count).toFixed(2)}$`;
       }
       
+      cardDiv.addEventListener('dragstart', dragstart);
+      function dragstart() {
+        sectionSecond.classList.add('dragged');
+        cartTitle.style.color = '#e03b3b';
+        cartTitle.innerHTML = 'Drop book here!';
+        cardOrder.style.borderColor = '#e03b3b';
+        cardOrderTitle.classList.add('redtext');
+        cardOrderDescription.classList.add('redtext');
+        cardOrderPrice.classList.add('redtext');
+        inputOrder.classList.add('redtext');
+        inputOrder.style.borderColor = '#e03b3b';
+        buttonMinus.style.borderColor = '#e03b3b';
+        buttonPlus.style.borderColor = '#e03b3b';
+        buttonMinus.style.setProperty('--color-blacky', '#e03b3b');
+        buttonPlus.style.setProperty('--color-blacky', '#e03b3b');
+      }
       cardDiv.addEventListener('dragend', (startsElement) => {
+        cartTitle.style.color = '#ffffff';
+        cartTitle.innerHTML = 'Your cart';
+        cardOrder.style.borderColor = '#0000004d';
+        sectionSecond.classList.remove('dragged');
+        cardOrderTitle.classList.remove('redtext');
+        cardOrderDescription.classList.remove('redtext');
+        cardOrderPrice.classList.remove('redtext');
+        inputOrder.classList.remove('redtext');
+        inputOrder.style.borderColor = '#0000004d';
+        buttonMinus.style.borderColor = '#0000004d';
+        buttonPlus.style.borderColor = '#0000004d';
+        buttonMinus.style.removeProperty('--color-blacky', '#e03b3b');
+        buttonPlus.style.removeProperty('--color-blacky', '#e03b3b');
         let targetZone = null;
         cardDiv.style.hidden = true;
         let selectedSection = document.elementFromPoint(startsElement.clientX, startsElement.clientY);
@@ -229,6 +258,19 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
           if (targetZone) {
             addToCart();
             targetZone = null;
+            sectionSecond.classList.remove('dragged');
+            cartTitle.style.color = '#ffffff';
+            cartTitle.innerHTML = 'Your cart';
+            cardOrder.style.borderColor = '#0000004d';
+            cardOrderTitle.classList.remove('redtext');
+            cardOrderDescription.classList.remove('redtext');
+            cardOrderPrice.classList.remove('redtext');
+            inputOrder.classList.remove('redtext');
+            inputOrder.style.borderColor = '#0000004d';
+            buttonMinus.style.borderColor = '#0000004d';
+            buttonPlus.style.borderColor = '#0000004d';
+            buttonMinus.style.removeProperty('--color-blacky', '#e03b3b');
+            buttonPlus.style.removeProperty('--color-blacky', '#e03b3b');
           }
         } 
       });
