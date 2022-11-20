@@ -317,9 +317,11 @@ btn.addEventListener('click', () => {
     client.innerText = `${firstName.value}`+` `+`${lastName.value}`;
     address.innerText = `${street.value}`+` street` + ` ` + ` ${numberHouse.value} \\` + ` ${flatnumber.value}`;
     modalEnd.style.display = 'flex';
-    header.style.visibility = 'hidden';
-    footer.style.visibility = 'hidden';
+    header.style.display = 'none';
+    footer.style.display = 'none';
   } else {
     modalEnd.style.display = 'none';
+    header.style.display = 'block';
+    footer.style.display = 'block';
   }
 })
