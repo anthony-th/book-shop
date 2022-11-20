@@ -1,0 +1,39 @@
+.header {
+  width: 100%;
+  background: var(--color-blacky);
+  .header__main-page,
+  .header__delivery-page {
+    max-width: 600px;
+    display: flex;
+    padding: 15px 80px;
+    @media screen and (max-width: 830px) {
+      padding: 20px 15px 0 60px;
+    }
+    .logo {
+      position: relative;
+      .title {
+        font-size: 80px;
+        letter-spacing: 0.005em;
+        margin: 0;
+        font-family: 'BukaLoker-X3LDK';
+        position: relative;
+        z-index: 3;
+        color: var(--color-green);
+      }
+      .logo-img {
+        position: absolute;
+        left: -53px;
+        bottom: -44px;
+        width: 101px;
+        height: 100px;
+        z-index: 5;
+      }
+    }
+  }
+  .header__main-page {
+    max-width: 1200px;
+  }
+  .container {
+    margin: 0 auto;
+  }
+}
