@@ -18,7 +18,7 @@ const errHouse = document.getElementById('errHouse');
 const flatnumber = document.getElementById('flatnumber');
 const labelFlatnumber = document.getElementById('labelFlatnumber');
 const errFlatnumber = document.getElementById('errFlatnumber');
-const btn = document.querySelector('.button-complete');
+const form = document.querySelector('form');
 
 firstName.addEventListener('change', firstNameChange);
 firstName.addEventListener('input', inputString);
@@ -30,6 +30,13 @@ numberHouse.addEventListener('input', inputNumbers);
 numberHouse.addEventListener('change', numberChange);
 flatnumber.addEventListener('change', flatnumberChange);
 flatnumber.addEventListener('input', flatnumberInput);
+firstName.addEventListener('blur', firstNameBlur);
+lastName.addEventListener('blur', lastNameBlur);
+date.addEventListener('blur', dateBlur);
+street.addEventListener('blur', streetBlur);
+numberHouse.addEventListener('blur', numberBlur);
+flatnumber.addEventListener('blur', flatnumberBlur);
+
 function inputString() {
   this.value = this.value.replace(/\s+|\d/g, '');
 }
@@ -49,87 +56,270 @@ function flatnumberInput() {
   }
   this.value = this.value.replace(/[a-zA-Zа-яА-Я]+/g, '');
 }
-
+let validFirst = 0;
 function firstNameChange() {
-  if (firstName.textLength <= 3) {
+  if (firstName.value.length <= 3) {
     firstName.classList.add('invalid');
     labelName.classList.add('invalid-text');
     labelName.classList.add('position-label');
     errName.style.display = 'block';
+    validFirst = 0;
+    delive();
   } else {
     firstName.classList.remove('invalid');
     labelName.classList.remove('invalid-text');
     errName.style.display = 'none';
+    validFirst = 1;
+    delive();
   }
 }
-
+let validLast = 0;
 function lastNameChange() {
-  if (lastName.textLength <= 4) {
+  if (lastName.value.length <= 4) {
     lastName.classList.add('invalid');
     labelLastName.classList.add('invalid-text');
     labelLastName.classList.add('position-label');
     errLastName.style.display = 'block';
+    validLast = 0;
+    delive();
   } else {
     lastName.classList.remove('invalid');
     labelLastName.classList.remove('invalid-text');
     errLastName.style.display = 'none';
+    validLast = 1;
+    delive();
   }
 }
-
+let validDate = 0;
 function dateChange() {
-  let ifTodayWasYourLastDay = new Date().toISOString().split('T')[0];
-  let correctDeliveryDate = ifTodayWasYourLastDay;
+  let ifTodayWasYourLastDay = new Date();
+  let correctDeliveryDate = new Date(ifTodayWasYourLastDay.getTime() - ifTodayWasYourLastDay.getTimezoneOffset()*60000);
   let newToday = date.value;
+  let correctDeliveryDateWithUTC = correctDeliveryDate.toISOString().split('T')[0];
 
-  if (newToday <= correctDeliveryDate) {
+  if (newToday <= correctDeliveryDateWithUTC) {
     date.classList.add('invalid');
     labelDate.classList.add('invalid-text');
     labelDate.classList.add('position-label');
     errDate.style.display = 'block';
+    validDate = 0;
+    delive();
   } else {
     date.classList.remove('invalid');
     labelDate.classList.remove('invalid-text');
     errDate.style.display = 'none';
+    validDate = 1;
+    delive();
   }
 }
-
+let validStreet = 0;
 function streetChange() {
-  if (street.textLength <= 4) {
+  if (street.value.length <= 4) {
     street.classList.add('invalid');
     labelStreet.classList.add('invalid-text');
     labelStreet.classList.add('position-label');
     errStreet.style.display = 'block';
+    validStreet = 0;
+    delive();
   } else {
     street.classList.remove('invalid');
     labelStreet.classList.remove('invalid-text');
     errStreet.style.display = 'none';
+    validStreet = 1;
+    delive();
   }
 }
-
+let validNumber = 0;
 function numberChange() {
-  if (numberHouse.textLength == 0) {
+  if (numberHouse.value.length == 0) {
     numberHouse.classList.add('invalid');
     labelHouse.classList.add('invalid-text');
     labelHouse.classList.add('position-label');
     errHouse.style.display = 'block';
+    validNumber = 0;
+    delive();
   } else {
     numberHouse.classList.remove('invalid');
     labelHouse.classList.remove('invalid-text');
     errHouse.style.display = 'none';
+    validNumber = 1;
+    delive();
   }
 }
-
+let validFlat = 0;
 function flatnumberChange() {
-  if (flatnumber.textLength === 0) {
+  if (flatnumber.value.length === 0) {
     flatnumber.classList.add('invalid');
     labelFlatnumber.classList.add('invalid-text');
     labelFlatnumber.classList.add('position-label');
     errFlatnumber.style.display = 'block';
+    validFlat = 0;
+    delive();
   } else {
     flatnumber.classList.remove('invalid');
     labelFlatnumber.classList.remove('invalid-text');
     errFlatnumber.style.display = 'none';
+    validFlat = 1;
+    delive();
+  }
+}
+function firstNameBlur() {
+  if (firstName.value.length <= 3) {
+    firstName.classList.add('invalid');
+    labelName.classList.add('invalid-text');
+    labelName.classList.add('position-label');
+    errName.style.display = 'block';
+    validFirst = 0;
+    delive();
+  } else {
+    firstName.classList.remove('invalid');
+    labelName.classList.remove('invalid-text');
+    errName.style.display = 'none';
+    validFirst = 1;
+    delive();
+  }
+}
+
+function lastNameBlur() {
+  if (lastName.value.length <= 4) {
+    lastName.classList.add('invalid');
+    labelLastName.classList.add('invalid-text');
+    labelLastName.classList.add('position-label');
+    errLastName.style.display = 'block';
+    validLast = 0;
+    delive();
+  } else {
+    lastName.classList.remove('invalid');
+    labelLastName.classList.remove('invalid-text');
+    errLastName.style.display = 'none';
+    validLast = 1;
+    delive();
+  }
+}
+
+function dateBlur() {
+  let ifTodayWasYourLastDay = new Date();
+  let correctDeliveryDate = new Date(ifTodayWasYourLastDay.getTime() - ifTodayWasYourLastDay.getTimezoneOffset()*60000);
+  let newToday = date.value;
+  let correctDeliveryDateWithUTC = correctDeliveryDate.toISOString().split('T')[0];
+
+  if (newToday <= correctDeliveryDateWithUTC) {
+    date.classList.add('invalid');
+    labelDate.classList.add('invalid-text');
+    labelDate.classList.add('position-label');
+    errDate.style.display = 'block';
+    validDate = 0;
+    delive();
+  } else {
+    date.classList.remove('invalid');
+    labelDate.classList.remove('invalid-text');
+    errDate.style.display = 'none';
+    validDate = 1;
+    delive();
+  }
+}
+
+function streetBlur() {
+  if (street.value.length <= 4) {
+    street.classList.add('invalid');
+    labelStreet.classList.add('invalid-text');
+    labelStreet.classList.add('position-label');
+    errStreet.style.display = 'block';
+    validStreet = 0;
+    delive();
+  } else {
+    street.classList.remove('invalid');
+    labelStreet.classList.remove('invalid-text');
+    errStreet.style.display = 'none';
+    validStreet = 1;
+    delive();
+  }
+}
+
+function numberBlur() {
+  if (numberHouse.value.length == 0) {
+    numberHouse.classList.add('invalid');
+    labelHouse.classList.add('invalid-text');
+    labelHouse.classList.add('position-label');
+    errHouse.style.display = 'block';
+    validNumber = 0;
+    delive();
+  } else {
+    numberHouse.classList.remove('invalid');
+    labelHouse.classList.remove('invalid-text');
+    errHouse.style.display = 'none';
+    validNumber = 1;
+    delive();
   }
 }
 
 
+function flatnumberBlur() {
+  if (flatnumber.value.length === 0) {
+    flatnumber.classList.add('invalid');
+    labelFlatnumber.classList.add('invalid-text');
+    labelFlatnumber.classList.add('position-label');
+    errFlatnumber.style.display = 'block';
+    validFlat = 0;
+    delive();
+  } else {
+    flatnumber.classList.remove('invalid');
+    labelFlatnumber.classList.remove('invalid-text');
+    errFlatnumber.style.display = 'none';
+    validFlat = 1;
+    delive();
+  }
+}
+
+let validCheck = 1;
+let countR = 0;
+const radio = document.querySelectorAll('input[type=checkbox');
+const errCheckbox = document.getElementById('errCheckbox');
+function inputRadio() {
+  validCheck == 1;
+  if (this.checked) {
+    countR = countR + 1;
+  } else {
+    countR = countR - 1
+  }
+  if (countR >= 3) {
+    errCheckbox.style.display = 'block';
+    validCheck = 0;
+    delive();
+  } else {
+    errCheckbox.style.display = 'none';
+    validCheck = 1;
+    delive();
+  }
+}
+radio.forEach(Element => {
+  Element.addEventListener('input', inputRadio);
+})
+
+const btn = document.querySelector('button[type=submit]');
+const client = document.querySelector('.client-block__client');
+const address = document.querySelector('.address-block__address');
+let modalEnd = document.querySelector('.modal-end');
+let header = document.querySelector('.header');
+let footer = document.querySelector('.footer');
+
+function delive() {
+  if (validCheck == 1 & validFlat == 1 & validNumber == 1 & validStreet == 1 & validDate == 1 & validLast == 1 & validFirst == 1) {
+    btn.disabled = false;
+  } else {
+    btn.disabled = true;
+  }
+  return false;
+}
+
+btn.addEventListener('click', () => {
+  if (btn.disabled = true) {
+    client.innerText = `${firstName.value}`+` `+`${lastName.value}`;
+    address.innerText = `${street.value}`+` street` + ` ` + ` ${numberHouse.value} \\` + ` ${flatnumber.value}`;
+    modalEnd.style.display = 'flex';
+    header.style.visibility = 'hidden';
+    footer.style.visibility = 'hidden';
+  } else {
+    modalEnd.style.display = 'none';
+  }
+})
