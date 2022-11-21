@@ -539,6 +539,9 @@
 .section__delivery .delivery__form .delivery__item:nth-child(3) .error-text {
   right: 36px;
 }
+.section__delivery .delivery__form .delivery__item:nth-child(4) {
+  margin-bottom: 10px;
+}
 .section__delivery .delivery__form .checkbox-items {
   display: flex;
   flex-direction: column;

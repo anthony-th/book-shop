@@ -18,7 +18,6 @@ const errHouse = document.getElementById('errHouse');
 const flatnumber = document.getElementById('flatnumber');
 const labelFlatnumber = document.getElementById('labelFlatnumber');
 const errFlatnumber = document.getElementById('errFlatnumber');
-const form = document.querySelector('form');
 
 firstName.addEventListener('change', firstNameChange);
 firstName.addEventListener('input', inputString);
@@ -273,9 +272,9 @@ function flatnumberBlur() {
 
 let validCheck = 1;
 let countR = 0;
-const radio = document.querySelectorAll('input[type=checkbox');
+const checkboxEl = document.querySelectorAll('input[type=checkbox');
 const errCheckbox = document.getElementById('errCheckbox');
-function inputRadio() {
+function inputCheckbox() {
   validCheck == 1;
   if (this.checked) {
     countR = countR + 1;
@@ -292,8 +291,8 @@ function inputRadio() {
     delive();
   }
 }
-radio.forEach(Element => {
-  Element.addEventListener('input', inputRadio);
+checkboxEl.forEach(Element => {
+  Element.addEventListener('input', inputCheckbox);
 })
 
 const btn = document.querySelector('button[type=submit]');

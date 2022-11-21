@@ -123,6 +123,9 @@
           right: 36px;
         }
       }
+      &:nth-child(4) {
+        margin-bottom: 10px;
+      }
     }
     .checkbox-items {
       display: flex;
