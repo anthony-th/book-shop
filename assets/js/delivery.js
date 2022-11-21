@@ -34,8 +34,18 @@ firstName.addEventListener('blur', firstNameBlur);
 lastName.addEventListener('blur', lastNameBlur);
 date.addEventListener('blur', dateBlur);
 street.addEventListener('blur', streetBlur);
+street.addEventListener('input', streetInput);
 numberHouse.addEventListener('blur', numberBlur);
 flatnumber.addEventListener('blur', flatnumberBlur);
+
+function streetInput() {
+  if (this.value.charAt(0) === " ") {
+    this.value = this.value.slice(1);
+  }
+  if (this.value.charAt(0) === "-") {
+    this.value = this.value.slice(1);
+  }
+}
 
 function inputString() {
   this.value = this.value.replace(/\s+|\d/g, '');
@@ -52,6 +62,10 @@ function flatnumberInput() {
   }
 
   if (flatnumber.value.charAt(0) === "-") {
+    flatnumber.value = flatnumber.value.slice(1);
+  }
+
+  if (flatnumber.value.charAt(0) === " ") {
     flatnumber.value = flatnumber.value.slice(1);
   }
   this.value = this.value.replace(/[a-zA-Zа-яА-Я]+/g, '');
@@ -326,7 +340,6 @@ function cashChecked() {
 }
 
 card.addEventListener('change', cardChecked);
-card.addEventListener('blur', cardCheckedBlur);
 function cardChecked() {
   if (card.checked) {
     cash.checked = false;
@@ -384,4 +397,4 @@ btn.addEventListener('click', () => {
     header.style.display = 'none';
     footer.style.display = 'none';
   }
-})
+});
