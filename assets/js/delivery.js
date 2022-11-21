@@ -379,6 +379,18 @@ function cardCheckedBlur() {
   }
 }
 
+const radioBlock = document.querySelector('.radio-block');
+radioBlock.addEventListener('focusout', focusOut);
+function focusOut() {
+  if (card.checked == false & cash.checked == false) {
+    errRadio.style.display = 'block';
+    card.style.borderColor = 'var(--color-red)';
+    card.parentNode.style.color = 'var(--color-red)';
+    cash.parentNode.style.color = 'var(--color-red)';
+    cash.style.borderColor = 'var(--color-red)';
+  }
+}
+
 function delive() {
   if (validCheck == 1 & validFlat == 1 & validNumber == 1 & validStreet == 1 & validDate == 1 & validLast == 1 & validFirst == 1 & validCashCard == 1) {
     btn.disabled = false;
