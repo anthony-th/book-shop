@@ -38,6 +38,9 @@ street.addEventListener('input', streetInput);
 numberHouse.addEventListener('blur', numberBlur);
 flatnumber.addEventListener('blur', flatnumberBlur);
 
+let notToday = new Date().toISOString().split('T')[0];
+date.min = notToday;
+
 function streetInput() {
   if (this.value.charAt(0) === " ") {
     this.value = this.value.slice(1);
