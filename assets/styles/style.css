@@ -579,6 +579,9 @@
   padding: 0;
   line-height: 20px;
 }
+.section__delivery .delivery__form .radio-block .error-text {
+  right: 18px;
+}
 .section__delivery .delivery__form .error-text {
   display: none;
   position: absolute;

@@ -18,6 +18,7 @@ const errHouse = document.getElementById('errHouse');
 const flatnumber = document.getElementById('flatnumber');
 const labelFlatnumber = document.getElementById('labelFlatnumber');
 const errFlatnumber = document.getElementById('errFlatnumber');
+const errRadio = document.getElementById('errRadio');
 
 firstName.addEventListener('change', firstNameChange);
 firstName.addEventListener('input', inputString);
@@ -302,8 +303,68 @@ let modalEnd = document.querySelector('.modal-end');
 let header = document.querySelector('.header');
 let footer = document.querySelector('.footer');
 
+let cash = document.getElementById('cash');
+let card = document.getElementById('card');
+
+let validCashCard = 0;
+cash.addEventListener('change', cashChecked);
+cash.addEventListener('blur', cashChecked);
+function cashChecked() {
+  if (cash.checked) {
+    card.checked = false;
+    validCashCard = 1;
+    delive();
+    errRadio.style.display = 'none';
+    card.style.borderColor = 'var(--color-blacky)';
+    card.parentNode.style.color = 'var(--color-black)';
+    cash.parentNode.style.color = 'var(--color-black)';
+    cash.style.borderColor = 'var(--color-blacky)';
+  } else {
+    validCashCard = 0;
+    delive();
+  }
+}
+
+card.addEventListener('change', cardChecked);
+card.addEventListener('blur', cardCheckedBlur);
+function cardChecked() {
+  if (card.checked) {
+    cash.checked = false;
+    validCashCard = 1;
+    delive();
+    errRadio.style.display = 'none';
+    card.style.borderColor = 'var(--color-blacky)';
+    card.parentNode.style.color = 'var(--color-black)';
+    cash.parentNode.style.color = 'var(--color-black)';
+    cash.style.borderColor = 'var(--color-blacky)';
+  } else {
+    validCashCard = 0;
+    delive();
+  }
+}
+
+card.addEventListener('blur', cardCheckedBlur);
+function cardCheckedBlur() {
+  if (card.checked == false & cash.checked == false) {
+    errRadio.style.display = 'block';
+    card.style.borderColor = 'var(--color-red)';
+    card.parentNode.style.color = 'var(--color-red)';
+    cash.parentNode.style.color = 'var(--color-red)';
+    cash.style.borderColor = 'var(--color-red)';
+  }
+  if (card.checked) {
+    cash.checked = false;
+    validCashCard = 1;
+    delive();
+    errRadio.style.display = 'none';
+  } else {
+    validCashCard = 0;
+    delive();
+  }
+}
+
 function delive() {
-  if (validCheck == 1 & validFlat == 1 & validNumber == 1 & validStreet == 1 & validDate == 1 & validLast == 1 & validFirst == 1) {
+  if (validCheck == 1 & validFlat == 1 & validNumber == 1 & validStreet == 1 & validDate == 1 & validLast == 1 & validFirst == 1 & validCashCard == 1) {
     btn.disabled = false;
   } else {
     btn.disabled = true;
