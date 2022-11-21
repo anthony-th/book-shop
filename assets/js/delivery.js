@@ -18,7 +18,7 @@ const errHouse = document.getElementById('errHouse');
 const flatnumber = document.getElementById('flatnumber');
 const labelFlatnumber = document.getElementById('labelFlatnumber');
 const errFlatnumber = document.getElementById('errFlatnumber');
-const form = document.querySelector('form');
+const errRadio = document.getElementById('errRadio');
 
 firstName.addEventListener('change', firstNameChange);
 firstName.addEventListener('input', inputString);
@@ -34,8 +34,21 @@ firstName.addEventListener('blur', firstNameBlur);
 lastName.addEventListener('blur', lastNameBlur);
 date.addEventListener('blur', dateBlur);
 street.addEventListener('blur', streetBlur);
+street.addEventListener('input', streetInput);
 numberHouse.addEventListener('blur', numberBlur);
 flatnumber.addEventListener('blur', flatnumberBlur);
+
+let notToday = new Date().toISOString().split('T')[0];
+date.min = notToday;
+
+function streetInput() {
+  if (this.value.charAt(0) === " ") {
+    this.value = this.value.slice(1);
+  }
+  if (this.value.charAt(0) === "-") {
+    this.value = this.value.slice(1);
+  }
+}
 
 function inputString() {
   this.value = this.value.replace(/\s+|\d/g, '');
@@ -52,6 +65,10 @@ function flatnumberInput() {
   }
 
   if (flatnumber.value.charAt(0) === "-") {
+    flatnumber.value = flatnumber.value.slice(1);
+  }
+
+  if (flatnumber.value.charAt(0) === " ") {
     flatnumber.value = flatnumber.value.slice(1);
   }
   this.value = this.value.replace(/[a-zA-Zа-яА-Я]+/g, '');
@@ -273,9 +290,9 @@ function flatnumberBlur() {
 
 let validCheck = 1;
 let countR = 0;
-const radio = document.querySelectorAll('input[type=checkbox');
+const checkboxEl = document.querySelectorAll('input[type=checkbox');
 const errCheckbox = document.getElementById('errCheckbox');
-function inputRadio() {
+function inputCheckbox() {
   validCheck == 1;
   if (this.checked) {
     countR = countR + 1;
@@ -292,8 +309,8 @@ function inputRadio() {
     delive();
   }
 }
-radio.forEach(Element => {
-  Element.addEventListener('input', inputRadio);
+checkboxEl.forEach(Element => {
+  Element.addEventListener('input', inputCheckbox);
 })
 
 const btn = document.querySelector('button[type=submit]');
@@ -303,8 +320,79 @@ let modalEnd = document.querySelector('.modal-end');
 let header = document.querySelector('.header');
 let footer = document.querySelector('.footer');
 
+let cash = document.getElementById('cash');
+let card = document.getElementById('card');
+
+let validCashCard = 0;
+cash.addEventListener('change', cashChecked);
+cash.addEventListener('blur', cashChecked);
+function cashChecked() {
+  if (cash.checked) {
+    card.checked = false;
+    validCashCard = 1;
+    delive();
+    errRadio.style.display = 'none';
+    card.style.borderColor = 'var(--color-blacky)';
+    card.parentNode.style.color = 'var(--color-black)';
+    cash.parentNode.style.color = 'var(--color-black)';
+    cash.style.borderColor = 'var(--color-blacky)';
+  } else {
+    validCashCard = 0;
+    delive();
+  }
+}
+
+card.addEventListener('change', cardChecked);
+function cardChecked() {
+  if (card.checked) {
+    cash.checked = false;
+    validCashCard = 1;
+    delive();
+    errRadio.style.display = 'none';
+    card.style.borderColor = 'var(--color-blacky)';
+    card.parentNode.style.color = 'var(--color-black)';
+    cash.parentNode.style.color = 'var(--color-black)';
+    cash.style.borderColor = 'var(--color-blacky)';
+  } else {
+    validCashCard = 0;
+    delive();
+  }
+}
+
+card.addEventListener('blur', cardCheckedBlur);
+function cardCheckedBlur() {
+  if (card.checked == false & cash.checked == false) {
+    errRadio.style.display = 'block';
+    card.style.borderColor = 'var(--color-red)';
+    card.parentNode.style.color = 'var(--color-red)';
+    cash.parentNode.style.color = 'var(--color-red)';
+    cash.style.borderColor = 'var(--color-red)';
+  }
+  if (card.checked) {
+    cash.checked = false;
+    validCashCard = 1;
+    delive();
+    errRadio.style.display = 'none';
+  } else {
+    validCashCard = 0;
+    delive();
+  }
+}
+
+const radioBlock = document.querySelector('.radio-block');
+radioBlock.addEventListener('focusout', focusOut);
+function focusOut() {
+  if (card.checked == false & cash.checked == false) {
+    errRadio.style.display = 'block';
+    card.style.borderColor = 'var(--color-red)';
+    card.parentNode.style.color = 'var(--color-red)';
+    cash.parentNode.style.color = 'var(--color-red)';
+    cash.style.borderColor = 'var(--color-red)';
+  }
+}
+
 function delive() {
-  if (validCheck == 1 & validFlat == 1 & validNumber == 1 & validStreet == 1 & validDate == 1 & validLast == 1 & validFirst == 1) {
+  if (validCheck == 1 & validFlat == 1 & validNumber == 1 & validStreet == 1 & validDate == 1 & validLast == 1 & validFirst == 1 & validCashCard == 1) {
     btn.disabled = false;
   } else {
     btn.disabled = true;
@@ -313,13 +401,15 @@ function delive() {
 }
 
 btn.addEventListener('click', () => {
-  if (btn.disabled = true) {
+  if (btn.disabled == true) {
+    modalEnd.style.display = 'none';
+    header.style.display = 'block';
+    footer.style.display = 'block';
+  } else {
     client.innerText = `${firstName.value}`+` `+`${lastName.value}`;
     address.innerText = `${street.value}`+` street` + ` ` + ` ${numberHouse.value} \\` + ` ${flatnumber.value}`;
     modalEnd.style.display = 'flex';
-    header.style.visibility = 'hidden';
-    footer.style.visibility = 'hidden';
-  } else {
-    modalEnd.style.display = 'none';
+    header.style.display = 'none';
+    footer.style.display = 'none';
   }
-})
+});

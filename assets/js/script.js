@@ -63,15 +63,11 @@ titleMain.className = 'title';
 titleMain.innerText = 'Book-Shop';
 let logoMain = document.createElement('div');
 logoMain.className = 'logo';
-let logo = document.createElement('img');
-logo.className = 'logo-img user-select';
-logo.src = './assets/img/book.jpg';
 
 let fragmentHeader = new DocumentFragment();
 fragmentHeader.appendChild(headerContainer);
 headerContainer.appendChild(logoMain);
 logoMain.appendChild(titleMain);
-logoMain.appendChild(logo);
 header.appendChild(fragmentHeader);
 
 let copyright = document.createElement('div');
