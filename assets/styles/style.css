@@ -606,7 +606,7 @@
 }
 .section__delivery .delivery__form .button-complete:disabled {
   background: var(--color-blacky);
-  cursor: default;
+  cursor: not-allowed;
 }
 
 .invalid {
