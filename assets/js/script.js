@@ -365,6 +365,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         imageCancel.src = './assets/img/close48.png';
         rootBlock.style.overflow = 'hidden';
         imageCancel.addEventListener('click', closeModal);
+        shadow.addEventListener('click', closeModal);
         function closeModal() {
           shadow.remove();
           modalWindow.remove();
