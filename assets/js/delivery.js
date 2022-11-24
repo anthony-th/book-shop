@@ -41,6 +41,10 @@ flatnumber.addEventListener('blur', flatnumberBlur);
 let notToday = new Date().toISOString().split('T')[0];
 date.min = notToday;
 
+function inputString() {
+  this.value = this.value.replace(/[^a-zа-яё]/gi, '');
+}
+
 function streetInput() {
   if (this.value.charAt(0) === " ") {
     this.value = this.value.slice(1);
@@ -50,9 +54,6 @@ function streetInput() {
   }
 }
 
-function inputString() {
-  this.value = this.value.replace(/\s+|\d/g, '');
-}
 function inputNumbers() {
   if (this.value.charAt(0) === '0') {
     this.value = this.value.substring(1);
