@@ -52,6 +52,7 @@ function streetInput() {
   if (this.value.charAt(0) === "-") {
     this.value = this.value.slice(1);
   }
+  this.value = this.value.replace(/[^a-zа-яё0-9\s]/gi, '');
 }
 
 function inputNumbers() {
