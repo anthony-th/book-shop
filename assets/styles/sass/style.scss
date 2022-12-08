@@ -1,11 +1,11 @@
-@import './constants.scss';
-@import './fonts.scss';
-@import './header.scss';
-@import './section-catalog.scss';
-@import './section-order.scss';
-@import './section-delivery.scss';
-@import './modal.scss';
-@import './footer.scss';
+@import './config/_constants';
+@import './config/_fonts';
+@import './layout/_header';
+@import './pages/_section-catalog';
+@import './pages/_section-order';
+@import './pages/_section-delivery';
+@import './modules/_modal';
+@import './layout/_footer';
 
 * {
   margin: 0;

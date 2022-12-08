@@ -90,7 +90,7 @@ copyright.appendChild(copyrightLink);
 copyright.appendChild(copyrightMark);
 footer.appendChild(fragmentFooter);
 
-fetch('./assets/js/books.json', { mode: 'no-cors' })
+fetch('./assets/json/books.json', { mode: 'no-cors' })
   .then(response => {
     return response.json();
   })
