@@ -90,7 +90,7 @@ copyright.appendChild(copyrightLink);
 copyright.appendChild(copyrightMark);
 footer.appendChild(fragmentFooter);
 
-fetch('./assets/js/books.json', { mode: 'no-cors' })
+fetch('./assets/json/books.json', { mode: 'no-cors' })
   .then(response => {
     return response.json();
   })
@@ -365,6 +365,7 @@ fetch('./assets/js/books.json', { mode: 'no-cors' })
         imageCancel.src = './assets/img/close48.png';
         rootBlock.style.overflow = 'hidden';
         imageCancel.addEventListener('click', closeModal);
+        shadow.addEventListener('click', closeModal);
         function closeModal() {
           shadow.remove();
           modalWindow.remove();
