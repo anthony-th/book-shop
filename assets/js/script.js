@@ -203,11 +203,11 @@ fetch('./assets/json/books.json', { mode: 'no-cors' })
       }
       function updatePrice() {
         let count = 0;
-        const carts = cardsOrder.querySelectorAll('.card');
-        carts.forEach(function(element) {
-          const priceElement = element.querySelector('.card-price');
-          const inputsElement = element.querySelector('.orders');
-          const summ = inputsElement.value * Number(priceElement.innerText.slice(1));
+        const carts = cardsOrder.childNodes;
+        carts.forEach((element) => {
+          const priceElement = element.children[1].children[2].children[1].innerText.slice(1);
+          const inputsElement = element.lastChild.children[2].children[0].children[1].value;
+          const summ = inputsElement * Number(priceElement);
           count += summ;
         })
         total.innerText = `Total: ${parseFloat(count).toFixed(2)}$`;
