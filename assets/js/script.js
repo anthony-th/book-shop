@@ -1,6 +1,6 @@
 'use strict';
 
-const rootBlock = document.querySelector('body');
+const rootBlock = document.body;
 const header = document.createElement('header');
 const main = document.createElement('main');
 const sectionFirst = document.createElement('section');
