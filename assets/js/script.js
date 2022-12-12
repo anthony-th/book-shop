@@ -307,8 +307,8 @@ fetch('./assets/json/books.json', { mode: 'no-cors' })
         updatePrice();
 
         fullTrash.addEventListener('click', closeTrash);
-        function closeTrash(e) {
-          e.target.parentNode.parentNode.remove();
+        function closeTrash() {
+          this.parentNode.parentNode.remove();
           updatePrice();
           inputOrder.value = 0;
           setTimeout(function() {
