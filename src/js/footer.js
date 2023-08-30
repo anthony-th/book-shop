@@ -1,26 +1,44 @@
-export const createFooter = () => {
-  const footer = document.createElement("footer");
-  footer.classList.add("footer");
+class TextInfo {
+  constructor(text) {
+    this.element = document.createElement("span");
+    this.element.textContent = text;
+  }
 
-  let copyright = document.createElement("div");
-  copyright.className = "copyright";
-  let copyrightText = document.createElement("p");
-  copyrightText.className = "copyright__text";
-  copyrightText.innerText = `Copyright`;
-  let copyrightLink = document.createElement("a");
-  copyrightLink.className = "link";
-  copyrightLink.href = "https://github.com/anthony-th";
-  copyrightLink.innerText = "Anthony Th";
-  let copyrightMark = document.createElement("p");
-  copyrightMark.className = "copyright__text";
-  copyrightMark.innerText = `© 2022`;
+  getElement() {
+    return this.element;
+  }
+}
 
-  let fragmentFooter = new DocumentFragment();
-  fragmentFooter.appendChild(copyright);
-  copyright.appendChild(copyrightText);
-  copyright.appendChild(copyrightLink);
-  copyright.appendChild(copyrightMark);
-  footer.appendChild(fragmentFooter);
+class AuthorLink {
+  constructor(authorName, authorLink) {
+    this.element = document.createElement("a");
+    this.element.className = "author-link";
+    this.element.textContent = authorName;
+    this.element.href = authorLink;
+  }
 
-  return footer;
-};
+  getElement() {
+    return this.element;
+  }
+}
+
+class Footer {
+  constructor() {
+    this.footerElement = document.createElement("footer");
+    this.footerElement.className = "footer";
+    
+    this.copyright = new TextInfo("Copyright");
+    this.author = new AuthorLink("Anthony-Th", "https://github.com/anthony-th");
+    this.year = new TextInfo("© 2022");
+
+    this.footerElement.appendChild(this.copyright.getElement());
+    this.footerElement.appendChild(this.author.getElement());
+    this.footerElement.appendChild(this.year.getElement());
+  }
+
+  getElement() {
+    return this.footerElement;
+  }
+}
+
+export { Footer };

@@ -1,19 +1,23 @@
 import './styles/main.scss';
-import { createMain } from './js/main';
-import { createFooter } from './js/footer';
 
 import { Header } from './js/header';
+import { Main } from './js/main';
+import { Footer } from './js/footer';
 
 const body = document.body;
 
 const fragmentBody = new DocumentFragment();
 
 const headerInstance = new Header();
+const mainInstance = new Main();
+const footerInstance = new Footer();
+
 const headerElement = headerInstance.getElement();
+const mainElement = mainInstance.getElement();
+const footerElement = footerInstance.getElement();
+
 fragmentBody.appendChild(headerElement);
-
-fragmentBody.appendChild(createMain());
-fragmentBody.appendChild(createFooter());
-
+fragmentBody.appendChild(mainElement);
+fragmentBody.appendChild(footerElement);
 
 body.appendChild(fragmentBody);

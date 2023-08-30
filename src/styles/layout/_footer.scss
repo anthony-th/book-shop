@@ -1,0 +1,35 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  align-items: center;
+  gap: 5px; 
+  font-family: "Yesteryear";
+  color: $white;
+  opacity: 0.7;
+  font-size: 20px;
+  .author-link {
+    color: $white;
+    position: relative;
+    &:hover {
+      color: $orange;
+    }
+    &:hover::after {
+      width: 93%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      height: 2px;
+      background-color: $orange;
+      width: 0;
+      left: 50%;
+      bottom: -5px;
+      transform: translateX(-50%);
+      transition: 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55) all;
+    }
+    &:visited {
+      color: $white;
+    }
+  }
+}

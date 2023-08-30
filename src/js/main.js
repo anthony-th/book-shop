@@ -1,12 +1,15 @@
-import { catalog } from "./catalog";
+class Main {
+  constructor() {
+    this.mainElement = document.createElement("main");
+    this.mainElement.classList.add("main");
 
-export const createMain = () => {
-  const main = document.createElement('main');
-  main.className = 'main main-page';
+    // this.mainElement.appendChild();
+  }
 
 
-  main.append(catalog);
-  main.append();
+  getElement() {
+    return this.mainElement;
+  }
+}
 
-  return main;
-};
+export { Main };
