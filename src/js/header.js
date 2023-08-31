@@ -1,4 +1,4 @@
-import cartIconSrc from '../assets/img/icon-shopping-cart.webp';
+import cartIconSrc from "../assets/img/icon-shopping-cart.webp";
 
 class Title {
   constructor(text) {
@@ -26,19 +26,52 @@ class Logo {
 }
 
 class Cart {
-  constructor(iconSrc, cartCount) {
+  constructor(iconSrc, itemCount, totalPrice) {
     this.element = document.createElement("div");
     this.element.className = "cart-block";
-    
+    this.element.title = "click to buy";
+
     this.cartIcon = new CartIcon(iconSrc);
-    this.cartCount = new CartCount(cartCount);
-    
+    this.containerElement = document.createElement("div");
+    this.containerElement.className = "cart-info";
+
+    this.itemCountElement = new CartCount(itemCount);
+    this.totalPriceElement = new TotalPrice(totalPrice);
+
+    this.containerElement.appendChild(this.itemCountElement.getElement());
+    this.containerElement.appendChild(this.totalPriceElement.getElement());
+
     this.element.appendChild(this.cartIcon.getElement());
-    this.element.appendChild(this.cartCount.getElement());
+    this.element.appendChild(this.containerElement);
   }
 
   getElement() {
     return this.element;
+  }
+
+  updateItemCount(count) {
+    this.itemCountElement.updateCount(count);
+  }
+
+  updateTotalPrice(price) {
+    this.totalPriceElement.updatePrice(price);
+  }
+}
+
+class TotalPrice {
+  constructor(price) {
+    this.element = document.createElement("div");
+    this.element.className = "total-price";
+    this.element.textContent = `subtotal: $${price}`;
+    this.updatePrice(price);
+  }
+
+  getElement() {
+    return this.element;
+  }
+
+  updatePrice(price) {
+    this.element.textContent = `subtotal: $${price}`;
   }
 }
 
@@ -47,6 +80,7 @@ class CartIcon {
     this.element = document.createElement("img");
     this.element.className = "cart";
     this.element.src = iconSrc;
+    this.element.alt = "";
   }
 
   getElement() {
@@ -58,7 +92,7 @@ class CartCount {
   constructor(count) {
     this.element = document.createElement("div");
     this.element.className = "cart-count";
-    this.element.textContent = count;
+    this.element.textContent = `total: ${count} item`;
   }
 
   getElement() {
@@ -66,7 +100,7 @@ class CartCount {
   }
 
   updateCount(count) {
-    this.element.textContent = count;
+    this.element.textContent = `total: ${count} item`;
   }
 }
 
@@ -76,7 +110,7 @@ class Header {
     this.headerElement.classList.add("header");
 
     this.logo = new Logo("Book-Shop");
-    this.cart = new Cart(cartIconSrc, 0);
+    this.cart = new Cart(cartIconSrc, 0, 2);
 
     this.headerElement.appendChild(this.logo.getElement());
     this.headerElement.appendChild(this.cart.getElement());

@@ -12,29 +12,29 @@
     font-family: "BukaLoker-X3LDK";
   }
   .cart-block {
-    width: 45px;
-    height: 45px;
+    width: 170px;
+    height: 60px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     position: relative;
-    padding: 3px;
-    border-radius: 3px;
+    padding: 3px 5px 3px 3px;
+    border-radius: 7px;
     cursor: pointer;
     &:hover {
-      background-color: rgb(51, 48, 43);
+      background-color: rgba(51, 48, 43, 0.7);
     }
     .cart {
-      width: 30px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
     }
-    .cart-count {
-      position: absolute;
-      top: 0;
-      right: 0;
+    .cart-info {
+      display: flex;
+      flex-direction: column;
       color: $white;
-      background-color: rgb(51, 48, 43);
-      padding: 1px 3px;
-      border-radius: 50%;
+      font-family: Forum;
+      font-size: 18px;
     }
   }
 }
