@@ -1,11 +1,13 @@
+import { Catalog } from './catalog.js';
+
 class Main {
   constructor() {
     this.mainElement = document.createElement("main");
     this.mainElement.classList.add("main");
 
-    // this.mainElement.appendChild();
+    const catalog = new Catalog();
+    this.mainElement.appendChild(catalog.getElement());
   }
-
 
   getElement() {
     return this.mainElement;

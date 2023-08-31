@@ -1,0 +1,9 @@
+.main {
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+  .section {
+    background-color: $gray;
+    padding: 20px;
+  }
+}
