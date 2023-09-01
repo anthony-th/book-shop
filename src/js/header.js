@@ -28,7 +28,7 @@ class Logo {
 class Cart {
   constructor(iconSrc, itemCount, totalPrice) {
     this.element = document.createElement("div");
-    this.element.className = "cart-block";
+    this.element.className = "cart-block cursor-pointer";
     this.element.title = "click to buy";
 
     this.cartIcon = new CartIcon(iconSrc);
@@ -109,11 +109,15 @@ class Header {
     this.headerElement = document.createElement("header");
     this.headerElement.classList.add("header");
 
+    this.containerElement = document.createElement("div");
+    this.containerElement.className ="container header__container";
+    this.headerElement.appendChild(this.containerElement);
+
     this.logo = new Logo("Book-Shop");
     this.cart = new Cart(cartIconSrc, 0, 2);
 
-    this.headerElement.appendChild(this.logo.getElement());
-    this.headerElement.appendChild(this.cart.getElement());
+    this.containerElement.appendChild(this.logo.getElement());
+    this.containerElement.appendChild(this.cart.getElement());
   }
 
   updateCartCount(count) {

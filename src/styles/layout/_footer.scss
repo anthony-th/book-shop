@@ -13,9 +13,9 @@
     position: relative;
     &:hover {
       color: $orange;
-    }
-    &:hover::after {
-      width: 93%;
+      &::after {
+        width: 93%;
+      }
     }
     &::after {
       content: "";

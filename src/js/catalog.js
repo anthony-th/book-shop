@@ -1,4 +1,5 @@
 import booksData from '../data/books.json';
+import cartIcon from '../assets/img/icon-shopping-cart.webp'
 
 class Catalog {
   constructor() {
@@ -13,24 +14,39 @@ class Catalog {
     bookElement.classList.add('book');
     const titleElement = document.createElement('h2');
     titleElement.textContent = book.title;
+    titleElement.classList.add('book-title');
 
     const authorElement = document.createElement('p');
-    authorElement.textContent = `Author: ${book.author}`;
+    authorElement.textContent = book.author;
+    authorElement.classList.add('book-author');
 
     const imgElement = document.createElement('img');
+    imgElement.className = 'book-image';
     imgElement.src = book.imageLink;
 
-    const descriptionElement = document.createElement('p');
-    descriptionElement.textContent = book.description;
+    const priceContainer = document.createElement('div');
+    priceContainer.classList.add('book-price-container', 'cursor-pointer', 'user-select-none');
+
+    const priceCartIcon = document.createElement('img')
+    priceCartIcon.src = cartIcon;
+    priceCartIcon.className = 'price-icon';
+
+    const aboutBook  = document.createElement('a');
+    aboutBook.classList.add('about-book', 'cursor-pointer', 'user-select-none');
+    aboutBook.textContent = 'about book';
 
     const priceElement = document.createElement('p');
-    priceElement.textContent = `Price: $${book.price}`;
+    priceElement.textContent = `$${book.price}`;
+    priceElement.classList.add('book-price');
 
-    bookElement.appendChild(titleElement);
-    bookElement.appendChild(authorElement);
+    priceContainer.appendChild(priceCartIcon);
+    priceContainer.appendChild(priceElement);
+
     bookElement.appendChild(imgElement);
-    bookElement.appendChild(descriptionElement);
-    bookElement.appendChild(priceElement);
+    bookElement.appendChild(authorElement);
+    bookElement.appendChild(titleElement);
+    bookElement.appendChild(aboutBook);
+    bookElement.appendChild(priceContainer);
 
     this.catalogSection.appendChild(bookElement);
   }
