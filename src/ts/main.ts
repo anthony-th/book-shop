@@ -1,6 +1,8 @@
-import { Catalog } from './catalog.js';
+import { Catalog } from './catalog';
 
 class Main {
+  private mainElement: HTMLElement;
+
   constructor() {
     this.mainElement = document.createElement("main");
     this.mainElement.classList.add("main");
@@ -9,7 +11,7 @@ class Main {
     this.mainElement.appendChild(catalog.getElement());
   }
 
-  getElement() {
+  getElement(): HTMLElement {
     return this.mainElement;
   }
 }

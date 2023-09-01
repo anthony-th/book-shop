@@ -1,18 +1,25 @@
-import { Book } from "./books.js";
+import { Book } from "./books";
 import booksData from "../data/books.json";
-import cartIcon from "../assets/img/icon-shopping-cart.webp";
+
+interface BookData {
+  title: string;
+  author: string;
+  imageLink: string;
+  price: number;
+}
 
 class Catalog {
+  private catalogSection: HTMLElement;
+  private books: Book[] = [];
+
   constructor() {
     this.catalogSection = document.createElement("section");
     this.catalogSection.classList.add("section");
 
-    this.books = [];
-
-    this.addBooksFromData(booksData);
+    this.addBooksFromData(booksData as BookData[]);
   }
 
-  addBookToCatalog(book) {
+  private addBookToCatalog(book: Book): void {
     const bookElement = document.createElement("div");
     bookElement.classList.add("book");
 
@@ -36,7 +43,7 @@ class Catalog {
     );
 
     const priceCartIcon = document.createElement("img");
-    priceCartIcon.src = cartIcon;
+    priceCartIcon.src = "../assets/img/icon-shopping-cart.webp";
     priceCartIcon.className = "price-icon";
 
     const aboutBook = document.createElement("a");
@@ -59,7 +66,7 @@ class Catalog {
     this.catalogSection.appendChild(bookElement);
   }
 
-  addBooksFromData(data) {
+  private addBooksFromData(data: BookData[]): void {
     data.forEach((bookData) => {
       const book = new Book(
         bookData.title,
@@ -72,7 +79,7 @@ class Catalog {
     });
   }
 
-  getElement() {
+  public getElement(): HTMLElement {
     return this.catalogSection;
   }
 }

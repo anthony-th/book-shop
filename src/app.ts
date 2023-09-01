@@ -1,8 +1,8 @@
 import './styles/main.scss';
 
-import { Header } from './js/header';
-import { Main } from './js/main';
-import { Footer } from './js/footer';
+import { Header } from './ts/header';
+import { Main } from './ts/main';
+import { Footer } from './ts/footer';
 
 const body = document.body;
 

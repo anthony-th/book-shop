@@ -1,5 +1,10 @@
 class Book {
-  constructor(title, author, imageLink, price) {
+  title: string;
+  author: string;
+  imageLink: string;
+  price: number;
+
+  constructor(title: string, author: string, imageLink: string, price: number) {
     if (!title || !author || !imageLink || !price) {
       throw new Error(
         "All required properties (title, author, imageLink, and price) must be provided."
@@ -12,7 +17,7 @@ class Book {
     this.price = price;
   }
 
-  getFormattedPrice() {
+  getFormattedPrice(): string {
     return `$${this.price}`;
   }
 }

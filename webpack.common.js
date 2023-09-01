@@ -6,13 +6,21 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "src", "app.js"),
+  entry: path.resolve(__dirname, "src", "app.ts"),
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.[contenthash].js",
   },
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx'],
+  },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },   
       {
         test: /\.m?js$/i,
         exclude: /(node_modules|bower_components)/,
@@ -58,7 +66,7 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
-        { from: "src/assets/img/books", to: "assets/img/books" },
+        { from: "src/assets/img/", to: "assets/img/" },
       ],
     }),
     new HtmlWebpackPlugin({
