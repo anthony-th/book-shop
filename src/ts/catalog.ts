@@ -20,16 +20,20 @@ class Catalog {
     const titleElement = document.createElement("h2");
     titleElement.textContent = book.title;
     titleElement.classList.add("book-title");
+    titleElement.title = book.title;
 
     const authorElement = document.createElement("p");
     authorElement.textContent = book.author;
     authorElement.classList.add("book-author");
+    authorElement.title = book.author;
 
     const imgElement = document.createElement("img");
     imgElement.className = "book-image";
     imgElement.src = book.imageLink;
+    imgElement.title = book.author + `\n` + book.title;
 
     const priceContainer = document.createElement("div");
+    priceContainer.title = "click to buy";
     priceContainer.classList.add(
       "book-price-container",
       "cursor-pointer",
