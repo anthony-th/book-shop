@@ -1,8 +1,8 @@
 module.exports = {
-  "root": true,
   "env": {
+    "es6": true,
     "browser": true,
-    "es2021": true
+    "node": true
   },
   "extends": [
     "airbnb-typescript/base",
@@ -11,16 +11,18 @@ module.exports = {
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": [
+      "tsconfig.json"
+    ],
   },
   "plugins": [
     "import",
     "@typescript-eslint"
   ],
   "rules": {
+    "no-debugger": "off",
+    "no-console": 0,
+    "class-methods-use-this": "off",
     "@typescript-eslint/no-explicit-any": 2
-  },
-  "settings": {
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
   },
 }

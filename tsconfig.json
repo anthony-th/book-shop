@@ -1,21 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "allowJs": true,
-    "checkJs": false,
-    "removeComments": true,
-    "downlevelIteration": true,
+    "target": "es5",
+    "module": "es2015",
+    "sourceMap": true,
     "strict": true,
     "noImplicitAny": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "experimentalDecorators": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "rootDir": "./src",
   },
-  "exclude": ["node_modules", "/"],
-  "include": ["src/**/*"],
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"],
 }

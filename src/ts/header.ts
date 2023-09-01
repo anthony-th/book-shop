@@ -2,8 +2,8 @@ class Title {
   element: HTMLHeadingElement;
 
   constructor(text: string) {
-    this.element = document.createElement("h1");
-    this.element.className = "title";
+    this.element = document.createElement('h1');
+    this.element.className = 'title';
     this.element.innerText = text;
   }
 
@@ -14,11 +14,12 @@ class Title {
 
 class Logo {
   element: HTMLDivElement;
+
   title: Title;
 
   constructor(titleText: string) {
-    this.element = document.createElement("div");
-    this.element.className = "logo";
+    this.element = document.createElement('div');
+    this.element.className = 'logo';
     this.title = new Title(titleText);
     this.element.appendChild(this.title.getElement());
   }
@@ -32,10 +33,10 @@ class CartIcon {
   element: HTMLImageElement;
 
   constructor(iconSrc: string) {
-    this.element = document.createElement("img");
-    this.element.className = "cart";
+    this.element = document.createElement('img');
+    this.element.className = 'cart';
     this.element.src = iconSrc;
-    this.element.alt = "";
+    this.element.alt = '';
   }
 
   getElement(): HTMLImageElement {
@@ -47,8 +48,8 @@ class CartCount {
   element: HTMLDivElement;
 
   constructor(count: number) {
-    this.element = document.createElement("div");
-    this.element.className = "cart-count";
+    this.element = document.createElement('div');
+    this.element.className = 'cart-count';
     this.element.textContent = `total: ${count} item`;
   }
 
@@ -65,8 +66,8 @@ class TotalPrice {
   element: HTMLDivElement;
 
   constructor(price: number) {
-    this.element = document.createElement("div");
-    this.element.className = "total-price";
+    this.element = document.createElement('div');
+    this.element.className = 'total-price';
     this.element.textContent = `subtotal: $${price}`;
     this.updatePrice(price);
   }
@@ -82,19 +83,23 @@ class TotalPrice {
 
 class Cart {
   element: HTMLDivElement;
+
   cartIcon: CartIcon;
+
   containerElement: HTMLDivElement;
+
   itemCountElement: CartCount;
+
   totalPriceElement: TotalPrice;
 
   constructor(iconSrc: string, itemCount: number, totalPrice: number) {
-    this.element = document.createElement("div");
-    this.element.className = "cart-block cursor-pointer";
-    this.element.title = "click to buy";
+    this.element = document.createElement('div');
+    this.element.className = 'cart-block cursor-pointer';
+    this.element.title = 'click to buy';
 
     this.cartIcon = new CartIcon(iconSrc);
-    this.containerElement = document.createElement("div");
-    this.containerElement.className = "cart-info";
+    this.containerElement = document.createElement('div');
+    this.containerElement.className = 'cart-info';
 
     this.itemCountElement = new CartCount(itemCount);
     this.totalPriceElement = new TotalPrice(totalPrice);
@@ -121,20 +126,23 @@ class Cart {
 
 class Header {
   headerElement: HTMLHeadElement;
+
   containerElement: HTMLDivElement;
+
   logo: Logo;
+  
   cart: Cart;
 
   constructor() {
-    this.headerElement = document.createElement("header");
-    this.headerElement.classList.add("header");
+    this.headerElement = document.createElement('header');
+    this.headerElement.classList.add('header');
 
-    this.containerElement = document.createElement("div");
-    this.containerElement.className = "container header__container";
+    this.containerElement = document.createElement('div');
+    this.containerElement.className = 'container header__container';
     this.headerElement.appendChild(this.containerElement);
 
-    this.logo = new Logo("Book-Shop");
-    this.cart = new Cart("../assets/img/icon-shopping-cart.webp", 0, 2);
+    this.logo = new Logo('Book-Shop');
+    this.cart = new Cart('../assets/img/icon-shopping-cart.webp', 0, 2);
 
     this.containerElement.appendChild(this.logo.getElement());
     this.containerElement.appendChild(this.cart.getElement());
