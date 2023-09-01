@@ -1,12 +1,6 @@
 import { Book } from "./books";
 import booksData from "../data/books.json";
-
-interface BookData {
-  title: string;
-  author: string;
-  imageLink: string;
-  price: number;
-}
+import { BookType } from "./types/types";
 
 class Catalog {
   private catalogSection: HTMLElement;
@@ -16,7 +10,7 @@ class Catalog {
     this.catalogSection = document.createElement("section");
     this.catalogSection.classList.add("section");
 
-    this.addBooksFromData(booksData as BookData[]);
+    this.addBooksFromData(booksData as BookType[]);
   }
 
   private addBookToCatalog(book: Book): void {
@@ -66,14 +60,9 @@ class Catalog {
     this.catalogSection.appendChild(bookElement);
   }
 
-  private addBooksFromData(data: BookData[]): void {
+  private addBooksFromData(data: BookType[]): void {
     data.forEach((bookData) => {
-      const book = new Book(
-        bookData.title,
-        bookData.author,
-        bookData.imageLink,
-        bookData.price
-      );
+      const book = new Book(bookData);
       this.books.push(book);
       this.addBookToCatalog(book);
     });
