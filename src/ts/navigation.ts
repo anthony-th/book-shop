@@ -34,6 +34,7 @@ class Navigation {
     link.classList.add('nav-link');
     link.textContent = text;
     link.href = path;
+    link.title = text;
   
     link.onclick = (e) => this.handleNavLinkClick(e, link, path);
 
