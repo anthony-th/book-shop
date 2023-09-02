@@ -10,7 +10,7 @@ class Routers {
   }
 
   route() {
-    const path = window.location.hash.substring(1);
+    const path = window.location.pathname;
     if (this.routes[path]) {
       this.routes[path]();
     } else {

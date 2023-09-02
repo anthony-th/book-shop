@@ -36,8 +36,8 @@ class Navigation {
     link.href = path;
   
     link.onclick = (e) => this.handleNavLinkClick(e, link, path);
-  
-    if (path === window.location.hash.substring(1)) {
+
+    if ((path === '/' && window.location.hash === '') || path === window.location.hash.substring(1)) {
       this.setActiveLink(link);
     }
   
