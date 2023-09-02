@@ -19,6 +19,10 @@
             color: $white;
           }
         }
+        .active {
+          border-bottom: 3px solid $red;
+          bottom: 3px;
+        } 
       }
     }
   }
