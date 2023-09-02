@@ -1,37 +1,55 @@
-.header__container {
-  display: flex;
-  padding: 20px;
-  max-width: 1280px;
-  margin: 0 auto;
-  justify-content: space-between;
-  align-items: center;
-  .title {
-    color: $white;
-    font-size: 60px;
-    font-family: "BukaLoker-X3LDK";
-  }
-  .cart-block {
-    width: 170px;
-    height: 60px;
+.header {
+  width: 100%;
+  .header__container {
     display: flex;
+    padding: 20px;
+    max-width: 1280px;
+    margin: 0 auto;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    position: relative;
-    padding: 3px 5px 3px 3px;
-    &:hover {
-      background-color: rgba(51, 48, 43, 0.7);
-    }
-    .cart {
-      width: 35px;
-      height: 35px;
-    }
-    .cart-info {
-      display: flex;
-      flex-direction: column;
+    .title {
       color: $white;
-      font-family: Forum;
-      font-size: 18px;
+      font-size: 60px;
+      font-family: "BukaLoker-X3LDK";
+      @media screen {
+        @media (max-width: $mobile-width) {
+          font-size: 42px;
+        }
+      }
+    }
+    .cart-block {
+      width: 170px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
+      padding: 3px 5px 3px 3px;
+      @media screen {
+        @media (max-width: $mobile-width) {
+          width: 90px;
+        }
+      }
+      &:hover {
+        background-color: rgba(51, 48, 43, 0.7);
+      }
+      .cart {
+        width: 35px;
+        height: 35px;
+      }
+      .cart-info {
+        display: flex;
+        flex-direction: column;
+        color: $white;
+        font-family: Forum;
+        font-size: 18px;
+        @media screen {
+          @media (max-width: $mobile-width) {
+            display: none;
+          }
+        }
+      }
     }
   }
 }

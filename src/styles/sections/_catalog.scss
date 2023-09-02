@@ -1,0 +1,102 @@
+.section {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: row;
+  gap: 20px;
+  @media screen {
+    @media (max-width: $desktop-width) {
+      grid-template-columns: repeat(4, 1fr); 
+      grid-template-rows: repeat(3, 1fr);
+    }
+    @media (max-width: $tablet-max-width) {
+      grid-template-columns: repeat(3, 1fr); 
+      grid-template-rows: repeat(3, 1fr);
+    }
+    @media (max-width: $tablet-min-width) {
+      grid-template-columns: repeat(2, 1fr); 
+      grid-template-rows: repeat(5, 1fr);
+    }
+    @media (max-width: $mobile-width) {
+      grid-template-columns: repeat(1, 1fr); 
+      grid-template-rows: repeat(10, 1fr);
+    }
+  }
+  .book {
+    position: relative;
+    width: 240px;
+    height: 390px;
+    padding: 12px 10px 15px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 2px solid rgba(41, 41, 41, 0.2);
+    &:hover {
+      scale: 1.01;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+    .book-image {
+      width: 190px;
+      min-height: 270px;
+      height: 270px;
+      position: absolute;
+      top: -14px;
+      left: 14px;
+      object-fit: cover;
+    }
+    .book-author {
+      margin-top: 247px;
+      font-size: 18px;
+      font-weight: 700;
+      font-family: Forum;
+      height: 2em;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      display: flex;
+      align-items: center;
+    }
+    .book-title {
+      font-size: 14px;
+      font-weight: 300;
+      max-height: 3em;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .about-book {
+      text-transform: uppercase;
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 18px;
+      width: max-content;
+    }
+    .book-price-container {
+      position: absolute;
+      right: 4%;
+      bottom: 2%;
+      width: 100px;
+      height: 30px;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-content: center;
+      background: $dark-grey;
+      border-radius: 2px;
+      color: $white;
+      font-weight: 500;
+      font-size: 20px;
+      font-family: Roboto;
+      &:hover {
+        background-color: $red;
+      }
+      .price-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

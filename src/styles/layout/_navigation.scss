@@ -1,0 +1,11 @@
+.nav {
+  font-family: "BukaLoker-X3LDK";
+  font-size: 32px;
+  .nav-list {
+    display: flex;
+    gap: 15px;
+    .list-item {
+      list-style-type: none;
+    }
+  }
+}

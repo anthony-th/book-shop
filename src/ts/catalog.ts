@@ -46,7 +46,7 @@ class Catalog {
     priceCartIcon.className = 'price-icon';
 
     const aboutBook = document.createElement('a');
-    aboutBook.classList.add('about-book', 'cursor-pointer', 'user-select-none');
+    aboutBook.classList.add('about-book', 'cursor-pointer', 'user-select-none', 'link-hover');
     aboutBook.textContent = 'about book';
 
     const priceElement = document.createElement('p');

@@ -7,13 +7,11 @@
 
 @import 'components/buttons';
 
-@import 'modifiers/modifiers';
-
 @import 'layout/header';
 @import 'layout/navigation';
 @import 'layout/main';
 @import 'layout/footer';
 
-@import 'sections/welcome';
-@import 'sections/about';
-@import 'sections/favorites';
+@import 'sections/catalog';
+
+@import 'modifiers/modifiers';
