@@ -31,6 +31,8 @@ class Main {
     });
 
     this.router.addRoute('/about', () => {
+      this.mainElement.innerHTML = '';
+      this.mainElement.appendChild(new Navigation(this.router).render());
       console.log('About Page');
     });
   }
