@@ -5,10 +5,15 @@ class Navigation {
 
   private navElement: HTMLElement;
 
+  private barElement: HTMLElement;
+
   constructor(router: Routers) {
     this.router = router;
     this.navElement = document.createElement('nav');
     this.navElement.classList.add('nav');
+    this.barElement = document.createElement('div');
+    this.barElement.classList.add('bar');
+    this.barElement.appendChild(this.navElement);
   }
 
   createNavList(): HTMLUListElement {
@@ -19,7 +24,7 @@ class Navigation {
 
   createNavLink(text: string, path: string): HTMLAnchorElement {
     const link = document.createElement('a');
-    link.classList.add('link-hover');
+    link.classList.add('nav-link');
     link.textContent = text;
     link.href = path;
     link.onclick = (e) => this.handleNavLinkClick(e, path);
@@ -50,7 +55,7 @@ class Navigation {
 
     this.navElement.appendChild(navList);
 
-    return this.navElement;
+    return this.barElement;
   }
 }
 

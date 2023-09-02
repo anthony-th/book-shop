@@ -1,11 +1,25 @@
-.nav {
-  font-family: "BukaLoker-X3LDK";
-  font-size: 32px;
-  .nav-list {
-    display: flex;
-    gap: 15px;
-    .list-item {
-      list-style-type: none;
+.bar {
+  width: 100%;
+  padding: 0 40px;
+  .nav {
+    font-family: Roboto;
+    font-size: 22px;
+    .nav-list {
+      display: flex;
+      gap: 15px;
+      .list-item {
+        list-style-type: none;
+        .nav-link {
+          color: $white;
+          position: relative;
+          &:hover {
+            color: $red;
+          }
+          &:visited {
+            color: $white;
+          }
+        }
+      }
     }
   }
 }
