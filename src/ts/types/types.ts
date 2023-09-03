@@ -1,6 +1,6 @@
 interface BookType {
   title: string;
-  author: any;
+  author: string;
   imageLink: string;
   price: number;
 }
