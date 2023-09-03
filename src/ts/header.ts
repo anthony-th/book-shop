@@ -149,7 +149,7 @@ class Header {
   
   cart: Cart;
 
-  Search: Search;
+  search: Search;
 
   constructor() {
     this.headerElement = document.createElement('header');
@@ -161,10 +161,10 @@ class Header {
 
     this.logo = new Logo('Book-Shop');
     this.cart = new Cart('../assets/img/icon-shopping-cart.webp', 0, 2);
-    this.Search = new Search();
+    this.search = new Search();
 
     this.containerElement.appendChild(this.logo.getElement());
-    this.containerElement.appendChild(this.Search.getElement());
+    this.containerElement.appendChild(this.search.getElement());
     this.containerElement.appendChild(this.cart.getElement());
   }
 
