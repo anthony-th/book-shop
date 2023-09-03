@@ -5,4 +5,8 @@ interface BookType {
   price: number;
 }
 
-export { BookType };
+interface Updatable {
+  update(value: number): void;
+}
+
+export { BookType, Updatable };

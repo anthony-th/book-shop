@@ -1,3 +1,5 @@
+import { Updatable } from './types/types';
+
 class Title {
   element: HTMLHeadingElement;
 
@@ -60,7 +62,7 @@ class CartIcon {
   }
 }
 
-class CartCount {
+class CartCount implements Updatable {
   element: HTMLDivElement;
 
   constructor(count: number) {
@@ -73,26 +75,26 @@ class CartCount {
     return this.element;
   }
 
-  updateCount(count: number): void {
+  update(count: number): void {
     this.element.textContent = `total: ${count} item`;
   }
 }
 
-class TotalPrice {
+class TotalPrice implements Updatable {
   element: HTMLDivElement;
 
   constructor(price: number) {
     this.element = document.createElement('div');
     this.element.className = 'total-price';
     this.element.textContent = `subtotal: $${price}`;
-    this.updatePrice(price);
+    this.update(price);
   }
 
   getElement(): HTMLDivElement {
     return this.element;
   }
 
-  updatePrice(price: number): void {
+  update(price: number): void {
     this.element.textContent = `subtotal: $${price}`;
   }
 }
@@ -132,11 +134,11 @@ class Cart {
   }
 
   updateItemCount(count: number): void {
-    this.itemCountElement.updateCount(count);
+    this.itemCountElement.update(count);
   }
 
   updateTotalPrice(price: number): void {
-    this.totalPriceElement.updatePrice(price);
+    this.totalPriceElement.update(price);
   }
 }
 
