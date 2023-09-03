@@ -1,6 +1,6 @@
-import { Book } from './books';
-import booksData from '../data/books.json';
-import { BookType } from './types/types';
+import { Book } from '../books';
+import booksData from '../../data/books.json';
+import { BookType } from '../types/types';
 
 class Catalog {
   private catalogSection: HTMLElement;
@@ -66,11 +66,15 @@ class Catalog {
   }
 
   private addBooksFromData(data: BookType[]): void {
-    data.forEach((bookData) => {
-      const book = new Book(bookData);
-      this.books.push(book);
-      this.addBookToCatalog(book);
-    });
+    try {
+      data.forEach((bookData) => {
+        const book = new Book(bookData);
+        this.books.push(book);
+        this.addBookToCatalog(book);
+      });
+    } catch (error) {
+      console.error('Ошибка при обработке данных книг:', error);
+    }
   }
 
   public getElement(): HTMLElement {

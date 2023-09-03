@@ -1,4 +1,4 @@
-import { Catalog } from './catalog';
+import { Catalog } from './pages/catalog';
 import { Routers } from './routes';
 import { Navigation } from './navigation';
 
