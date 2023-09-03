@@ -12,6 +12,22 @@ class Title {
   }
 }
 
+class Search {
+  element: HTMLInputElement;
+
+  constructor() {
+    this.element = document.createElement('input');
+    this.element.className = 'search-bar';
+    this.element.type = 'text';
+    this.element.placeholder = 'Search book...';
+    this.element.title = 'Search book...';
+  }
+
+  getElement(): HTMLInputElement {
+    return this.element;
+  }
+}
+
 class Logo {
   element: HTMLDivElement;
 
@@ -133,6 +149,8 @@ class Header {
   
   cart: Cart;
 
+  Search: Search;
+
   constructor() {
     this.headerElement = document.createElement('header');
     this.headerElement.classList.add('header');
@@ -143,8 +161,10 @@ class Header {
 
     this.logo = new Logo('Book-Shop');
     this.cart = new Cart('../assets/img/icon-shopping-cart.webp', 0, 2);
+    this.Search = new Search();
 
     this.containerElement.appendChild(this.logo.getElement());
+    this.containerElement.appendChild(this.Search.getElement());
     this.containerElement.appendChild(this.cart.getElement());
   }
 
