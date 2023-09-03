@@ -44,6 +44,7 @@ class Catalog {
     const priceCartIcon = document.createElement('img');
     priceCartIcon.src = '../assets/img/icon-shopping-cart.webp';
     priceCartIcon.className = 'price-icon';
+    priceCartIcon.alt = '';
 
     const aboutBook = document.createElement('a');
     aboutBook.classList.add('about-book', 'cursor-pointer', 'user-select-none', 'link-hover');
