@@ -1,6 +1,5 @@
 import { Catalog } from './pages/catalog';
 import { Routers } from './routes';
-import { Navigation } from './navigation';
 
 class Main {
   private mainElement: HTMLElement;
@@ -13,10 +12,7 @@ class Main {
 
     this.router = new Routers();
     this.setupRoutes();
-
-    const navigation = new Navigation(this.router);
-    this.mainElement.appendChild(navigation.render());
-
+    
     const catalog = new Catalog();
     this.mainElement.appendChild(catalog.getElement());
   }
@@ -30,14 +26,12 @@ class Main {
   setupRoutes() {
     this.router.addRoute('/', () => {
       this.clearMainElement();
-      this.mainElement.appendChild(new Navigation(this.router).render());
       this.mainElement.appendChild(new Catalog().getElement()); 
       console.log('Catalog Page');
     });
 
     this.router.addRoute('/about', () => {
       this.clearMainElement();
-      this.mainElement.appendChild(new Navigation(this.router).render());
       console.log('About Page');
     });
   }

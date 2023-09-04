@@ -1,4 +1,6 @@
 import { Updatable } from './types/types';
+import { Routers } from './routes';
+import { Navigation } from './navigation';
 
 class Title {
   element: HTMLHeadingElement;
@@ -153,6 +155,8 @@ class Header {
 
   search: Search;
 
+  private router: Routers;
+
   constructor() {
     this.headerElement = document.createElement('header');
     this.headerElement.classList.add('header');
@@ -164,6 +168,10 @@ class Header {
     this.logo = new Logo('Book-Shop');
     this.cart = new Cart('../assets/img/icon-shopping-cart.webp', 0, 2);
     this.search = new Search();
+    this.router = new Routers();
+
+    const navigation = new Navigation(this.router);
+    this.headerElement.appendChild(navigation.render());
 
     this.containerElement.appendChild(this.logo.getElement());
     this.containerElement.appendChild(this.search.getElement());
