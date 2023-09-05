@@ -3,7 +3,7 @@ import { Routers } from './routes';
 import { Navigation } from './navigation';
 
 class Title {
-  element: HTMLHeadingElement;
+  private element: HTMLHeadingElement;
 
   constructor(text: string) {
     this.element = document.createElement('h1');
@@ -19,20 +19,45 @@ class Title {
 class Search {
   element: HTMLDivElement;
 
-  constructor(imgSrc: string) {
+  imgElement: HTMLImageElement;
+
+  imgSrc: string;
+
+  imgCancelSrc: string;
+
+  isCancelled: boolean = false;
+
+  constructor(imgSrc: string, imgCancelSrc: string) {
     this.element = document.createElement('div');
     this.element.className = 'search-bar cursor-pointer';
 
-    const imgElement = document.createElement('img');
-    imgElement.src = imgSrc;
-    imgElement.title = 'Search book...';
-    imgElement.className = 'search-bar__image';
+    this.imgElement = document.createElement('img');
+    this.imgElement.src = imgSrc;
+    this.imgElement.title = 'Search book...';
+    this.imgElement.className = 'search-bar__image';
 
-    this.element.appendChild(imgElement);
+    this.imgSrc = imgSrc;
+    this.imgCancelSrc = imgCancelSrc;
+
+    this.imgElement.onclick = this.toggleImage.bind(this);
+
+    this.element.appendChild(this.imgElement);
   }
 
   getElement(): HTMLDivElement {
     return this.element;
+  }
+
+  toggleImage(): void {
+    if (this.isCancelled) {
+      this.imgElement.src = this.imgSrc;
+      this.imgElement.title = 'Search book...';
+    } else {
+      this.imgElement.src = this.imgCancelSrc;
+      this.imgElement.title = 'Close search';
+    }
+
+    this.isCancelled = !this.isCancelled;
   }
 }
 
@@ -54,7 +79,7 @@ class Logo {
 }
 
 class CartIcon {
-  element: HTMLImageElement;
+  private readonly element: HTMLImageElement;
 
   constructor(iconSrc: string) {
     this.element = document.createElement('img');
@@ -176,7 +201,7 @@ class Header {
 
     this.logo = new Logo('Book-Shop');
     this.cart = new Cart('../assets/img/icon-shopping-cart.webp', 0, 2);
-    this.search = new Search('../assets/img/search.webp');
+    this.search = new Search('../assets/img/search.webp', '../assets/img/cancel.webp');
     this.router = new Routers();
 
     const navigation = new Navigation(this.router);
