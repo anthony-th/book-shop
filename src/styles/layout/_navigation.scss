@@ -1,6 +1,6 @@
 .bar {
   width: 100%;
-  padding: 0 40px;
+  padding: 0 10px;
   .nav {
     font-family: Roboto;
     font-size: 22px;
@@ -11,18 +11,10 @@
         list-style-type: none;
         .nav-link {
           color: $white;
-          position: relative;
-          &:hover {
-            color: $red;
-          }
           &:visited {
             color: $white;
           }
         }
-        .active {
-          border-bottom: 3px solid $red;
-          bottom: 3px;
-        } 
       }
     }
   }

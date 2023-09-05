@@ -7,13 +7,6 @@ class Navigation {
 
   private barElement: HTMLElement;
   
-  private activeLink: HTMLAnchorElement | null = null;
-
-  private setActiveLink(link: HTMLAnchorElement) {
-    link.classList.add('active');
-    this.activeLink = link;
-  }
-
   constructor(router: Routers) {
     this.router = router;
     this.navElement = document.createElement('nav');
@@ -31,17 +24,13 @@ class Navigation {
 
   createNavLink(text: string, path: string): HTMLAnchorElement {
     const link = document.createElement('a');
-    link.classList.add('nav-link');
+    link.classList.add('nav-link', 'link-hover');
     link.textContent = text;
     link.href = path;
     link.title = text;
   
     link.onclick = (e) => this.handleNavLinkClick(e, link, path);
 
-    if ((path === '/' && window.location.hash === '') || path === window.location.hash.substring(1)) {
-      this.setActiveLink(link);
-    }
-  
     return link;
   }
   
@@ -49,12 +38,6 @@ class Navigation {
   handleNavLinkClick(e: MouseEvent, link: HTMLAnchorElement, path: string) {
     e.preventDefault();
     this.router.navigate(path);
-  
-    if (this.activeLink) {
-      this.activeLink.classList.remove('active');
-    }
-  
-    this.setActiveLink(link);
   }
   
 

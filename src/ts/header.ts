@@ -17,17 +17,21 @@ class Title {
 }
 
 class Search {
-  element: HTMLInputElement;
+  element: HTMLDivElement;
 
-  constructor() {
-    this.element = document.createElement('input');
-    this.element.className = 'search-bar';
-    this.element.type = 'text';
-    this.element.placeholder = 'Search book...';
-    this.element.title = 'Search book...';
+  constructor(imgSrc: string) {
+    this.element = document.createElement('div');
+    this.element.className = 'search-bar cursor-pointer';
+
+    const imgElement = document.createElement('img');
+    imgElement.src = imgSrc;
+    imgElement.title = 'Search book...';
+    imgElement.className = 'search-bar__image';
+
+    this.element.appendChild(imgElement);
   }
 
-  getElement(): HTMLInputElement {
+  getElement(): HTMLDivElement {
     return this.element;
   }
 }
@@ -149,6 +153,8 @@ class Header {
 
   containerElement: HTMLDivElement;
 
+  headerTabs: HTMLDivElement;
+
   logo: Logo;
   
   cart: Cart;
@@ -165,17 +171,21 @@ class Header {
     this.containerElement.className = 'container header__container';
     this.headerElement.appendChild(this.containerElement);
 
+    this.headerTabs = document.createElement('div');
+    this.headerTabs.className = 'header-tabs';
+
     this.logo = new Logo('Book-Shop');
     this.cart = new Cart('../assets/img/icon-shopping-cart.webp', 0, 2);
-    this.search = new Search();
+    this.search = new Search('../assets/img/search.webp');
     this.router = new Routers();
 
     const navigation = new Navigation(this.router);
     this.headerElement.appendChild(navigation.render());
 
     this.containerElement.appendChild(this.logo.getElement());
-    this.containerElement.appendChild(this.search.getElement());
-    this.containerElement.appendChild(this.cart.getElement());
+    this.headerTabs.appendChild(this.search.getElement());
+    this.headerTabs.appendChild(this.cart.getElement());
+    this.containerElement.appendChild(this.headerTabs);
   }
 
   updateCartCount(count: number): void {
