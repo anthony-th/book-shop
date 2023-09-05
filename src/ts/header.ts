@@ -59,6 +59,14 @@ class Search {
 
     this.isCancelled = !this.isCancelled;
   }
+
+  installSrc(): void {
+    if (this.imgCancelSrc) {
+      this.imgElement.src = this.imgSrc;
+      this.imgElement.title = 'Search book...';
+      this.isCancelled = false;
+    }
+  }
 }
 
 class Logo {
@@ -204,7 +212,7 @@ class Header {
     this.search = new Search('../assets/img/search.webp', '../assets/img/cancel.webp');
     this.router = new Routers();
 
-    const navigation = new Navigation(this.router);
+    const navigation = new Navigation(this.router, this.search);
     this.headerElement.appendChild(navigation.render());
 
     this.containerElement.appendChild(this.logo.getElement());
@@ -222,4 +230,4 @@ class Header {
   }
 }
 
-export { Header };
+export { Header, Search };

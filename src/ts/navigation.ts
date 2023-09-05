@@ -1,4 +1,5 @@
 import { Routers } from './routes';
+import { Search } from './header';
 
 class Navigation {
   private readonly router: Routers;
@@ -6,9 +7,12 @@ class Navigation {
   private navElement: HTMLElement;
 
   private barElement: HTMLElement;
+
+  private readonly search: Search;
   
-  constructor(router: Routers) {
+  constructor(router: Routers, search: Search) {
     this.router = router;
+    this.search = search;
     this.navElement = document.createElement('nav');
     this.navElement.classList.add('nav');
     this.barElement = document.createElement('div');
@@ -38,6 +42,7 @@ class Navigation {
   handleNavLinkClick(e: MouseEvent, link: HTMLAnchorElement, path: string) {
     e.preventDefault();
     this.router.navigate(path);
+    this.search.installSrc();
   }
   
 
