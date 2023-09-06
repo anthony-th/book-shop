@@ -2,37 +2,61 @@ import { Book } from '../books';
 import booksData from '../../data/books.json';
 import { BookType } from '../types/types';
 
-class Catalog {
-  private catalogSection: HTMLElement;
+class BookCatalogItem {
+  private book: Book;
 
-  private books: Book[] = [];
+  private bookElement: HTMLElement;
 
-  constructor() {
-    this.catalogSection = document.createElement('section');
-    this.catalogSection.classList.add('section');
-
-    this.addBooksFromData(booksData as BookType[]);
+  constructor(book: Book) {
+    this.book = book;
+    this.bookElement = this.createBookElement();
   }
 
-  private addBookToCatalog(book: Book): void {
+  private createBookElement(): HTMLElement {
     const bookElement = document.createElement('div');
     bookElement.classList.add('book');
 
-    const titleElement = document.createElement('h2');
-    titleElement.textContent = book.title;
-    titleElement.classList.add('book-title');
-    titleElement.title = book.title;
+    bookElement.appendChild(this.createImageElement());
+    bookElement.appendChild(this.createAuthorElement());
+    bookElement.appendChild(this.createTitleElement());
+    bookElement.appendChild(this.createAboutBookLink());
+    bookElement.appendChild(this.createPriceContainer());
 
-    const authorElement = document.createElement('p');
-    authorElement.textContent = book.author;
-    authorElement.classList.add('book-author');
-    authorElement.title = book.author;
+    return bookElement;
+  }
 
+  private createImageElement(): HTMLElement {
     const imgElement = document.createElement('img');
     imgElement.className = 'book-image';
-    imgElement.src = book.imageLink;
-    imgElement.title = book.author + '\n' + book.title;
+    imgElement.src = this.book.imageLink;
+    imgElement.title = `${this.book.author}\n${this.book.title}`;
+    return imgElement;
+  }
 
+  private createAuthorElement(): HTMLElement {
+    const authorElement = document.createElement('p');
+    authorElement.textContent = this.book.author;
+    authorElement.classList.add('book-author');
+    authorElement.title = this.book.author;
+    return authorElement;
+  }
+
+  private createTitleElement(): HTMLElement {
+    const titleElement = document.createElement('h2');
+    titleElement.textContent = this.book.title;
+    titleElement.classList.add('book-title');
+    titleElement.title = this.book.title;
+    return titleElement;
+  }
+
+  private createAboutBookLink(): HTMLElement {
+    const aboutBook = document.createElement('a');
+    aboutBook.classList.add('about-book', 'cursor-pointer', 'user-select-none', 'link-hover');
+    aboutBook.textContent = 'about book';
+    return aboutBook;
+  }
+
+  private createPriceContainer(): HTMLElement {
     const priceContainer = document.createElement('div');
     priceContainer.title = 'click to buy';
     priceContainer.classList.add(
@@ -41,37 +65,51 @@ class Catalog {
       'user-select-none',
     );
 
+    priceContainer.appendChild(this.createPriceCartIcon());
+    priceContainer.appendChild(this.createPriceElement());
+
+    return priceContainer;
+  }
+
+  private createPriceCartIcon(): HTMLElement {
     const priceCartIcon = document.createElement('img');
     priceCartIcon.src = '../assets/img/icon-shopping-cart.webp';
     priceCartIcon.className = 'price-icon';
     priceCartIcon.alt = '';
+    return priceCartIcon;
+  }
 
-    const aboutBook = document.createElement('a');
-    aboutBook.classList.add('about-book', 'cursor-pointer', 'user-select-none', 'link-hover');
-    aboutBook.textContent = 'about book';
-
+  private createPriceElement(): HTMLElement {
     const priceElement = document.createElement('p');
-    priceElement.textContent = book.getFormattedPrice();
+    priceElement.textContent = this.book.getFormattedPrice();
     priceElement.classList.add('book-price');
+    return priceElement;
+  }
 
-    priceContainer.appendChild(priceCartIcon);
-    priceContainer.appendChild(priceElement);
+  public getElement(): HTMLElement {
+    return this.bookElement;
+  }
+}
 
-    bookElement.appendChild(imgElement);
-    bookElement.appendChild(authorElement);
-    bookElement.appendChild(titleElement);
-    bookElement.appendChild(aboutBook);
-    bookElement.appendChild(priceContainer);
+class Catalog {
+  private catalogSection: HTMLElement;
+  
+  private books: BookCatalogItem[] = [];
 
-    this.catalogSection.appendChild(bookElement);
+  constructor() {
+    this.catalogSection = document.createElement('section');
+    this.catalogSection.classList.add('section');
+
+    this.addBooksFromData(booksData as BookType[]);
   }
 
   private addBooksFromData(data: BookType[]): void {
     try {
       data.forEach((bookData) => {
-        const book = new Book(bookData);
-        this.books.push(book);
-        this.addBookToCatalog(book);
+        const book = new Book(bookData as BookType);
+        const catalogItem = new BookCatalogItem(book);
+        this.books.push(catalogItem);
+        this.catalogSection.appendChild(catalogItem.getElement());
       });
     } catch (error) {
       console.error('Ошибка при обработке данных книг:', error);
