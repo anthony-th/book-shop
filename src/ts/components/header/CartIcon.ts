@@ -3,7 +3,7 @@ class CartIcon {
 
   constructor(iconSrc: string) {
     this.element = document.createElement('img');
-    this.element.className = 'cart';
+    this.element.className = 'cart user-select-none';
     this.element.src = iconSrc;
     this.element.alt = '';
   }

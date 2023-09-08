@@ -6,7 +6,7 @@ class Search {
   imgSrc: string;
 
   imgCancelSrc: string;
-  
+
   isCancelled: boolean = false;
 
   constructor(imgSrc: string, imgCancelSrc: string) {
@@ -16,7 +16,7 @@ class Search {
     this.imgElement = document.createElement('img');
     this.imgElement.src = imgSrc;
     this.imgElement.title = 'Search book...';
-    this.imgElement.className = 'search-bar__image';
+    this.imgElement.className = 'search-bar__image user-select-none';
 
     this.imgSrc = imgSrc;
     this.imgCancelSrc = imgCancelSrc;

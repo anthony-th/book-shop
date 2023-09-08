@@ -12,7 +12,7 @@ class UserProfile {
     this.imgElement = document.createElement('img');
     this.imgElement.src = imgSrc;
     this.imgElement.title = 'User registration';
-    this.imgElement.className = 'user-profile__image';
+    this.imgElement.className = 'user-profile__image user-select-none';
 
     this.imgSrc = imgSrc;
 

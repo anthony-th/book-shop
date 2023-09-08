@@ -2,7 +2,7 @@ class Title {
   private element: HTMLHeadingElement;
 
   private defaultText: string;
-  
+
   private mobileText: string;
 
   constructor(defaultText: string, mobileText: string) {
@@ -10,7 +10,7 @@ class Title {
     this.mobileText = mobileText;
 
     this.element = document.createElement('h1');
-    this.element.className = 'title';
+    this.element.className = 'title user-select-none';
 
     this.updateText();
 
