@@ -13,6 +13,9 @@
         font-size: 60px;
         font-family: "BukaLoker-X3LDK";
         @media screen {
+          @media (max-width: $tablet-min-width) {
+            font-size: 52px;
+          }
           @media (max-width: $mobile-max-width) {
             font-size: 48px;
           }
@@ -29,7 +32,8 @@
       @media (max-width: $mobile-max-width) {
         gap: 0;
       }
-      .search-bar {
+      .search-bar,
+      .user-profile {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,7 +41,8 @@
         &:hover {
           background-color: rgba(51, 48, 43, 0.7);
         }
-        .search-bar__image {
+        .search-bar__image,
+        .user-profile__image {
           height: 35px;
           width: 35px;
           @media (max-width: $mobile-min-width) {

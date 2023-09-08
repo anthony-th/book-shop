@@ -5,10 +5,10 @@ class Logo {
 
   title: Title;
 
-  constructor(titleText: string) {
+  constructor(defaultText: string, mobileText: string) {
     this.element = document.createElement('div');
     this.element.className = 'logo';
-    this.title = new Title(titleText);
+    this.title = new Title(defaultText, mobileText);
     this.element.appendChild(this.title.getElement());
   }
 

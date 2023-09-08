@@ -1,5 +1,6 @@
 import { Logo } from './Logo';
 import { Cart } from './Cart';
+import { UserProfile } from './UserProfile';
 import { Search } from './Search';
 import { Routers } from '../../routes';
 import { Navigation } from '../../navigation';
@@ -14,6 +15,8 @@ class Header {
   logo: Logo;
 
   cart: Cart;
+
+  userProfile: UserProfile;
 
   search: Search;
 
@@ -30,8 +33,9 @@ class Header {
     this.headerTabs = document.createElement('div');
     this.headerTabs.className = 'header-tabs';
 
-    this.logo = new Logo('Book-Shop');
+    this.logo = new Logo('Book-Shop', 'B.-Sh.');
     this.cart = new Cart('../assets/img/icon-shopping-cart.webp', 0, 2);
+    this.userProfile = new UserProfile('../assets/img/user_registration.webp');
     this.search = new Search('../assets/img/search.webp', '../assets/img/cancel.webp');
     this.router = new Routers();
 
@@ -39,6 +43,7 @@ class Header {
     this.headerElement.appendChild(navigation.render());
 
     this.containerElement.appendChild(this.logo.getElement());
+    this.headerTabs.appendChild(this.userProfile.getElement());
     this.headerTabs.appendChild(this.search.getElement());
     this.headerTabs.appendChild(this.cart.getElement());
     this.containerElement.appendChild(this.headerTabs);
