@@ -2,7 +2,7 @@ class UserProfile {
   element: HTMLDivElement;
 
   imgElement: HTMLImageElement;
-  
+
   imgSrc: string;
 
   constructor(imgSrc: string) {
@@ -11,7 +11,7 @@ class UserProfile {
 
     this.imgElement = document.createElement('img');
     this.imgElement.src = imgSrc;
-    this.imgElement.title = 'User Profile';
+    this.imgElement.title = 'User registration';
     this.imgElement.className = 'user-profile__image';
 
     this.imgSrc = imgSrc;

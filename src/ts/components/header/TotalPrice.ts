@@ -5,7 +5,7 @@ class TotalPrice implements Updatable {
 
   constructor(price: number) {
     this.element = document.createElement('div');
-    this.element.className = 'total-price';
+    this.element.className = 'total-price user-select-none';
     this.element.textContent = `subtotal: $${price}`;
     this.update(price);
   }

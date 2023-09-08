@@ -5,7 +5,7 @@ class CartCount implements Updatable {
 
   constructor(count: number) {
     this.element = document.createElement('div');
-    this.element.className = 'cart-count';
+    this.element.className = 'cart-count user-select-none';
     this.element.textContent = `total: ${count} item`;
   }
 
