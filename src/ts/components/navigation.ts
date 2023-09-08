@@ -8,6 +8,13 @@ class Navigation {
 
   private barElement: HTMLElement;
 
+  private activeLink: HTMLAnchorElement | null = null;
+
+  private setActiveLink(link: HTMLAnchorElement) {
+    link.classList.add('active');
+    this.activeLink = link;
+  }
+
   private readonly search: Search;
   
   constructor(router: Routers, search: Search) {
@@ -28,10 +35,11 @@ class Navigation {
 
   createNavLink(text: string, path: string): HTMLAnchorElement {
     const link = document.createElement('a');
-    link.classList.add('nav-link', 'link-hover');
+    link.classList.add('nav-link');
     link.textContent = text;
     link.href = path;
     link.title = text;
+    link.setAttribute('data-hover', text);
   
     link.onclick = (e) => this.handleNavLinkClick(e, link, path);
 
@@ -43,6 +51,11 @@ class Navigation {
     e.preventDefault();
     this.router.navigate(path);
     this.search.installSrc();
+    if (this.activeLink) {
+      this.activeLink.classList.remove('active');
+    }
+
+    this.setActiveLink(link);
   }
   
 

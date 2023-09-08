@@ -10,9 +10,33 @@
       .list-item {
         list-style-type: none;
         .nav-link {
-          color: $white;
+          color: $gray;
+          position: relative;
+          text-shadow: none;
           &:visited {
-            color: $white;
+            color: $gray;
+          }
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            max-width: 0;
+            padding-bottom: 2px;
+            border-bottom: 2px solid #fff;
+            color: #fff;
+            content: attr(data-hover);
+            transition: max-width 0.5s;
+          }
+          &:hover {
+            &::before {
+              max-width: 100%;
+            }
+          }
+        }
+        .active {
+          &::before {
+            max-width: 100%;
           }
         }
       }
