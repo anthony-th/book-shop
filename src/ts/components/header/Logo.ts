@@ -1,4 +1,4 @@
-import { Title } from './title';
+import { Title } from './Title';
 
 class Logo {
   element: HTMLDivElement;

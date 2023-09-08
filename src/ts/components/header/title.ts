@@ -1,4 +1,4 @@
-import { Routers } from '../../routes/routes';
+import { Routers } from '../../routes/Routes';
 
 class Title {
   private element: HTMLAnchorElement;

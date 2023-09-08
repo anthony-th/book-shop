@@ -7,7 +7,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, "src", "app.ts"),
+  entry: path.resolve(__dirname, "src", "App.ts"),
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "index.[contenthash].js",

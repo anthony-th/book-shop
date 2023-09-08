@@ -1,6 +1,6 @@
-import { CartCount } from './cartCount';
-import { CartIcon } from './cartIcon';
-import { TotalPrice } from './totalPrice';
+import { CartCount } from './CartCount';
+import { CartIcon } from './CartIcon';
+import { TotalPrice } from './TotalPrice';
 
 class Cart {
   element: HTMLDivElement;

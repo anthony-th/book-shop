@@ -1,4 +1,4 @@
-import { Updatable } from '../../types/types';
+import { Updatable } from '../../types/Types';
 
 class TotalPrice implements Updatable {
   element: HTMLDivElement;
