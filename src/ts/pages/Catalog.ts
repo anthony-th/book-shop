@@ -52,7 +52,7 @@ class BookCatalogItem {
   private createAboutBookLink(): HTMLElement {
     const aboutBook = document.createElement('a');
     aboutBook.classList.add('about-book', 'cursor-pointer', 'user-select-none', 'link-hover');
-    aboutBook.textContent = 'about book';
+    aboutBook.textContent = 'about';
     return aboutBook;
   }
 

@@ -69,12 +69,21 @@
       -webkit-box-orient: vertical;
     }
     .about-book {
+      margin-left: 20px;
       text-transform: uppercase;
       font-family: Roboto;
       font-size: 15px;
       font-weight: 500;
       line-height: 18px;
       width: max-content;
+      position: relative;
+      &::before {
+        content: '🛈';
+        position: absolute;
+        top: -1px;
+        right: 51px;
+        font-size: 25px;
+      }
     }
     .book-price-container {
       position: absolute;
