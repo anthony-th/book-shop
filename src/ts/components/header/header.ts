@@ -1,7 +1,7 @@
 import { Logo } from './logo';
-import { Cart } from './Cart';
-import { UserProfile } from './UserProfile';
-import { Search } from './Search';
+import { Cart } from './cart';
+import { UserProfile } from './userProfile';
+import { Search } from './search';
 import { Routers } from '../../routes/routes';
 import { Navigation } from '../navigation';
 
