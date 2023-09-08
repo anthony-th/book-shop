@@ -1,4 +1,4 @@
-import { Book } from '../books';
+import { Book } from '../data/books';
 import booksData from '../../data/books.json';
 import { BookType } from '../types/types';
 
