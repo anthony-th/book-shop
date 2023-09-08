@@ -12,6 +12,9 @@
         color: $white;
         font-size: 60px;
         font-family: "BukaLoker-X3LDK";
+        position: relative;
+        text-decoration: none;
+        transition: all 0.7s ease;;
         @media screen {
           @media (max-width: $tablet-min-width) {
             font-size: 52px;
@@ -21,6 +24,25 @@
           }
           @media (max-width: $mobile-min-width) {
             font-size: 40px;
+          }
+        }
+        &:visited {
+          color: $white;
+        }
+        &::before {
+          content: '';
+          border-bottom: solid 2px $blue;
+          position: absolute;
+          bottom: 2px;
+          left: 5%;
+          width: 90%;
+          opacity: 0;
+          transition: all 0.7s ease;
+        }
+        &:hover {
+          color: $blue;
+          &::before {
+            opacity: 1;
           }
         }
       }

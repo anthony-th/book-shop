@@ -1,16 +1,23 @@
+import { Routers } from '../../routes/routes';
+
 class Title {
-  private element: HTMLHeadingElement;
+  private element: HTMLAnchorElement;
 
   private defaultText: string;
 
   private mobileText: string;
 
+  private router: Routers;
+
   constructor(defaultText: string, mobileText: string) {
     this.defaultText = defaultText;
     this.mobileText = mobileText;
+    this.router = new Routers();
 
-    this.element = document.createElement('h1');
-    this.element.className = 'title user-select-none';
+    this.element = document.createElement('a');
+    this.element.className = 'title user-select-none cursor-pointer';
+    this.element.title = 'home';
+    this.element.onclick = this.handleTitleClick.bind(this);
 
     this.updateText();
 
@@ -30,7 +37,11 @@ class Title {
     this.updateText();
   }
 
-  getElement(): HTMLHeadingElement {
+  private handleTitleClick() {
+    this.router.navigate('/');
+  }
+
+  getElement(): HTMLAnchorElement {
     return this.element;
   }
 }
