@@ -1,9 +1,9 @@
-import { Logo } from './Logo';
+import { Logo } from './logo';
 import { Cart } from './Cart';
 import { UserProfile } from './UserProfile';
 import { Search } from './Search';
-import { Routers } from '../../routes';
-import { Navigation } from '../../navigation';
+import { Routers } from '../../routes/routes';
+import { Navigation } from '../navigation';
 
 class Header {
   headerElement: HTMLHeadElement;

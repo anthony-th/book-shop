@@ -1,5 +1,5 @@
-import { Routers } from './routes';
-import { Search } from './components/header/Search';
+import { Routers } from '../routes/routes';
+import { Search } from './header/Search';
 
 class Navigation {
   private readonly router: Routers;

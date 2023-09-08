@@ -1,5 +1,5 @@
 import { Catalog } from '../pages/catalog';
-import { Routers } from '../routes';
+import { Routers } from '../routes/routes';
 
 class Main {
   private mainElement: HTMLElement;
