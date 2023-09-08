@@ -13,6 +13,7 @@
           color: $gray;
           position: relative;
           text-shadow: none;
+          white-space: nowrap;
           &:visited {
             color: $gray;
           }

@@ -63,7 +63,8 @@ class Navigation {
     const navList = this.createNavList();
 
     const homeLink = this.createNavLink('Catalog', '/');
-    const aboutLink = this.createNavLink('About', '/about');
+    const aboutLink = this.createNavLink('About us', '/about');
+    const contactsLink = this.createNavLink('Contacts', '/contacts');
 
     const homeListItem = document.createElement('li');
     homeListItem.classList.add('list-item');
@@ -72,9 +73,14 @@ class Navigation {
     const aboutListItem = document.createElement('li');
     aboutListItem.classList.add('list-item');
     aboutListItem.appendChild(aboutLink);
+    
+    const contactsListItem = document.createElement('li');
+    contactsListItem.classList.add('list-item');
+    contactsListItem.appendChild(contactsLink);
 
     navList.appendChild(homeListItem);
     navList.appendChild(aboutListItem);
+    navList.appendChild(contactsListItem);
 
     this.navElement.appendChild(navList);
 

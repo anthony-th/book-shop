@@ -34,6 +34,11 @@ class Main {
       this.clearMainElement();
       console.log('About Page');
     });
+
+    this.router.addRoute('/contacts', () => {
+      this.clearMainElement();
+      console.log('Contacts Page');
+    });
   }
 
   getElement(): HTMLElement {
