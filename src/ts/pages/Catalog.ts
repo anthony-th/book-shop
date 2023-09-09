@@ -37,7 +37,7 @@ class BookCatalogItem {
     const authorElement = document.createElement('p');
     authorElement.textContent = this.book.author;
     authorElement.classList.add('book-author');
-    authorElement.title = this.book.author;
+    authorElement.innerText = this.book.author;
     return authorElement;
   }
 
@@ -45,7 +45,7 @@ class BookCatalogItem {
     const titleElement = document.createElement('h2');
     titleElement.textContent = this.book.title;
     titleElement.classList.add('book-title');
-    titleElement.title = this.book.title;
+    titleElement.innerText = this.book.title;
     return titleElement;
   }
 

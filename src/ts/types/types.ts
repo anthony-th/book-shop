@@ -4,7 +4,7 @@ interface BookType {
   imageLink: string;
   price: number;
   description: string;
-  genres: string;
+  genres: string[];
 }
 
 interface Updatable {

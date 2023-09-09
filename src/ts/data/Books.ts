@@ -12,7 +12,7 @@ class Book implements BookType {
 
   description: string;
 
-  genres: string;
+  genres: string[];
 
   constructor({ title, author, imageLink, price, description, genres }: BookType) {
     if (!title || !author || !imageLink || !price || !description || !genres) {
