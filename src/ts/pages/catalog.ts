@@ -29,7 +29,7 @@ class BookCatalogItem {
     const imgElement = document.createElement('img');
     imgElement.className = 'book-image';
     imgElement.src = this.book.imageLink;
-    imgElement.title = `${this.book.author}\n${this.book.title}`;
+    imgElement.title = `${this.book.author}\n${this.book.title}\n${this.book.description}`;
     return imgElement;
   }
 

@@ -3,6 +3,8 @@ interface BookType {
   author: string;
   imageLink: string;
   price: number;
+  description: string;
+  genres: string;
 }
 
 interface Updatable {

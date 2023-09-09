@@ -10,8 +10,12 @@ class Book implements BookType {
 
   price: number;
 
-  constructor({ title, author, imageLink, price }: BookType) {
-    if (!title || !author || !imageLink || !price) {
+  description: string;
+
+  genres: string;
+
+  constructor({ title, author, imageLink, price, description, genres }: BookType) {
+    if (!title || !author || !imageLink || !price || !description || !genres) {
       throw new Error('All required properties (title, author, imageLink, and price) must be provided.');
     }
 
@@ -19,6 +23,8 @@ class Book implements BookType {
     this.author = author;
     this.imageLink = imageLink;
     this.price = price;
+    this.description = description;
+    this.genres = genres;
   }
 
   getFormattedPrice(): string {
